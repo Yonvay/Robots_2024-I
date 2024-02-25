@@ -11,7 +11,7 @@
           </Value>
         </Attribute>
       </Attributes>
-      <UniqueId Value="{d234e3b0-df0d-4c3d-9d6e-eed89efd2a36}" />
+      <UniqueId Value="{b8d20b22-280a-4893-88fd-9e0a1ed66a81}" />
       <AssemblyRootRef ID="1183" />
       <GraphicsRootRef ID="5" />
       <IRC5ControllerRootRef ID="9" />
@@ -3889,7 +3889,7 @@
       <Textures />
     </AssemblyRoot>
     <ControllerSimulationConfiguration ID="1184" Name="" Parent="3" AutoStartProgram="true" AutoStopSimulation="true" ExecutionCycle="1">
-      <ControllerId Value="{add78dde-67b4-4fe8-8a6e-81edbd733c6d}" />
+      <ControllerId Value="{d17ed76d-9284-40b6-a0fe-467f2cb09644}" />
       <TaskConfigurations>
         <ObjectRef ID="1185" />
       </TaskConfigurations>
@@ -3899,8 +3899,8 @@
       <_taskName Value="T_ROB1" />
     </TaskSimulationConfiguration>
     <IRC5Controller ID="1186" Name="" Parent="9" StopAtBreakpoints="true">
-      <UniqueId Value="{add78dde-67b4-4fe8-8a6e-81edbd733c6d}" />
-      <SystemIdentity Value="{92E9F8ED-5917-40AA-8C72-288D37ACC30C}" />
+      <UniqueId Value="{d17ed76d-9284-40b6-a0fe-467f2cb09644}" />
+      <SystemIdentity Value="{3FBF5D12-F931-4BB0-AD83-2A0FE02F2A8D}" />
       <RAPIDData ID="1187" />
       <MechanicalUnits>
         <ObjectRef ID="2255" />
@@ -7413,7 +7413,7 @@
     <DataDeclaration ID="2253" Name="Punta" Parent="1188" StorageType="1" DataType="tooldata" IsInline="false" FrameSize="0.075" ShowName="false" Dimension1="0" Dimension2="0" Dimension3="0">
       <DeclarationInfo ID="2254" />
       <RoutineName Value="" />
-      <InitialExpression Value="[TRUE,[[64,64,143.009668],[0.853553391,0.146446609,-0.353553391,0.353553391]],[1,[0,0,1],[1,0,0,0],0,0,0]]" />
+      <InitialExpression Value="[TRUE,[[64,64,143.009668],[0.853553391,-0.146446609,0.353553391,0.353553391]],[1,[0,0,1],[1,0,0,0],0,0,0]]" />
     </DataDeclaration>
     <RAPIDDeclarationInfo ID="2254" Name="" Parent="2253" Local="false" EnableSync="true">
       <TaskName Value="" />
@@ -7446,7 +7446,7 @@
       <LockedAxisLogicalAxis />
     </MechanicalUnit>
     <MechanismInstance ID="2256" Name="IRB140_6_81_C_03" Parent="1183" PickingEnabled="true" Detectable="true" PhysicsMotionControl="0" NumJoints="6" NumTransforms="7" TraceTCP="false">
-      <UniqueId Value="{f2917063-adda-4eab-aac0-d92c308defa5}" />
+      <UniqueId Value="{396c110d-1885-45d8-9b09-bcf696c1b6b1}" />
       <Definition ID="11" DocID="1" />
       <ChildInstances>
         <ObjectRef ID="2257" />
@@ -7472,8 +7472,8 @@
         <Double Value="0" />
         <Double Value="0" />
         <Double Value="0" />
+        <Double Value="0.523598775598299" />
         <Double Value="0" />
-        <Double Value="7.45058059692383E-09" />
       </JointValues>
       <CalibFrames />
       <CalibFrameKnownValid />
@@ -7632,10 +7632,10 @@
     <MechanismLinkInstance ID="2262" Name="Link5" Parent="2256" PickingEnabled="true" Detectable="true" PhysicsMotionControl="0">
       <Definition ID="18" DocID="1" />
       <Transform>
-        <RowX X="1" Y="0" Z="0" W="0" />
+        <RowX X="0.866025403784439" Y="0" Z="-0.5" W="0" />
         <RowY X="0" Y="1" Z="0" W="0" />
-        <RowZ X="0" Y="0" Z="1" W="0" />
-        <RowT X="0" Y="0" Z="0" W="1" />
+        <RowZ X="0.5" Y="0" Z="0.866025403784439" W="0" />
+        <RowT X="-0.295711431702997" Y="0" Z="0.32038991250548" W="1" />
       </Transform>
       <Source Value="" />
       <SourceFileTime HighPart="0" LowPart="0" />
@@ -7661,10 +7661,10 @@
     <MechanismLinkInstance ID="2263" Name="Link6" Parent="2256" PickingEnabled="true" Detectable="true" PhysicsMotionControl="0">
       <Definition ID="19" DocID="1" />
       <Transform>
-        <RowX X="1" Y="0" Z="0" W="0" />
-        <RowY X="0" Y="1" Z="7.45058033652557E-09" W="0" />
-        <RowZ X="0" Y="-7.45058033652557E-09" Z="1" W="0" />
-        <RowT X="0" Y="5.30481470094405E-09" Z="0" W="1" />
+        <RowX X="0.866025403784439" Y="0" Z="-0.5" W="0" />
+        <RowY X="0" Y="1" Z="0" W="0" />
+        <RowZ X="0.5" Y="0" Z="0.866025403784439" W="0" />
+        <RowT X="-0.295711431702997" Y="0" Z="0.32038991250548" W="1" />
       </Transform>
       <Source Value="" />
       <SourceFileTime HighPart="0" LowPart="0" />
@@ -7694,9 +7694,9 @@
         <Element type="TModelToolData" LinkIndex="0">
           <Name Value="Punta" />
           <OffsetTransform>
-            <RowX X="-0.707106781186548" Y="0" Z="0.707106781186547" W="0" />
+            <RowX X="-0.707106781186548" Y="0" Z="-0.707106781186547" W="0" />
             <RowY X="0" Y="-1" Z="0" W="0" />
-            <RowZ X="0.707106781186547" Y="0" Z="0.707106781186548" W="0" />
+            <RowZ X="-0.707106781186547" Y="0" Z="0.707106781186548" W="0" />
             <RowT X="-0.0905096679918781" Y="0" Z="0.137009668" W="1" />
           </OffsetTransform>
           <CenterOfGravity X="0" Y="0" Z="0" />
@@ -7750,8 +7750,8 @@
       <UserDefinedKinBaseFrame />
     </ForwardKinematicsDH>
     <PartDef ID="2266" Name="Support_RS" Parent="1183">
-      <GeoPart StreamType="GeoDataStream" StreamID="e1cca06df1aa4cc692477230f47eb48a" StreamChangeRef="688e9c2d35ef408a99298499c905c67c" />
-      <GfxData StreamType="GfxDataStream" StreamID="9572c9ad768445a4bb37a269d695a841" StreamChangeRef="4deb669a34a54abdb090240c269786d4" />
+      <GeoPart StreamType="GeoDataStream" StreamID="3d0763457b40458091d64295d2314b46" StreamChangeRef="1fc7789e6ee242d09578ada96b3ecc78" />
+      <GfxData StreamType="GfxDataStream" StreamID="c80f6a3ada7b46f9b35040a9425ff9bb" StreamChangeRef="cfdc23b2f2684ce29d028421f7841327" />
       <BoundingBox>
         <Min X="-0.0905096664428711" Y="-0.0246201934814453" Z="-0.006" />
         <Max X="0.025" Y="0.0246201934814453" Z="0.137009674072266" />
@@ -7763,10 +7763,10 @@
         <ObjectRef ID="2268" />
       </ChildInstances>
       <Transform>
-        <RowX X="0" Y="7.45058033652557E-09" Z="-1" W="0" />
-        <RowY X="0" Y="1" Z="7.45058033652557E-09" W="0" />
-        <RowZ X="1" Y="0" Z="0" W="0" />
-        <RowT X="0.514999999999999" Y="0" Z="0.712" W="1" />
+        <RowX X="-0.5" Y="0" Z="-0.866025403784439" W="0" />
+        <RowY X="0" Y="1" Z="0" W="0" />
+        <RowZ X="0.866025403784439" Y="0" Z="-0.5" W="0" />
+        <RowT X="0.506291651245989" Y="0" Z="0.6795" W="1" />
       </Transform>
       <Source Value="" />
       <SourceFileTime HighPart="0" LowPart="0" />
@@ -7785,8 +7785,8 @@
     <MechanismLinkInstance ID="2268" Name="Support_RS" Parent="2267" PickingEnabled="true" Detectable="true" PhysicsMotionControl="0">
       <Definition ID="2266" />
       <Transform>
-        <RowX X="-0.707106781186547" Y="-0.707106781186548" Z="0" W="0" />
-        <RowY X="0.707106781186548" Y="-0.707106781186547" Z="0" W="0" />
+        <RowX X="-0.707106781186548" Y="-0.707106781186547" Z="0" W="0" />
+        <RowY X="0.707106781186547" Y="-0.707106781186548" Z="0" W="0" />
         <RowZ X="0" Y="0" Z="1" W="0" />
         <RowT X="0" Y="0" Z="0.006" W="1" />
       </Transform>
@@ -7805,8 +7805,8 @@
         <ControlPoints />
       </PhysicsSurfaceVelocity>
       <CorrectionTransform>
-        <RowX X="-0.707106781186547" Y="-0.707106781186548" Z="0" W="0" />
-        <RowY X="0.707106781186548" Y="-0.707106781186547" Z="0" W="0" />
+        <RowX X="-0.707106781186548" Y="-0.707106781186547" Z="0" W="0" />
+        <RowY X="0.707106781186547" Y="-0.707106781186548" Z="0" W="0" />
         <RowZ X="0" Y="0" Z="1" W="0" />
         <RowT X="0" Y="0" Z="0.006" W="1" />
       </CorrectionTransform>
@@ -7820,9 +7820,9 @@
         </Attribute>
       </Attributes>
       <Transform>
-        <RowX X="-0.707106781186548" Y="0" Z="0.707106781186547" W="0" />
+        <RowX X="-0.707106781186548" Y="0" Z="-0.707106781186547" W="0" />
         <RowY X="0" Y="-1" Z="0" W="0" />
-        <RowZ X="0.707106781186547" Y="0" Z="0.707106781186548" W="0" />
+        <RowZ X="-0.707106781186547" Y="0" Z="0.707106781186548" W="0" />
         <RowT X="-0.0905096679918781" Y="0" Z="0.137009668" W="1" />
       </Transform>
     </Frame>
