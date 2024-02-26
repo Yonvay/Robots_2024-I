@@ -11,7 +11,7 @@
           </Value>
         </Attribute>
       </Attributes>
-      <UniqueId Value="{b8d20b22-280a-4893-88fd-9e0a1ed66a81}" />
+      <UniqueId Value="{dbcb5eef-1bf1-4b3c-8f07-604687582094}" />
       <AssemblyRootRef ID="1183" />
       <GraphicsRootRef ID="5" />
       <IRC5ControllerRootRef ID="9" />
@@ -3867,7 +3867,7 @@
       <Definition ID="-1" />
       <Instances>
         <ObjectRef ID="2256" />
-        <ObjectRef ID="2267" />
+        <ObjectRef ID="2264" />
       </Instances>
       <Transform>
         <RowX X="1" Y="0" Z="0" W="0" />
@@ -3880,16 +3880,12 @@
       <ComponentType Value="AssemblyRoot" />
       <ClipPlane ID="-1" />
       <Attachments>
-        <ObjectRef ID="2270" />
+        <ObjectRef ID="2267" />
       </Attachments>
-      <Definitions>
-        <ObjectRef ID="2264" />
-        <ObjectRef ID="2266" />
-      </Definitions>
       <Textures />
     </AssemblyRoot>
     <ControllerSimulationConfiguration ID="1184" Name="" Parent="3" AutoStartProgram="true" AutoStopSimulation="true" ExecutionCycle="1">
-      <ControllerId Value="{d17ed76d-9284-40b6-a0fe-467f2cb09644}" />
+      <ControllerId Value="{193006ee-d7c5-4956-a063-98e90285d2aa}" />
       <TaskConfigurations>
         <ObjectRef ID="1185" />
       </TaskConfigurations>
@@ -3899,8 +3895,8 @@
       <_taskName Value="T_ROB1" />
     </TaskSimulationConfiguration>
     <IRC5Controller ID="1186" Name="" Parent="9" StopAtBreakpoints="true">
-      <UniqueId Value="{d17ed76d-9284-40b6-a0fe-467f2cb09644}" />
-      <SystemIdentity Value="{3FBF5D12-F931-4BB0-AD83-2A0FE02F2A8D}" />
+      <UniqueId Value="{193006ee-d7c5-4956-a063-98e90285d2aa}" />
+      <SystemIdentity Value="{BFFB58DE-061A-4A72-AF10-EA2F00F79530}" />
       <RAPIDData ID="1187" />
       <MechanicalUnits>
         <ObjectRef ID="2255" />
@@ -7410,7 +7406,7 @@
     <RoutineArgument ID="2250" Name="T" Parent="2244" Enabled="false" />
     <RoutineArgument ID="2251" Name="Zone" Parent="2244" Value="z10" />
     <RoutineArgument ID="2252" Name="Inpos" Parent="2244" Enabled="false" />
-    <DataDeclaration ID="2253" Name="Punta" Parent="1188" StorageType="1" DataType="tooldata" IsInline="false" FrameSize="0.075" ShowName="false" Dimension1="0" Dimension2="0" Dimension3="0">
+    <DataDeclaration ID="2253" Name="Porta_Marcador" Parent="1188" StorageType="1" DataType="tooldata" IsInline="false" FrameSize="0.075" ShowName="false" Dimension1="0" Dimension2="0" Dimension3="0">
       <DeclarationInfo ID="2254" />
       <RoutineName Value="" />
       <InitialExpression Value="[TRUE,[[64,64,143.009668],[0.853553391,-0.146446609,0.353553391,0.353553391]],[1,[0,0,1],[1,0,0,0],0,0,0]]" />
@@ -7446,7 +7442,7 @@
       <LockedAxisLogicalAxis />
     </MechanicalUnit>
     <MechanismInstance ID="2256" Name="IRB140_6_81_C_03" Parent="1183" PickingEnabled="true" Detectable="true" PhysicsMotionControl="0" NumJoints="6" NumTransforms="7" TraceTCP="false">
-      <UniqueId Value="{396c110d-1885-45d8-9b09-bcf696c1b6b1}" />
+      <UniqueId Value="{18663d93-6690-4365-95e1-ce3673c9fd77}" />
       <Definition ID="11" DocID="1" />
       <ChildInstances>
         <ObjectRef ID="2257" />
@@ -7687,80 +7683,10 @@
         <RowT X="0.712" Y="0" Z="-0.45" W="1" />
       </CorrectionTransform>
     </MechanismLinkInstance>
-    <MechanismDef ID="2264" Name="" Parent="1183" MechanismType="1" UsingCustomFwdKin="false" KinFlags="0">
-      <ForwardKinematics ID="2265" />
-      <Flanges />
-      <ModelToolData>
-        <Element type="TModelToolData" LinkIndex="0">
-          <Name Value="Punta" />
-          <OffsetTransform>
-            <RowX X="-0.707106781186548" Y="0" Z="-0.707106781186547" W="0" />
-            <RowY X="0" Y="-1" Z="0" W="0" />
-            <RowZ X="-0.707106781186547" Y="0" Z="0.707106781186548" W="0" />
-            <RowT X="-0.0905096679918781" Y="0" Z="0.137009668" W="1" />
-          </OffsetTransform>
-          <CenterOfGravity X="0" Y="0" Z="0" />
-          <CenterOfInertia X="0" Y="0" Z="0" />
-        </Element>
-      </ModelToolData>
-      <ModelName Value="Porta_Marcador" />
-      <ModelBaseFrame>
-        <RowX X="1" Y="0" Z="0" W="0" />
-        <RowY X="0" Y="1" Z="0" W="0" />
-        <RowZ X="0" Y="0" Z="1" W="0" />
-        <RowT X="0" Y="0" Z="0" W="1" />
-      </ModelBaseFrame>
-      <HomePos />
-      <JointMask>
-        <Integer Value="0" />
-        <Integer Value="0" />
-        <Integer Value="0" />
-        <Integer Value="0" />
-        <Integer Value="0" />
-        <Integer Value="0" />
-        <Integer Value="0" />
-        <Integer Value="0" />
-        <Integer Value="0" />
-        <Integer Value="0" />
-        <Integer Value="0" />
-        <Integer Value="0" />
-      </JointMask>
-      <FwdKinInitData />
-      <KinematicsCLSID Value="" />
-      <LoadData Mass="1">
-        <CenterOfGravity X="0" Y="0" Z="0.001" />
-        <AxesOfMoment X="0" Y="0" Z="0" W="1" />
-        <Inertia X="0" Y="0" Z="0" />
-      </LoadData>
-    </MechanismDef>
-    <ForwardKinematicsDH ID="2265" Name="" Parent="2264" NumActiveKJoints="0" NumJoints="0" NumLinks="1">
-      <BaseJoints />
-      <JointDependency NumCols="0" NumRows="0">
-        <MatrixElements />
-      </JointDependency>
-      <JointLimitsMatrix NumCols="0" NumRows="0">
-        <MatrixElements />
-      </JointLimitsMatrix>
-      <JointLimitsVector NumCols="1" NumRows="0">
-        <MatrixElements />
-      </JointLimitsVector>
-      <JointZeroPosition />
-      <KinematicBaseFrames />
-      <JointInfos />
-      <UserDefinedKinBaseFrame />
-    </ForwardKinematicsDH>
-    <PartDef ID="2266" Name="Support_RS" Parent="1183">
-      <GeoPart StreamType="GeoDataStream" StreamID="3d0763457b40458091d64295d2314b46" StreamChangeRef="1fc7789e6ee242d09578ada96b3ecc78" />
-      <GfxData StreamType="GfxDataStream" StreamID="c80f6a3ada7b46f9b35040a9425ff9bb" StreamChangeRef="cfdc23b2f2684ce29d028421f7841327" />
-      <BoundingBox>
-        <Min X="-0.0905096664428711" Y="-0.0246201934814453" Z="-0.006" />
-        <Max X="0.025" Y="0.0246201934814453" Z="0.137009674072266" />
-      </BoundingBox>
-    </PartDef>
-    <MechanismInstance ID="2267" Name="Porta_Marcador" Parent="1183" PickingEnabled="true" Detectable="true" PhysicsMotionControl="0" NumJoints="0" NumTransforms="1" TraceTCP="false">
-      <Definition ID="2264" />
+    <MechanismInstance ID="2264" Name="Porta_Marcador" Parent="1183" PickingEnabled="true" Detectable="true" PhysicsMotionControl="0" NumJoints="0" NumTransforms="1" TraceTCP="false">
+      <Definition ID="6" DocID="2" />
       <ChildInstances>
-        <ObjectRef ID="2268" />
+        <ObjectRef ID="2265" />
       </ChildInstances>
       <Transform>
         <RowX X="-0.5" Y="0" Z="-0.866025403784439" W="0" />
@@ -7782,8 +7708,8 @@
       <JointLimitsVector />
       <JointModelOffset />
     </MechanismInstance>
-    <MechanismLinkInstance ID="2268" Name="Support_RS" Parent="2267" PickingEnabled="true" Detectable="true" PhysicsMotionControl="0">
-      <Definition ID="2266" />
+    <MechanismLinkInstance ID="2265" Name="Support_RS" Parent="2264" PickingEnabled="true" Detectable="true" PhysicsMotionControl="0">
+      <Definition ID="8" DocID="2" />
       <Transform>
         <RowX X="-0.707106781186548" Y="-0.707106781186547" Z="0" W="0" />
         <RowY X="0.707106781186547" Y="-0.707106781186548" Z="0" W="0" />
@@ -7791,13 +7717,16 @@
         <RowT X="0" Y="0" Z="0.006" W="1" />
       </Transform>
       <AttachmentPoints>
-        <ObjectRef ID="2269" />
+        <ObjectRef ID="2266" />
       </AttachmentPoints>
       <Source Value="" />
       <SourceFileTime HighPart="0" LowPart="0" />
       <ComponentType Value="PartMechanismLink" />
       <ClipPlane ID="-1" />
-      <Skeleton />
+      <Skeleton>
+        <Bones />
+        <InverseBindMatrices />
+      </Skeleton>
       <PhysicsMaterial SurfaceViscosity="5E-09" SurfaceRoughness="0.7" SurfaceAdhesion="0" SurfaceAdhesionOverlap="0" Density="7800" Damping="0.05" PoissonsRatio="0.3" Restitution="0.5" YoungsModulus="200000000000" CableDamping="0" CableYoungsModulus="0" />
       <PhysicsGeometry UseOriginal="false" />
       <PhysicsSurfaceVelocity Speed="0" Enabled="false">
@@ -7811,7 +7740,7 @@
         <RowT X="0" Y="0" Z="0.006" W="1" />
       </CorrectionTransform>
     </MechanismLinkInstance>
-    <Frame ID="2269" Name="Punta" Parent="2268" FrameSize="0.05" ShowName="false" FrameType="0">
+    <Frame ID="2266" Name="Porta_Marcador" Parent="2265" FrameSize="0.05" ShowName="false" FrameType="0">
       <Attributes>
         <Attribute Key="GfxObject.Invisible">
           <Value>
@@ -7826,9 +7755,9 @@
         <RowT X="-0.0905096679918781" Y="0" Z="0.137009668" W="1" />
       </Transform>
     </Frame>
-    <Attachment ID="2270" Name="" Parent="1183" PhysicsRestoreMotionControl="0">
+    <Attachment ID="2267" Name="" Parent="1183" PhysicsRestoreMotionControl="0">
       <SourceObject ID="2263" />
-      <TargetObject ID="2267" />
+      <TargetObject ID="2264" />
       <OffsetTransform>
         <RowX X="0" Y="0" Z="-1" W="0" />
         <RowY X="0" Y="1" Z="0" W="0" />
@@ -7836,14 +7765,15 @@
         <RowT X="0.515" Y="0" Z="0.712" W="1" />
       </OffsetTransform>
       <OriginalTransform>
-        <RowX X="1" Y="0" Z="0" W="0" />
-        <RowY X="0" Y="1" Z="0" W="0" />
-        <RowZ X="0" Y="0" Z="1" W="0" />
-        <RowT X="0" Y="0" Z="0" W="1" />
+        <RowX X="-0.443319274421138" Y="0.764810220942265" Z="-0.467475504030917" W="0" />
+        <RowY X="0.231231530995921" Y="0.601450066762453" Z="0.764715500212153" W="0" />
+        <RowZ X="0.866025403784438" Y="0.230918044192491" Z="-0.443482645507484" W="0" />
+        <RowT X="0.506291651245987" Y="0.0150096728725118" Z="0.683173628042014" W="1" />
       </OriginalTransform>
     </Attachment>
   </Objects>
   <ReferencedDocuments>
     <DocRef ID="1" DocumentType="ComponentLibrary" Location="%ABB.RobotStudio.Models.IRB140%\IRB140_6_81_C_G_03.rslib" RelativeLocation="..\..\..\..\..\..\..\..\..\..\ProgramData\ABB\DistributionPackages2\ABB.RobotStudio.Models.IRB140-1.1\RobotStudio\LibraryComponents\IRB140_6_81_C_G_03.rslib" GUID="{FC921CAD-BF7C-4760-9332-E09FBB2B2964}" />
+    <DocRef ID="2" DocumentType="ComponentLibrary" Location="C:\Users\yovan\Desktop\Universidad\2024-I\Robótica\Robots_2024-I\Laboratorio 1\Montaje_Herramienta\Components\Porta_Marcador.rslib" RelativeLocation="..\Components\Porta_Marcador.rslib" GUID="{A38E9C59-52BD-475D-AFBA-DA307AA39A7D}" />
   </ReferencedDocuments>
 </PIMDocument>
