@@ -25,7 +25,6 @@ MOC.cfg
 
 
 >>TASK1: (T_ROB1,,)
-SYSMOD\user.sys @ 
 PROGMOD\Module1.mod @ 
 PROGMOD\CalibData.mod @ 
 
