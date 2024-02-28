@@ -26,8 +26,6 @@ MOC.cfg
 
 >>TASK1: (T_ROB1,,)
 PROGMOD\Module1.mod @ 
-PROGMOD\CalibData.mod @ 
-PROGMOD\RsTempModule.mod @ 
 
 
 >>EOF:
