@@ -87,8 +87,8 @@ MODULE Module1
     CONST robtarget Target_880:=[[232.237809143,110.203682172,-19.826551886],[1,-0.000000178,0.000000032,0.000000095],[0,-2,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
     CONST robtarget Target_860:=[[247.649,106,0],[1,0,0,0],[0,-2,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
     CONST robtarget Target_870:=[[254.649,106,0],[1,0,0,0],[0,-2,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
-    CONST robtarget Home:=[[605.026172128,73.5,537.625162051],[0.500000001,0,0.866025403,0],[-1,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
-    TASK PERS wobjdata Workobject_1:=[FALSE,TRUE,"",[[812.132,-150,412.132],[0.382683432,0,0.923879533,0]],[[0,0,-10],[1,0,0,0]]];
+    CONST robtarget HOME:=[[-83.71243561,-126.5,-366.604366979],[0.991444861,0,-0.130526193,0],[-1,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    TASK PERS wobjdata Workobject_1:=[FALSE,TRUE,"",[[812.132,200,212.132],[0.382683432,0,0.923879533,0]],[[0,0,-10],[1,0,0,0]]];
     CONST robtarget Target_900:=[[614.368006487,-305.026841829,-535.49276156],[0.482962895,-0.129409515,-0.299950184,0.812422247],[-1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
     CONST robtarget Target_910:=[[186.613,263,0],[1,0,0,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
     CONST robtarget Target_920:=[[146.613,248,0],[1,0,0,0],[0,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
@@ -100,8 +100,8 @@ MODULE Module1
     CONST robtarget Target_970:=[[179.613,226,0],[1,0,0,0],[0,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
     CONST robtarget Target_960:=[[186.613,226,0],[1,0,0,0],[0,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
     CONST robtarget Target_960_2:=[[186.613,226,-25],[1,0,0,0],[0,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
-    CONST robtarget Target_mantenimiento:=[[370.748276025,-579.07763313,-1045.030427992],[0.145017842,0.640762635,-0.661315151,-0.362015665],[-2,0,0,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
-    PERS tooldata MyNewTool:=[TRUE,[[73.5,-73.5,156.444],[1,0,0,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];
+    CONST robtarget Target_mantenimiento:=[[-146.986419067,502.304411342,-380.503407182],[0.711946398,-0.412986595,-0.552472154,-0.131715289],[0,-1,0,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    PERS tooldata MyNewTool:=[TRUE,[[73.5,73.5,156.444],[1,0,0,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];
     
     PROC Logo()
         MoveJ Target_10,v300,fine,MyNewTool\WObj:=Workobject_1;
@@ -230,8 +230,8 @@ MODULE Module1
     ENDPROC
     
     PROC GoEscritura()
-        SetDO DO_1,1;
         Homing;
+        SetDO DO_1,1;
         Logo;
         D1;
         I1;
@@ -244,11 +244,12 @@ MODULE Module1
         Y;
         V;
         Homing;
-        SetDO DO_1,0;
     ENDPROC
     
     PROC Homing()
-        MoveJ Home,v300,z10,MyNewTool\WObj:=wobj0;
+        MoveJ HOME,v300,z10,MyNewTool\WObj:=Workobject_1;
+        SetDO DO_1,0;
+        SetDO DO_2,0;
     ENDPROC
     
     PROC Main() 
@@ -257,6 +258,8 @@ MODULE Module1
                 GoEscritura;
             ELSEIF DI_2 = 1THEN
                 GoMantenimeinto;
+            ELSE
+                Homing;
             ENDIF
         WaitTime 1;    
         ENDWHILE

@@ -3,7 +3,7 @@
   <SystemName>Controlador1</SystemName>
   <SerialNo>VIRTUAL_USE</SerialNo>
   <UsedMedia>
-    <Media path="C:\Users\user\AppData\Local\ABB\RobotWare\RobotWare_6.15.5021" name="RobotWare" version="6.15.5021">
+    <Media path="C:\Users\yovan\AppData\Local\ABB\RobotWare\RobotWare_6.15.5021" name="RobotWare" version="6.15.5021">
     </Media>
   </UsedMedia>
   <ControlModule>
