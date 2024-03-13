@@ -1,2 +1,0 @@
-MODULE CalibData
-ENDMODULE
