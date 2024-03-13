@@ -1,4 +1,5 @@
 # Laboratorio 1 Robótica Industrial - Trayectorias, Entradas y Salidas Digitales
+## Universidad Nacional de Colombia, 2024-I
 * Maria Alejandra Peréz Petro
 * Yovany Esneider Vargas Gutierrez
 
