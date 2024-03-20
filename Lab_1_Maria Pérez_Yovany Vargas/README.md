@@ -5,7 +5,7 @@
 
 ### 1. Descripción de la solución planteada Y
 Se escogio como empresa 
-![Figura 1](/Imagenes/Logo.png)
+![Figura 1](Imagenes/Logo.png)
 ### 2. Diagrama de flujo de acciones del robot M 
 ### 3. Plano de planta de la ubicación de cada uno de los elementos Y
 ### 4. Descripción de las funciones utilizadas M
