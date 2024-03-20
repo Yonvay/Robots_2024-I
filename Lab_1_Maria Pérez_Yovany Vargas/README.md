@@ -10,7 +10,7 @@ Se escoge como empresa de transporte DiDi, considerandola una empresa que invier
 
 Donde las letras constan de un solo trazo y el logo todo su contorno. La metodología a desarrollar es la siguiente:
 
-## A. Reconocimiento y caracterización del WorkObjects
+#### A. Reconocimiento y caracterización del WorkObjects
 
 ### 2. Diagrama de flujo de acciones del robot M 
 
