@@ -5,7 +5,7 @@
 
 ### 1. Descripción de la solución planteada Y
 Se escogio como empresa 
-![Figura 1](/Robots_2024-I/Robótica, Lab_1, Maria Pérez, Yovany Vargas/Imagenes/Logo.png)
+![Figura 1](Robótica, Lab_1, Maria Pérez, Yovany Vargas/Imagenes/Logo.png)
 ### 2. Diagrama de flujo de acciones del robot M 
 ### 3. Plano de planta de la ubicación de cada uno de los elementos Y
 ### 4. Descripción de las funciones utilizadas M
