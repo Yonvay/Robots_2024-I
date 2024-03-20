@@ -5,6 +5,7 @@
 
 ### 1. Descripción de la solución planteada
 Se escogio como empresa de transporte DiDi, se considera una empresa que invierte en marketing debido a sus constantes campañas de marketing en redes sociales, televisión y entretenimiento. Se plantea la escritura de su logo en primer lugar, seguido de las iniciales de los integrantes del Grupo M.P. y Y.V.
+
 <img src="Imagenes/Logo.png" alt="Figura 1" width="300"/>
 ### 2. Diagrama de flujo de acciones del robot M 
 ### 3. Plano de planta de la ubicación de cada uno de los elementos Y
