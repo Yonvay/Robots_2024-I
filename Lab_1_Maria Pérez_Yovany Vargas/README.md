@@ -21,17 +21,17 @@ En el area de trabajo existen una tablero inclinado y varias cajas de madera, pa
 
 Las dimensiones del tablero son; 25.2 cm de alto y 25 cm de ancho, su parte trasera que cumple la función de apoyo tiene un largo de 26.5 cm. Partes unidas por sus extremos en un angulo de 90°, entonces el angulo entre la base y al tablero es de 46.76° ver **Figura 2**.
 
-<span><img id="Fig_2" src="Imágenes/Board.png" width="400"/><br>
+<span><img id="Fig_2" src="Imágenes/Board.png" width="400"/>
 <label for = "Fig_2" ><br><b>Figura 2.</b> Dimensiones de tablero inclinado.</label></span>
 
 Ahora, se usa el ancho de la caja como soporte externo para el tablero, de medida 43 cm, ubicado del desde el suelo. La distancia desde el cero de la base del robot ABB IRB 140, es de 23 cm.
 
 Con estos datos, la ubicación seleccionada para el *WorkObject_1* tomando como punto de referencia el punto inferior interno de la base del tablero ver **Figura 3** y respecto a la base del robot es; 100 cm en X, -125 cm en Y y 223 cm en Z ver **Figura 4**.
 
-<span><img id="Fig_3" src="Imágenes/WorkObject_1.png" width="300"/><br>
+<span><img id="Fig_3" src="Imágenes/WorkObject_1.png" width="300"/>
 <label for = "Fig_3" ><br><b>Figura 3.</b> WorkObject_1 en Robot Studio.</label></span>
 
-<span><img id="Fig_4" src="Imágenes/Ubicación.jpg" width="300"/><br>
+<span><img id="Fig_4" src="Imágenes/Ubicación.jpg" width="300"/>
 <label for = "Fig_4" ><br><b>Figura 4.</b> Ubicación WorkObject_1 en Robot Studio.</label></span>
 
 Así el objecto de trabajo esta en condiciones optimas para el trazo de las trayectorias.
@@ -46,10 +46,10 @@ Bajo estás consideraciones, la metodología a desarrollar es la siguiente:
 
 La creación del WorkObject y la herramienta se llevo a cabo con el software Autodesk Inventor, donde el logo e iniciales están descritos solo por lineas y curvas **Figura 5**. Cabe aclarar que existen 2 versiones de la herramienta, una para su representación completa en Robot Studio que cuenta con una punta pronunciada y la segunda version para la impresión 3D ver **Figura 6**.
 
-<span><img id="Fig_5" src="Imágenes/Iniciales.png" width="300"/><br>
+<span><img id="Fig_5" src="Imágenes/Iniciales.png" width="300"/>
 <label for = "Fig_5" ><br><b>Figura 5.</b> Logo e iniciales Autodesk Inventor.</label></span>
 
-<span><img id="Fig_6" src="Imágenes/Herramienta.png" width="300"/><br>
+<span><img id="Fig_6" src="Imágenes/Herramienta.png" width="300"/>
 <label for = "Fig_6" ><br><b>Figura 6.</b> Modelado de herramienta para Robot Studio e impresión 3D Autodesk Inventor.</label></span>
 
 - Montaje de herramienta y WorkObject
