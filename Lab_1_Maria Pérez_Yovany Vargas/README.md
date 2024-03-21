@@ -6,7 +6,8 @@
 ### 1. Descripción de la solución planteada
 Se escoge como empresa de transporte DiDi, considerándola una empresa que invierte en marketing debido a sus constantes campañas de marketing en redes sociales, televisión y entretenimiento. Se plantea la escritura de su logo en primer lugar, seguido de las iniciales de los integrantes del Grupo M.P. y Y.V. Ver Figura 1.
 
-<span><img id="Fig_1" src="Imágenes/Logo.png" alt="Figura 1" width="400"/><label for = "Fig_1" ><br><b>Figura 1</b></label></span>
+<span><img id="Fig_1" src="Imágenes/Logo.png" alt="Figura 1" width="400"/>
+<label for = "Fig_1" ><br><b>Figura 1</b></label>
 
 
 Donde las letras constan de un solo trazo y el logo todo su contorno. Para el desarrollo idóneo de la practica de laboratorio fue necesario un análisis previo al entorno de trabajo.   
@@ -18,7 +19,7 @@ En el area de trabajo existen una tablero inclinado y varias cajas de madera, pa
 ##### Tablero, WorkObject_1
 Las dimensiones del tablero son; 25.2 cm de alto y 25 cm de ancho, su parte trasera que cumple la función de apoyo tiene un largo de 26.5 cm. Partes unidas por sus extremos en un angulo de 90°, entonces el angulo entre la base y al tablero es de 46.76°.
 
-<img src="Imágenes/Board.png" alt="Figura 1" width="400"/>
+<img src="Imágenes/Board.png" alt="Figura 2" width="400"/>
 
 
 
