@@ -43,8 +43,11 @@ Debido a la alta exactitud del robot ABB IRB 140, no se tienen las herramientas 
 Bajo estás consideraciones la metodología a desarrollar es la siguiente:
 
 - Creación de modelos CAD
-- XD
-- XD
+- Montaje de herramienta y WorkObject
+- Definición y programación de las trayectorias
+- Definición y programación de las entradas y salidas
+- Simulación
+- Ejecución en vivo
 
 ### 2. Diagrama de flujo de acciones del robot M 
 
