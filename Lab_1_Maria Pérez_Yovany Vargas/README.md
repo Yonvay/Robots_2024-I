@@ -40,7 +40,7 @@ Así el objecto de trabajo esta en condiciones optimas para el trazo de las tray
 
 Debido a la alta exactitud del robot ABB IRB 140, no se tienen las herramientas para ubicar el WorkObject en el punto exacto asignado, por tanto es necesario un método de tolerancia. Este método está ubicado en la herramienta, debido a que el robot no admite estas modificaciones. Se plantea un resorte bloqueado a traves de un pasador con un desplazamiento de 3 cm, permitiendo el correcto desplazamiento del marcador aun si el WorkObject no esta en la posición correcta.
 
-Bajo estás consideraciones la metodología a desarrollar es la siguiente:
+Bajo estás consideraciones, la metodología a desarrollar es la siguiente:
 
 - Creación de modelos CAD
 - Montaje de herramienta y WorkObject
