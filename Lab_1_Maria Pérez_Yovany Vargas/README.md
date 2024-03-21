@@ -6,7 +6,7 @@
 ### 1. Descripción de la solución planteada
 Se escoge como empresa de transporte DiDi, considerándola una empresa que invierte en marketing debido a sus constantes campañas de marketing en redes sociales, televisión y entretenimiento. Se plantea la escritura de su logo en primer lugar, seguido de las iniciales de los integrantes del Grupo M.P. y Y.V. Ver *Figura 1*.
 
-<span><img id="Fig_1" src="Imágenes/Logo.png" width="400"/>
+<span><img id="Fig_1" src="Imágenes/Logo.png" width="300"/>
 <label for = "Fig_1" ><br><b>Figura 1.</b> Logo e iniciales.</label>
 
 
@@ -26,8 +26,8 @@ Ahora, se usa el ancho de la caja como soporte externo para el tablero, de medid
 
 Con estos datos, la ubicación seleccionada para el *WorkObject_1* tomando como punto de referencia el punto inferior interno de la base del tablero y respecto a la base del robot es; 
 
-<span><img id="Fig_2" src="Imágenes/WorkObject_1.png" width="400"/><br>
-<label for = "Fig_2" ><br><b>Figura 2.</b> WorkObject_1 en Robot Studio.</label></span>
+<span><img id="Fig_3" src="Imágenes/WorkObject_1.png" width="300"/><br>
+<label for = "Fig_3" ><br><b>Figura 2.</b> WorkObject_1 en Robot Studio.</label></span>
 
 
 #### B. Consideraciones en el diseño de herramienta
