@@ -49,7 +49,7 @@ La creación del WorkObject y la herramienta se llevo a cabo con el software Aut
 <span><img id="Fig_5" src="Imágenes/Iniciales.png" width="300"/><br>
 <label for = "Fig_5" ><br><b>Figura 5.</b> Logo e iniciales Autodesk Inventor.</label></span>
 
-<span><img id="Fig_6" src="Imágenes/Herramienta.jpg" width="300"/><br>
+<span><img id="Fig_6" src="Imágenes/Herramienta.png" width="300"/><br>
 <label for = "Fig_6" ><br><b>Figura 6.</b> Modelado de herramienta para Robot Studio e impresión 3D Autodesk Inventor.</label></span>
 
 - Montaje de herramienta y WorkObject
