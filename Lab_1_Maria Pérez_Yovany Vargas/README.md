@@ -37,11 +37,7 @@ Así el objecto de trabajo esta en condiciones optimas para el trazo de trayecto
 
 #### B. Consideraciones en el diseño de herramienta
 
-Debido a la alta exactitud del robot ABB IRB 140, no se tienen las herramientas para ubicar el WorkObject en el punto exacto asignado, por tanto es necesario un método de tolerancia. Este método está ubicado en la herramienta, debido a que el robot no admite estas modificaciones. Se plantea un resorte bloqueado a traves de un pasador con un desplazamiento de 3 cm.
-
-
-
-#### C. 
+Debido a la alta exactitud del robot ABB IRB 140, no se tienen las herramientas para ubicar el WorkObject en el punto exacto asignado, por tanto es necesario un método de tolerancia. Este método está ubicado en la herramienta, debido a que el robot no admite estas modificaciones. Se plantea un resorte bloqueado a traves de un pasador con un desplazamiento de 3 cm, permitiendo el correcto desplazamiento del marcador aun si el WorkObject no esta en la posición correcta.
 
 ### 2. Diagrama de flujo de acciones del robot M 
 
