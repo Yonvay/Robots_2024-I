@@ -7,7 +7,7 @@
 Se escoge como empresa de transporte DiDi, considerándola una empresa que invierte en marketing debido a sus constantes campañas de marketing en redes sociales, televisión y entretenimiento. Se plantea la escritura de su logo en primer lugar, seguido de las iniciales de los integrantes del Grupo M.P. y Y.V. Ver Figura 1.
 
 <img src="Imágenes/Logo.png" alt="Figura 1" width="400"/>
-<label name="Figura 1" id = "Fig_1">
+<label xid = "Fig_1">Figura 1 </label>
 
 Donde las letras constan de un solo trazo y el logo todo su contorno. Para el desarrollo idóneo de la practica de laboratorio fue necesario un análisis previo al entorno de trabajo.   
 
