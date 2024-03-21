@@ -6,7 +6,7 @@
 ### 1. Descripción de la solución planteada
 Se escoge como empresa de transporte DiDi, considerándola una empresa que invierte en marketing debido a sus constantes campañas de marketing en redes sociales, televisión y entretenimiento. Se plantea la escritura de su logo en primer lugar, seguido de las iniciales de los integrantes del Grupo M.P. y Y.V. Ver Figura 1.
 
-<span><img id="Fig_1" src="Imágenes/Logo.png" width="400"/>
+<img id="Fig_1" src="Imágenes/Logo.png" width="400"/>
 <label for = "Fig_1" ><br><b>Figura 1</b></label>
 
 
