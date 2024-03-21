@@ -18,7 +18,7 @@ En el area de trabajo existen una tablero inclinado y varias cajas de madera, pa
 ##### Tablero, WorkObject_1
 Las dimensiones del tablero son; 25.2 cm de alto y 25 cm de ancho, su parte trasera que cumple la función de apoyo tiene un largo de 26.5 cm. Partes unidas por sus extremos en un angulo de 90°, entonces el angulo en de la base respecto al tablero es de 46.76°.
 
-<img src="Imágenes/Logo.png" alt="Figura 1" width="400"/>
+<img src="Imágenes/Board.png" alt="Figura 1" width="400"/>
 
 #### B. Consideraciones en el diseño de herramienta
 
