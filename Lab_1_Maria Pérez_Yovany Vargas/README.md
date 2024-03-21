@@ -43,6 +43,15 @@ Debido a la alta exactitud del robot ABB IRB 140, no se tienen las herramientas 
 Bajo estás consideraciones, la metodología a desarrollar es la siguiente:
 
 - Creación de modelos CAD
+
+La creación del WorkObject y la herramienta se llevo a cabo con el software Autodesk Inventor, donde el logo e iniciales están descritos solo por lineas y curvas **Figura 5**. Cabe aclarar que existen 2 versiones de la herramienta, una para su representación completa en Robot Studio que cuenta con una punta pronunciada y la segunda version para la impresión 3D ver **Figura 6**.
+
+<span><img id="Fig_5" src="Imágenes/Iniciales.png" width="300"/><br>
+<label for = "Fig_5" ><br><b>Figura 5.</b> Logo e iniciales Autodesk Inventor.</label></span>
+
+<span><img id="Fig_6" src="Imágenes/Herramienta.jpg" width="300"/><br>
+<label for = "Fig_6" ><br><b>Figura 6.</b> Modelado de herramienta para Robot Studio e impresión 3D Autodesk Inventor.</label></span>
+
 - Montaje de herramienta y WorkObject
 - Definición y programación de las trayectorias
 - Definición y programación de las entradas y salidas
