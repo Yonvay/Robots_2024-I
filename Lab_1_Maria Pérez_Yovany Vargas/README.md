@@ -31,7 +31,7 @@ Con estos datos, la ubicación seleccionada para el *WorkObject_1* tomando como 
 <span><img id="Fig_3" src="Imágenes/WorkObject_1.png" width="300"/><br>
 <label for = "Fig_3" ><br><b>Figura 2.</b> WorkObject_1 en Robot Studio.</label></span>
 
-<span><img id="Fig_4" src="Imágenes/Ubicación.jgp" width="300"/><br>
+<span><img id="Fig_4" src="Imágenes/Ubicación.jpg" width="300"/><br>
 <label for = "Fig_4" ><br><b>Figura 2.</b> Ubicación WorkObject_1 en Robot Studio.</label></span>
 
 Así el objecto de trabajo esta en condiciones optimas para el trazo de trayectorias.
