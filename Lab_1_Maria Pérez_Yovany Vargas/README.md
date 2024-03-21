@@ -29,16 +29,22 @@ Ahora, se usa el ancho de la caja como soporte externo para el tablero, de medid
 Con estos datos, la ubicación seleccionada para el *WorkObject_1* tomando como punto de referencia el punto inferior interno de la base del tablero ver **Figura 3** y respecto a la base del robot es; 100 cm en X, -125 cm en Y y 223 cm en Z ver **Figura 4**.
 
 <span><img id="Fig_3" src="Imágenes/WorkObject_1.png" width="300"/><br>
-<label for = "Fig_3" ><br><b>Figura 2.</b> WorkObject_1 en Robot Studio.</label></span>
+<label for = "Fig_3" ><br><b>Figura 3.</b> WorkObject_1 en Robot Studio.</label></span>
 
 <span><img id="Fig_4" src="Imágenes/Ubicación.jpg" width="300"/><br>
-<label for = "Fig_4" ><br><b>Figura 2.</b> Ubicación WorkObject_1 en Robot Studio.</label></span>
+<label for = "Fig_4" ><br><b>Figura 4.</b> Ubicación WorkObject_1 en Robot Studio.</label></span>
 
-Así el objecto de trabajo esta en condiciones optimas para el trazo de trayectorias.
+Así el objecto de trabajo esta en condiciones optimas para el trazo de las trayectorias.
 
 #### B. Consideraciones en el diseño de herramienta
 
 Debido a la alta exactitud del robot ABB IRB 140, no se tienen las herramientas para ubicar el WorkObject en el punto exacto asignado, por tanto es necesario un método de tolerancia. Este método está ubicado en la herramienta, debido a que el robot no admite estas modificaciones. Se plantea un resorte bloqueado a traves de un pasador con un desplazamiento de 3 cm, permitiendo el correcto desplazamiento del marcador aun si el WorkObject no esta en la posición correcta.
+
+Bajo estás consideraciones la metodología a desarrollar es la siguiente:
+
+- Creación de modelos CAD
+- XD
+- XD
 
 ### 2. Diagrama de flujo de acciones del robot M 
 
