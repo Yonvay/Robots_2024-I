@@ -95,7 +95,7 @@ Una vez comprobado el correcto funcionamiento de las rutinas, entradas y salidas
 
 ### 3. Plano de planta de la ubicación de cada uno de los elementos
 Para visualizar correctamente el plano de planta, acceda a su enlace a continuación.
-[Plano de planta, ubicación de cada uno de los elementos.](/Lab_1_Maria%20Pérez_Yovany%20Vargas/Plano%20de%20planta.pdf){:target="_blank"}
+[Plano de planta, ubicación de cada uno de los elementos.](/Lab_1_Maria%20Pérez_Yovany%20Vargas/Plano%20de%20planta.pdf)
 
 ### 4. Descripción de las funciones utilizadas M
 ### 5. Diseño de herramienta
