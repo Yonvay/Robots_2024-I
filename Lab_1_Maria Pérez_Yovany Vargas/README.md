@@ -65,6 +65,7 @@ Una vez importado el modelado del tablero con el logo e iniciales en su superfic
 
 - Definición y programación de las trayectorias
 Para un proceso optimo, se decide separar la trayectoria general en sub-trayectorias, asignadas al logo y las iniciales, para un total de 9 sub-trayectorias. Junto a 2 trayectorias generales extras donde se establece el Home y la posición de Mantenimiento ver **FIGURA 9**.
+
 <span><img id="Fig_9" src="Imágenes/Trayectorias.png" width="300"/>
 <label for = "Fig_9" ><br><b>Figura 9.</b> Trayectorias RobotStudio.</label></span>
 
