@@ -29,10 +29,10 @@ Ahora, se usa el ancho de la caja como soporte externo para el tablero, de medid
 Con estos datos, la ubicación seleccionada para el *WorkObject_1* tomando como punto de referencia el punto inferior interno de la base del tablero ver **Figura 3** y respecto a la base del robot es; 100 cm en X, -125 cm en Y y 223 cm en Z ver **Figura 4**.
 
 <span><img id="Fig_3" src="Imágenes/WorkObject_1.png" width="300"/>
-<label for = "Fig_3" ><br><b>Figura 3.</b> WorkObject_1 en Robot Studio.</label></span>
+<label for = "Fig_3" ><br><b>Figura 3.</b> WorkObject_1 en RobotStudio.</label></span>
 
 <span><img id="Fig_4" src="Imágenes/Ubicación.jpg" width="300"/>
-<label for = "Fig_4" ><br><b>Figura 4.</b> Ubicación WorkObject_1 en Robot Studio.</label></span>
+<label for = "Fig_4" ><br><b>Figura 4.</b> Ubicación WorkObject_1 en RobotStudio.</label></span>
 
 Así el objecto de trabajo esta en condiciones optimas para el trazo de las trayectorias.
 
@@ -44,26 +44,38 @@ Bajo estás consideraciones, la metodología a desarrollar es la siguiente:
 
 - Creación de modelos CAD
 
-La creación del WorkObject y la herramienta se llevo a cabo con el software Autodesk Inventor, donde el logo e iniciales están descritos solo por lineas y curvas **Figura 5**. Cabe aclarar que existen 2 versiones de la herramienta, una para su representación completa en Robot Studio que cuenta con una punta pronunciada y la segunda version para la impresión 3D ver **Figura 6**.
+La creación del WorkObject y la herramienta se llevo a cabo con el software Autodesk Inventor, donde el logo e iniciales están descritos solo por lineas y curvas **Figura 5**. Cabe aclarar que existen 2 versiones de la herramienta, una para su representación completa en RobotStudio, que cuenta con una punta pronunciada y la segunda version para la impresión 3D ver **Figura 6**.
 
 <span><img id="Fig_5" src="Imágenes/Iniciales.png" width="300"/>
 <label for = "Fig_5" ><br><b>Figura 5.</b> Logo e iniciales Autodesk Inventor.</label></span>
 
 <span><img id="Fig_6" src="Imágenes/Herramienta.png" width="300"/>
-<label for = "Fig_6" ><br><b>Figura 6.</b> Modelado de herramienta para Robot Studio e impresión 3D Autodesk Inventor.</label></span>
+<label for = "Fig_6" ><br><b>Figura 6.</b> Modelado de herramienta para RobotStudio e impresión 3D Autodesk Inventor.</label></span>
 
 - Montaje de herramienta y WorkObject
+Desde Autodesk Inventor se exportan los modelados en formato .SAT, seguidamente se importan los modelados a RobotStudio. Desde la pestaña Modelado, sección Mecanismo, se crea la herramienta, donde una vez asignado el TCP en el modelado, la herramienta automáticamente se incorpora al robot ver **Figura 7**.
+<span><img id="Fig_7" src="Imágenes/Montaje.png" width="300"/>
+<label for = "Fig_7" ><br><b>Figura 7.</b> Montaje de herramienta RobotStudio.</label></span>
+
+Una vez importado el modelado del tablero con el logo e iniciales en su superficie, se crea el WorkObject_1. Donde el punto asignado será la esquina superior interna del tablero ver **Figura 8**.
+<span><img id="Fig_8" src="Imágenes/WorkObject_1RS.png" width="300"/>
+<label for = "Fig_8" ><br><b>Figura 8.</b> Creación WorkObject_1 RobotStudio.</label></span>
+
 - Definición y programación de las trayectorias
+Para un proceso optimo, se decide separar la trayectoria general en sub-trayectorias, asignadas al logo y las iniciales, para un total de 9 sub-trayectorias. Junto a 2 trayectorias generales extras donde se establece el Home y la posición de Mantenimiento ver **FIGURA 9**.
+<span><img id="Fig_9" src="Imágenes/Trayectorias.png" width="300"/>
+<label for = "Fig_9" ><br><b>Figura 9.</b> Trayectorias RobotStudio.</label></span>
+Con la ayuda de las herramientas para la selección de puntos en las aristas y curvas se establecen los movimientos, en general para los desplazamientos a los puntos iniciales del logo e iniciales se utiliza la instrucción MoveJ y para los trazos MoveL y en casos de circunferencias MoveC. La descripción detallada de estas funciones se encuentra en la **Sección 4**.
+
 - Definición y programación de las entradas y salidas
 - Simulación
 - Ejecución en vivo
 
 ### 2. Diagrama de flujo de acciones del robot M 
 
-
-
 ### 3. Plano de planta de la ubicación de cada uno de los elementos Y
+
 ### 4. Descripción de las funciones utilizadas M
 ### 5. Diseño de herramienta Y
 ### 6. Código en RAPID del módulo utilizado para el desarrollo de la práctica M
-### 7. Vídeo que contenga la simulación en _RobotStudio_ así como la implementación de la práctica con los robots reales Y
+### 7. Vídeo que contenga la simulación en _RobotStudio_ así como la implementación de la práctica con el robot real Y
