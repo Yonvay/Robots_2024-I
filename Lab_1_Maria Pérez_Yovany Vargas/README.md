@@ -93,9 +93,13 @@ Una vez comprobado el correcto funcionamiento de las rutinas, entradas y salidas
 
 ### 2. Diagrama de flujo de acciones del robot M 
 
-### 3. Plano de planta de la ubicación de cada uno de los elementos Y
+### 3. Plano de planta de la ubicación de cada uno de los elementos
 
 ### 4. Descripción de las funciones utilizadas M
-### 5. Diseño de herramienta Y
+### 5. Diseño de herramienta
+
+Para el diseño de la herramienta, se identifican las dimensiones de la base de la herramienta en el datasheet del robot, 
 ### 6. Código en RAPID del módulo utilizado para el desarrollo de la práctica M
-### 7. Vídeo que contenga la simulación en _RobotStudio_ así como la implementación de la práctica con el robot real Y
+### 7. Vídeo que contenga la simulación en _RobotStudio_ así como la implementación de la práctica con el robot real
+
+El video se encuentra alojado en YouTube, acceder con este link: 
