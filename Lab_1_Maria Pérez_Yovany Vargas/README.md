@@ -54,10 +54,12 @@ La creación del WorkObject y la herramienta se llevo a cabo con el software Aut
 
 - Montaje de herramienta y WorkObject
 Desde Autodesk Inventor se exportan los modelados en formato .SAT, seguidamente se importan los modelados a RobotStudio. Desde la pestaña Modelado, sección Mecanismo, se crea la herramienta, donde una vez asignado el TCP en el modelado, la herramienta automáticamente se incorpora al robot ver **Figura 7**.
+
 <span><img id="Fig_7" src="Imágenes/Montaje.png" width="300"/>
 <label for = "Fig_7" ><br><b>Figura 7.</b> Montaje de herramienta RobotStudio.</label></span>
 
 Una vez importado el modelado del tablero con el logo e iniciales en su superficie, se crea el WorkObject_1. Donde el punto asignado será la esquina superior interna del tablero ver **Figura 8**.
+
 <span><img id="Fig_8" src="Imágenes/WorkObject_1RS.png" width="300"/>
 <label for = "Fig_8" ><br><b>Figura 8.</b> Creación WorkObject_1 RobotStudio.</label></span>
 
@@ -65,6 +67,7 @@ Una vez importado el modelado del tablero con el logo e iniciales en su superfic
 Para un proceso optimo, se decide separar la trayectoria general en sub-trayectorias, asignadas al logo y las iniciales, para un total de 9 sub-trayectorias. Junto a 2 trayectorias generales extras donde se establece el Home y la posición de Mantenimiento ver **FIGURA 9**.
 <span><img id="Fig_9" src="Imágenes/Trayectorias.png" width="300"/>
 <label for = "Fig_9" ><br><b>Figura 9.</b> Trayectorias RobotStudio.</label></span>
+
 Con la ayuda de las herramientas para la selección de puntos en las aristas y curvas se establecen los movimientos, en general para los desplazamientos a los puntos iniciales del logo e iniciales se utiliza la instrucción MoveJ y para los trazos MoveL y en casos de circunferencias MoveC. La descripción detallada de estas funciones se encuentra en la **Sección 4**.
 
 - Definición y programación de las entradas y salidas
