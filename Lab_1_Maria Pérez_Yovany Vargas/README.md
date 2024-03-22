@@ -1,10 +1,10 @@
 # Laboratorio 1, Robótica Industrial - Trayectorias, Entradas y Salidas Digitales
-## Universidad Nacional de Colombia, 2024-I
+# Universidad Nacional de Colombia, 2024-I
 
 - Maria Alejandra Peréz Petro
 - Yovany Esneider Vargas Gutierrez
 
-### 1. Descripción de la solución planteada
+## 1. Descripción de la solución planteada
 
 Se escoge la empresa de transporte DiDi, considerándola una empresa que invierte en marketing debido a sus constantes campañas de marketing en redes sociales, televisión y entretenimiento. Se plantea la escritura de su logo, seguido de las iniciales de los integrantes del Grupo M.P. y Y.V. Ver **Figura 1**.
 
@@ -13,11 +13,11 @@ Se escoge la empresa de transporte DiDi, considerándola una empresa que inviert
 
 Donde las letras constan de un solo trazo y el logo todo su contorno. Para el desarrollo idóneo de la practica de laboratorio es necesario un análisis previo a ciertos elementos del entorno de trabajo.   
 
-#### A. Reconocimiento y caracterización del WorkObject
+### A. Reconocimiento y caracterización del WorkObject
 
 En el area de trabajo existen una tablero inclinado y varias cajas de madera, partiendo del objetivo de la practica de laboratorio, este tablero es el WorkObject a trabajar, sin embargo, es necesario ubicarlo considerando el alcance del robot ABB IRB 140. Para esto es primero se han de caracterizar este par de objetos.
 
-##### Tablero, WorkObject_1
+#### Tablero, WorkObject_1
 
 Las dimensiones del tablero son; 25.2 cm de alto y 25 cm de ancho, su parte trasera que cumple la función de apoyo tiene un largo de 26.5 cm. Partes unidas por sus extremos en un angulo de 90°, entonces el angulo entre la base y al tablero es de 46.76° ver **Figura 2**.
 
@@ -36,7 +36,7 @@ Con estos datos, la ubicación seleccionada para el *WorkObject_1* tomando como 
 
 Así el objecto de trabajo está en condiciones optimas para el trazo de las trayectorias.
 
-#### B. Consideraciones en el diseño de herramienta
+### B. Consideraciones en el diseño de herramienta
 
 Debido a la alta exactitud del robot ABB IRB 140 se precisa la misma exactitud en la ubicación del WorkObject, sin embargo, no se poseen las herramientas necesarias para esta tarea, por tanto es necesario un método que permita tener un rango de tolerancia. Dicho método está ubicado en la herramienta, ya que el robot no admite modificaciones. Se plantea un resorte bloqueado a traves de un pasador con un desplazamiento de 3 cm, permitiendo el desplazamiento del marcador aun si el WorkObject no esta en la posición correcta.
 
@@ -91,17 +91,35 @@ Una vez programadas las rutinas, entradas y salidas es posible ejecutar una simu
 
 Una vez comprobado el correcto funcionamiento de las rutinas, entradas y salidas. Se realiza un montaje aproximado del WorkObject_1, se instala la herramienta en el robot y se carga la programación mediante USB al FlexPendant, para su posterior ejecución en vivo la evidencia en video se encuentra en la **Sección 7**.
 
-### 2. Diagrama de flujo de acciones del robot M 
+## 2. Diagrama de flujo de acciones del robot 
 
-### 3. Plano de planta de la ubicación de cada uno de los elementos
+La figura 11 muestra el flujo de acciones del robot. El robot apenas inicia, ingresa a un bucle "WHILE TRUE DO". Dentro del bucle, se verifica el estado de las entradas digitales (DI). Si DI_01 está activo, se ejecuta el procedimiento "GoEscritura" que ejecuta una serie de instrucciones específicas para la tarea de escribir el logo de DIDI y las iniciales que se mostraron en la Figura 1. Si DI_02 está activo, se ejecuta la función "GoMantenimeinto" que  mueve el robot a la posición de "Mantenimiento" establecida. Si DI_03 está activo, se ejecuta la función "Homing" que mueve el robot a la posición "Home". Si ninguna de las entradas digitales está activa, el bucle continúa sin realizar ninguna acción.
+
+<span><img id="Fig_11" src=".\Imágenes\DiagramaDeFlujo-Lab1Robotica.drawio.png" width="300"/>
+<label for = "Fig_10" ><br><b>Figura 11.</b> Diagrama de flujo de las acciones del robot.</label></span>
+
+
+## 3. Plano de planta de la ubicación de cada uno de los elementos
 Para visualizar correctamente el plano de planta, acceda a su enlace a continuación.
 [Plano de planta, ubicación de cada uno de los elementos.](/Lab_1_Maria%20Pérez_Yovany%20Vargas/Plano%20de%20planta.pdf){:target="_blank"}
 
-### 4. Descripción de las funciones utilizadas M
-### 5. Diseño de herramienta
+## 4. Descripción de las funciones utilizadas.
+
+Para 
+## 5. Diseño de herramienta
 
 Para el diseño de la herramienta, se identifican las dimensiones de la base de la herramienta en el datasheet del robot, 
-### 6. Código en RAPID del módulo utilizado para el desarrollo de la práctica M
-### 7. Vídeo que contenga la simulación en _RobotStudio_ así como la implementación de la práctica con el robot real
+
+## 6. Código en RAPID del módulo utilizado para el desarrollo de la práctica M
+El códico en RAPID del módulo utilizado para el desarrollo de la práctica se encuentra en el archivo [Module1.mod](./RAPID/Module1.mod). 
+
+Este módulo contiene las definiciones de las variables robtarget que representan las diferentes posiciones del robot. Cada variable robtarget se define como una lista que contiene los siguientes elementos:
+- Posición X, Y, Z: Coordenadas de la posición en milímetros.
+- Orientación: Matriz de rotación 4x4 que define la orientación del robot en la posición.
+- Ejes de la herramienta: Vector que define los ejes de la herramienta en la posición.
+- Límites de singularidad: Vector que define los límites de singularidad del robot en la posición.
+
+
+## 7. Vídeo que contenga la simulación en _RobotStudio_ así como la implementación de la práctica con el robot real
 
 El video se encuentra alojado en YouTube, acceder con este link: 
