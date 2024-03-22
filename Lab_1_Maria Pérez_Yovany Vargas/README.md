@@ -1,8 +1,24 @@
-# Laboratorio 1, Robótica Industrial - Trayectorias, Entradas y Salidas Digitales
-# Universidad Nacional de Colombia, 2024-I
+# Laboratorio 1, Robótica Industrial - Trayectorias, Entradas y Salidas Digitales <!-- omit from toc -->
 
+Róbotica 2024-I
+
+Universidad Nacional de Colombia
+
+Integrantes:
 - Maria Alejandra Peréz Petro
 - Yovany Esneider Vargas Gutierrez
+
+**TABLA DE CONTENIDO**
+- [1. Descripción de la solución planteada](#1-descripción-de-la-solución-planteada)
+  - [A. Reconocimiento y caracterización del WorkObject](#a-reconocimiento-y-caracterización-del-workobject)
+  - [B. Consideraciones en el diseño de herramienta](#b-consideraciones-en-el-diseño-de-herramienta)
+- [2. Diagrama de flujo de acciones del robot](#2-diagrama-de-flujo-de-acciones-del-robot)
+- [3. Plano de planta de la ubicación de cada uno de los elementos](#3-plano-de-planta-de-la-ubicación-de-cada-uno-de-los-elementos)
+- [4. Descripción de las funciones utilizadas.](#4-descripción-de-las-funciones-utilizadas)
+- [5. Diseño de herramienta.](#5-diseño-de-herramienta)
+- [6. Código en RAPID del módulo utilizado para el desarrollo de la práctica.](#6-código-en-rapid-del-módulo-utilizado-para-el-desarrollo-de-la-práctica)
+- [7. Vídeo que contenga la simulación en _RobotStudio_ así como la implementación de la práctica con el robot real](#7-vídeo-que-contenga-la-simulación-en-robotstudio-así-como-la-implementación-de-la-práctica-con-el-robot-real)
+
 
 ## 1. Descripción de la solución planteada
 
@@ -17,7 +33,7 @@ Donde las letras constan de un solo trazo y el logo todo su contorno. Para el de
 
 En el area de trabajo existen una tablero inclinado y varias cajas de madera, partiendo del objetivo de la practica de laboratorio, este tablero es el WorkObject a trabajar, sin embargo, es necesario ubicarlo considerando el alcance del robot ABB IRB 140. Para esto es primero se han de caracterizar este par de objetos.
 
-#### Tablero, WorkObject_1
+- **Tablero, WorkObject_1**
 
 Las dimensiones del tablero son; 25.2 cm de alto y 25 cm de ancho, su parte trasera que cumple la función de apoyo tiene un largo de 26.5 cm. Partes unidas por sus extremos en un angulo de 90°, entonces el angulo entre la base y al tablero es de 46.76° ver **Figura 2**.
 
@@ -42,7 +58,7 @@ Debido a la alta exactitud del robot ABB IRB 140 se precisa la misma exactitud e
 
 Bajo estás consideraciones, la metodología a desarrollar es la siguiente:
 
-- Creación de modelos CAD
+- **Creación de modelos CAD**
 
 La creación del WorkObject y la herramienta se llevo a cabo con el software Autodesk Inventor, donde el logo e iniciales están descritos solo por lineas y curvas **Figura 5**. Cabe aclarar que existen 2 versiones de la herramienta, una para su representación completa en RobotStudio, que cuenta con una punta pronunciada y la segunda version para la impresión 3D ver **Figura 6**.
 
@@ -52,7 +68,7 @@ La creación del WorkObject y la herramienta se llevo a cabo con el software Aut
 <span><img id="Fig_6" src="Imágenes/Herramienta.png" width="300"/>
 <label for = "Fig_6" ><br><b>Figura 6.</b> Modelado de herramienta para RobotStudio e impresión 3D Autodesk Inventor.</label></span>
 
-- Montaje de herramienta y WorkObject
+- **Montaje de herramienta y WorkObject**
 
 Desde Autodesk Inventor se exportan los modelados en formato .SAT, seguidamente se importan los modelados a RobotStudio. Desde la pestaña Modelado, sección Mecanismo, se crea la herramienta, donde una vez asignado el TCP en el modelado, la herramienta se incorpora automáticamente al robot ver **Figura 7**.
 
@@ -64,7 +80,7 @@ Una vez importado el modelado del tablero con el logo e iniciales en su superfic
 <span><img id="Fig_8" src="Imágenes/WorkObject_1RS.png" width="300"/>
 <label for = "Fig_8" ><br><b>Figura 8.</b> Creación WorkObject_1 RobotStudio.</label></span>
 
-- Definición y programación de las trayectorias
+- **Definición y programación de las trayectorias**
 
 Para un optimo proceso, se decide separar la trayectoria general en sub-trayectorias, asignadas al logo y las iniciales, para un total de 9 sub-trayectorias. Junto a 2 trayectorias generales extras donde se establece el Home y la posición de Mantenimiento ver **FIGURA 9**.
 
@@ -73,7 +89,7 @@ Para un optimo proceso, se decide separar la trayectoria general en sub-trayecto
 
 Con la ayuda de las herramientas para la selección de puntos en las aristas y curvas se establecen los movimientos, para los desplazamientos a los puntos iniciales del logo e iniciales, se utiliza la instrucción MoveJ y para los trazos MoveL, en casos de circunferencias MoveC. La descripción detallada de estas funciones se encuentra en la **Sección 4**.
 
-- Definición y programación de las entradas y salidas
+- **Definición y programación de las entradas y salidas**
 
 Aunque en las planteamientos de la practica de laboratorio se exige un total de 2 entras y salidas, se opta por
 una distribución de 3, para tener un mayor control sobre el robot, donde la DI_01 ejecuta la rutina de escritura a la vez que activa la salida DO_01, DI_02 ejecuta la rutina que lleva el robot a posición de mantenimiento de conmutando DO_02, y DI_03 ejecuta la acción de Homing ver **Figura 10**.
@@ -83,11 +99,11 @@ una distribución de 3, para tener un mayor control sobre el robot, donde la DI_
 
 De igual manera se entra en detalle en su programación en la **Sección 4**.
 
-- Simulación
+- **Simulación**
 
 Una vez programadas las rutinas, entradas y salidas es posible ejecutar una simulación del robot, al mismo tiempo se simulan las entradas y salidas, con el fin de comprobar el correcto funcionamiento de la programación antes designada. Se lleva a cabo la simulación, esta se explora a detalle en la **Sección 7**.
 
-- Ejecución en vivo
+- **Ejecución en vivo**
 
 Una vez comprobado el correcto funcionamiento de las rutinas, entradas y salidas. Se realiza un montaje aproximado del WorkObject_1, se instala la herramienta en el robot y se carga la programación mediante USB al FlexPendant, para su posterior ejecución en vivo la evidencia en video se encuentra en la **Sección 7**.
 
