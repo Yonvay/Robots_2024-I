@@ -94,7 +94,7 @@ Una vez comprobado el correcto funcionamiento de las rutinas, entradas y salidas
 ### 2. Diagrama de flujo de acciones del robot M 
 
 ### 3. Plano de planta de la ubicación de cada uno de los elementos
-[Plano de planta](Lab_1_Maria Pérez_Yovany Vargas/Plano de planta.pdf)
+[Plano de planta](/Lab_1_Maria%20Pérez_Yovany%20Vargas/Plano%20de%20planta.pdf)
 ### 4. Descripción de las funciones utilizadas M
 ### 5. Diseño de herramienta
 
