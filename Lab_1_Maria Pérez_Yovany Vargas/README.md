@@ -133,8 +133,7 @@ Este módulo contiene las definiciones de las variables `robtarget` que represen
 - Ejes de la herramienta: Vector que define los ejes de la herramienta en la posición.
 - Límites de singularidad: Vector que define los límites de singularidad del robot en la posición.
 
-Adicionalmente, este módulo contiene cada una de las rutinas 
-del robot (`PROC RutineName() ... END PROC`), las cuales se describen a continuación.
+Adicionalmente, este módulo contiene cada una de las rutinas del robot, las cuales se describen a continuación.
 
 - **Main:** bloque de procedimiento que continene la lógica principal del flujo de acciones del robot.
   
@@ -185,7 +184,7 @@ ENDPROC
 
 ```
 
-- **Homing:** mueve el robot a la posición de Home donde todos los ángulos articulares son 0 grados y enciende la luz de indicación (D0_03).
+- **Homing:** mueve el robot a la posición de Home donde todos los ángulos articulares son 0 grados, a excepción de la 5 que queda a 30° para evitar el caso donde la articulación 6 y 4 se alinean creando una singularidad en el robot. Adicionalmente, en está rutina se enciende la luz de indicación (D0_03).
   
 ``` 
 PROC Homing()
