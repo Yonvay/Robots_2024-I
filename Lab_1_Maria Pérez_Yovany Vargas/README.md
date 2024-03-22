@@ -1,21 +1,21 @@
 # Laboratorio 1, Robótica Industrial - Trayectorias, Entradas y Salidas Digitales
 ## Universidad Nacional de Colombia, 2024-I
 
-* Maria Alejandra Peréz Petro
-* Yovany Esneider Vargas Gutierrez
+- Maria Alejandra Peréz Petro
+- Yovany Esneider Vargas Gutierrez
 
 ### 1. Descripción de la solución planteada
 
-Se escoge como empresa de transporte DiDi, considerándola una empresa que invierte en marketing debido a sus constantes campañas de marketing en redes sociales, televisión y entretenimiento. Se plantea la escritura de su logo en primer lugar, seguido de las iniciales de los integrantes del Grupo M.P. y Y.V. Ver **Figura 1**.
+Se escoge la empresa de transporte DiDi, considerándola una empresa que invierte en marketing debido a sus constantes campañas de marketing en redes sociales, televisión y entretenimiento. Se plantea la escritura de su logo, seguido de las iniciales de los integrantes del Grupo M.P. y Y.V. Ver **Figura 1**.
 
 <span><img id="Fig_1" src="Imágenes/Logo.png" width="300"/>
 <label for = "Fig_1" ><br><b>Figura 1.</b> Logo e iniciales.</label>
 
-Donde las letras constan de un solo trazo y el logo todo su contorno. Para el desarrollo idóneo de la practica de laboratorio fue necesario un análisis previo al entorno de trabajo.   
+Donde las letras constan de un solo trazo y el logo todo su contorno. Para el desarrollo idóneo de la practica de laboratorio es necesario un análisis previo a ciertos elementos del entorno de trabajo.   
 
 #### A. Reconocimiento y caracterización del WorkObject
 
-En el area de trabajo existen una tablero inclinado y varias cajas de madera, partiendo del objetivo de la practica de laboratorio este tablero es el WorkObject a trabajar, sin embargo, es necesario ubicar el WorkObject considerando el alcance del robot ABB IRB 140. Para esto es necesario la caracterización de estos objetos.
+En el area de trabajo existen una tablero inclinado y varias cajas de madera, partiendo del objetivo de la practica de laboratorio, este tablero es el WorkObject a trabajar, sin embargo, es necesario ubicarlo considerando el alcance del robot ABB IRB 140. Para esto es primero se han de caracterizar este par de objetos.
 
 ##### Tablero, WorkObject_1
 
@@ -24,9 +24,9 @@ Las dimensiones del tablero son; 25.2 cm de alto y 25 cm de ancho, su parte tras
 <span><img id="Fig_2" src="Imágenes/Board.png" width="400"/>
 <label for = "Fig_2" ><br><b>Figura 2.</b> Dimensiones de tablero inclinado.</label></span>
 
-Ahora, se usa el ancho de la caja como soporte externo para el tablero, de medida 43 cm, ubicado del desde el suelo. La distancia desde el cero de la base del robot ABB IRB 140, es de 23 cm.
+Ahora, se usa el ancho de la caja como soporte externo para el tablero, de medida 43 cm, ubicado desde el suelo. La distancia desde el cero de la base del robot ABB IRB 140 a la parte superior de la caja, es de 23 cm.
 
-Con estos datos, la ubicación seleccionada para el *WorkObject_1* tomando como punto de referencia el punto inferior interno de la base del tablero ver **Figura 3** y respecto a la base del robot es; 100 cm en X, -125 cm en Y y 223 cm en Z ver **Figura 4**.
+Con estos datos, la ubicación seleccionada para el *WorkObject_1* tomando como punto de referencia el punto inferior interno de la base del tablero ver **Figura 3** y respecto a la base del robot es; 1000 mm en X, -125 mm en Y y 230 mm en Z ver **Figura 4**.
 
 <span><img id="Fig_3" src="Imágenes/WorkObject_1.png" width="300"/>
 <label for = "Fig_3" ><br><b>Figura 3.</b> WorkObject_1 en RobotStudio.</label></span>
@@ -34,11 +34,11 @@ Con estos datos, la ubicación seleccionada para el *WorkObject_1* tomando como 
 <span><img id="Fig_4" src="Imágenes/Ubicación.jpg" width="300"/>
 <label for = "Fig_4" ><br><b>Figura 4.</b> Ubicación WorkObject_1 en RobotStudio.</label></span>
 
-Así el objecto de trabajo esta en condiciones optimas para el trazo de las trayectorias.
+Así el objecto de trabajo está en condiciones optimas para el trazo de las trayectorias.
 
 #### B. Consideraciones en el diseño de herramienta
 
-Debido a la alta exactitud del robot ABB IRB 140, no se tienen las herramientas para ubicar el WorkObject en el punto exacto asignado, por tanto es necesario un método de tolerancia. Este método está ubicado en la herramienta, debido a que el robot no admite estas modificaciones. Se plantea un resorte bloqueado a traves de un pasador con un desplazamiento de 3 cm, permitiendo el correcto desplazamiento del marcador aun si el WorkObject no esta en la posición correcta.
+Debido a la alta exactitud del robot ABB IRB 140 se precisa la misma exactitud en la ubicación del WorkObject, sin embargo, no se poseen las herramientas necesarias para esta tarea, por tanto es necesario un método que permita tener un rango de tolerancia. Dicho método está ubicado en la herramienta, ya que el robot no admite modificaciones. Se plantea un resorte bloqueado a traves de un pasador con un desplazamiento de 3 cm, permitiendo el desplazamiento del marcador aun si el WorkObject no esta en la posición correcta.
 
 Bajo estás consideraciones, la metodología a desarrollar es la siguiente:
 
@@ -54,7 +54,7 @@ La creación del WorkObject y la herramienta se llevo a cabo con el software Aut
 
 - Montaje de herramienta y WorkObject
 
-Desde Autodesk Inventor se exportan los modelados en formato .SAT, seguidamente se importan los modelados a RobotStudio. Desde la pestaña Modelado, sección Mecanismo, se crea la herramienta, donde una vez asignado el TCP en el modelado, la herramienta automáticamente se incorpora al robot ver **Figura 7**.
+Desde Autodesk Inventor se exportan los modelados en formato .SAT, seguidamente se importan los modelados a RobotStudio. Desde la pestaña Modelado, sección Mecanismo, se crea la herramienta, donde una vez asignado el TCP en el modelado, la herramienta se incorpora automáticamente al robot ver **Figura 7**.
 
 <span><img id="Fig_7" src="Imágenes/Montaje.png" width="300"/>
 <label for = "Fig_7" ><br><b>Figura 7.</b> Montaje de herramienta RobotStudio.</label></span>
@@ -66,16 +66,30 @@ Una vez importado el modelado del tablero con el logo e iniciales en su superfic
 
 - Definición y programación de las trayectorias
 
-Para un proceso optimo, se decide separar la trayectoria general en sub-trayectorias, asignadas al logo y las iniciales, para un total de 9 sub-trayectorias. Junto a 2 trayectorias generales extras donde se establece el Home y la posición de Mantenimiento ver **FIGURA 9**.
+Para un optimo proceso, se decide separar la trayectoria general en sub-trayectorias, asignadas al logo y las iniciales, para un total de 9 sub-trayectorias. Junto a 2 trayectorias generales extras donde se establece el Home y la posición de Mantenimiento ver **FIGURA 9**.
 
 <span><img id="Fig_9" src="Imágenes/Trayectorias.png" width="300"/>
 <label for = "Fig_9" ><br><b>Figura 9.</b> Trayectorias RobotStudio.</label></span>
 
-Con la ayuda de las herramientas para la selección de puntos en las aristas y curvas se establecen los movimientos, en general para los desplazamientos a los puntos iniciales del logo e iniciales se utiliza la instrucción MoveJ y para los trazos MoveL y en casos de circunferencias MoveC. La descripción detallada de estas funciones se encuentra en la **Sección 4**.
+Con la ayuda de las herramientas para la selección de puntos en las aristas y curvas se establecen los movimientos, para los desplazamientos a los puntos iniciales del logo e iniciales, se utiliza la instrucción MoveJ y para los trazos MoveL, en casos de circunferencias MoveC. La descripción detallada de estas funciones se encuentra en la **Sección 4**.
 
 - Definición y programación de las entradas y salidas
+
+Aunque en las planteamientos de la practica de laboratorio se exige un total de 2 entras y salidas, se opta por
+una distribución de 3, para tener un mayor control sobre el robot, donde la DI_01 ejecuta la rutina de escritura a la vez que activa la salida DO_01, DI_02 ejecuta la rutina que lleva el robot a posición de mantenimiento de conmutando DO_02, y DI_03 ejecuta la acción de Homing ver **Figura 10**.
+
+<span><img id="Fig_10" src="Imágenes/IO's.png" width="300"/>
+<label for = "Fig_10" ><br><b>Figura 10.</b> I/O digitales RobotStudio.</label></span>
+
+De igual manera se entra en detalle en su programación en la **Sección 4**.
+
 - Simulación
+
+Una vez programadas las rutinas, entradas y salidas es posible ejecutar una simulación del robot, al mismo tiempo se simulan las entradas y salidas, con el fin de comprobar el correcto funcionamiento de la programación antes designada. Se lleva a cabo la simulación, esta se explora a detalle en la **Sección 7**.
+
 - Ejecución en vivo
+
+Una vez comprobado el correcto funcionamiento de las rutinas, entradas y salidas. Se realiza un montaje aproximado del WorkObject_1, se instala la herramienta en el robot y se carga la programación mediante USB al FlexPendant, para su posterior ejecución en vivo la evidencia en video se encuentra en la **Sección 7**.
 
 ### 2. Diagrama de flujo de acciones del robot M 
 
