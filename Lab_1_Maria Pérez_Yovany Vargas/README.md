@@ -122,7 +122,7 @@ Para visualizar correctamente el plano de planta, acceda a su enlace a continuac
 
 ## 4. Descripción de las funciones utilizadas.
 
-Para las instrucciones de movimiento se utilizarón los comandos RAPID  `MoveL`,`MoveJ`,y `MoveC` según la necesidad.
+Para las instrucciones de movimiento se utilizaron los comandos RAPID  `MoveL`,`MoveJ`,y `MoveC` según la necesidad.
 
 - `MoveL`: Es una instrucción que mueve el robot en una línea recta desde su posición actual hasta la posición 
 objetivo especificada.
@@ -151,7 +151,7 @@ Este módulo contiene las definiciones de las variables `robtarget` que represen
 
 Adicionalmente, este módulo contiene cada una de las rutinas del robot, las cuales se describen a continuación.
 
-- **Main:** bloque de procedimiento que continene la lógica principal del flujo de acciones del robot.
+- **Main:** bloque de procedimiento que contiene la lógica principal del flujo de acciones del robot.
   
 ```    
 PROC Main() 
@@ -206,7 +206,7 @@ ENDPROC
 PROC Homing()
     SetDO DO_03,1;
     MoveJ Home,v300,z10,FinalTool\WObj:=wobj0;
-ENDPRO 
+ENDPROC
 ```
 
 Finalmente, las rutinas detalladas para cada letra y dibujo del logo (`Logo`, `D1`, `I1`, `D2`, `I2`, `M`, `P`, `Y` y `V`) se pueden encontrar en el modulo RAPID [Module1.mod](./RAPID/Module1.mod). 
