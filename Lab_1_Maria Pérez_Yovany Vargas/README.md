@@ -4,7 +4,7 @@ Róbotica 2024-I
 
 Universidad Nacional de Colombia
 
-Integrantes:
+**INTEGRANTES**
 - Maria Alejandra Peréz Petro
 - Yovany Esneider Vargas Gutierrez
 
@@ -17,7 +17,7 @@ Integrantes:
 - [4. Descripción de las funciones utilizadas.](#4-descripción-de-las-funciones-utilizadas)
 - [5. Diseño de herramienta.](#5-diseño-de-herramienta)
 - [6. Código en RAPID del módulo utilizado para el desarrollo de la práctica.](#6-código-en-rapid-del-módulo-utilizado-para-el-desarrollo-de-la-práctica)
-- [7. Vídeo que contenga la simulación en _RobotStudio_ así como la implementación de la práctica con el robot real](#7-vídeo-que-contenga-la-simulación-en-robotstudio-así-como-la-implementación-de-la-práctica-con-el-robot-real)
+- [7. Vídeo con la simulación en _RobotStudio_ así como la implementación de la práctica con el robot real](#7-vídeo-con-la-simulación-en-robotstudio-así-como-la-implementación-de-la-práctica-con-el-robot-real)
 
 
 ## 1. Descripción de la solución planteada
@@ -211,6 +211,6 @@ ENDPRO
 
 Finalmente, las rutinas detalladas para cada letra y dibujo del logo (`Logo`, `D1`, `I1`, `D2`, `I2`, `M`, `P`, `Y` y `V`) se pueden encontrar en el modulo RAPID [Module1.mod](./RAPID/Module1.mod). 
 
-## 7. Vídeo que contenga la simulación en _RobotStudio_ así como la implementación de la práctica con el robot real
+## 7. Vídeo con la simulación en _RobotStudio_ así como la implementación de la práctica con el robot real
 
 El video se encuentra alojado en YouTube, acceder con este link: 
