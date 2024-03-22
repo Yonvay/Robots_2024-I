@@ -237,6 +237,7 @@ MODULE Module1
         SetDO DO_03,0;
         SetDO DO_02,1;
         MoveJ Mantenimiento,v200,z10,FinalTool\WObj:=wobj0;
+        SetDO DO_02,0;
     ENDPROC
     
     PROC GoEscritura()
@@ -252,11 +253,10 @@ MODULE Module1
         P;
         Y;
         V;
+        SetDO DO_01,0;
     ENDPROC
     
     PROC Homing()
-        SetDO DO_01,0;
-        SetDO DO_02,0;
         SetDO DO_03,1;
         MoveJ Home,v300,z10,FinalTool\WObj:=wobj0;
     ENDPROC

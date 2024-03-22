@@ -95,7 +95,7 @@ Una vez comprobado el correcto funcionamiento de las rutinas, entradas y salidas
 
 La figura 11 muestra el flujo de acciones del robot. El robot apenas inicia, ingresa a un bucle "WHILE TRUE DO". Dentro del bucle, se verifica el estado de las entradas digitales (DI). Si DI_01 está activo, se ejecuta el procedimiento "GoEscritura" que ejecuta una serie de instrucciones específicas para la tarea de escribir el logo de DIDI y las iniciales que se mostraron en la Figura 1. Si DI_02 está activo, se ejecuta la función "GoMantenimeinto" que  mueve el robot a la posición de "Mantenimiento" establecida. Si DI_03 está activo, se ejecuta la función "Homing" que mueve el robot a la posición "Home". Si ninguna de las entradas digitales está activa, el bucle continúa sin realizar ninguna acción.
 
-<span><img id="Fig_11" src=".\Imágenes\DiagramaDeFlujo-Lab1Robotica.drawio.png" width="300"/>
+<span><img id="Fig_11" src=".\Imágenes\DiagramaDeFlujo.png" width="300"/>
 <label for = "Fig_10" ><br><b>Figura 11.</b> Diagrama de flujo de las acciones del robot.</label></span>
 
 
@@ -103,22 +103,98 @@ La figura 11 muestra el flujo de acciones del robot. El robot apenas inicia, ing
 Para visualizar correctamente el plano de planta, acceda a su enlace a continuación.
 [Plano de planta, ubicación de cada uno de los elementos.](/Lab_1_Maria%20Pérez_Yovany%20Vargas/Plano%20de%20planta.pdf){:target="_blank"}
 
+
 ## 4. Descripción de las funciones utilizadas.
 
-Para 
-## 5. Diseño de herramienta
+Para las instrucciones de movimiento se utilizarón los comandos RAPID  `MoveL`,`MoveJ`,y `MoveC` según la necesidad.
+
+- `MoveL`: Es una instrucción que mueve el robot en una línea recta desde su posición actual hasta la posición 
+objetivo especificada.
+
+-  `MoveJ`: Se utiliza para mover el robot rápidamente de un punto a otro cuando no es imprescindible que el 
+movimiento siga una línea recta. Se utiliza para hacer acercamientos o alejamientos rápidos a una pieza.
+
+- `MoveC`: Se usa para mover el robot describiendo un arco de círculo, requiere dos puntos objetivo.
+
+Para la configuración de las salidas digitales se uso el comando:
+- ``Set``: Da el valor de 1/0 lógico a la salida digital según se indique.
+
+
+## 5. Diseño de herramienta.
 
 Para el diseño de la herramienta, se identifican las dimensiones de la base de la herramienta en el datasheet del robot, 
 
-## 6. Código en RAPID del módulo utilizado para el desarrollo de la práctica M
-El códico en RAPID del módulo utilizado para el desarrollo de la práctica se encuentra en el archivo [Module1.mod](./RAPID/Module1.mod). 
+## 6. Código en RAPID del módulo utilizado para el desarrollo de la práctica.
+El código en RAPID del módulo utilizado para el desarrollo de la práctica se encuentra en el archivo [Module1.mod](./RAPID/Module1.mod). 
 
-Este módulo contiene las definiciones de las variables robtarget que representan las diferentes posiciones del robot. Cada variable robtarget se define como una lista que contiene los siguientes elementos:
+Este módulo contiene las definiciones de las variables `robtarget` que representan las diferentes posiciones del robot. Cada variable robtarget se define como una lista que contiene los siguientes elementos:
 - Posición X, Y, Z: Coordenadas de la posición en milímetros.
 - Orientación: Matriz de rotación 4x4 que define la orientación del robot en la posición.
 - Ejes de la herramienta: Vector que define los ejes de la herramienta en la posición.
 - Límites de singularidad: Vector que define los límites de singularidad del robot en la posición.
 
+Adicionalmente, este módulo contiene cada una de las rutinas 
+del robot (`PROC RutineName() ... END PROC`), las cuales se describen a continuación.
+
+- **Main:** bloque de procedimiento que continene la lógica principal del flujo de acciones del robot.
+  
+```    
+PROC Main() 
+    WHILE TRUE DO
+        IF DI_01 = 1 THEN
+            GoEscritura;
+        ELSEIF DI_02 = 1 THEN
+            GoMantenimeinto;
+        ELSEIF DI_03 = 1 THEN
+            Homing;
+        ENDIF
+    ENDWHILE
+ENDPROC
+```
+   
+- **GoEscritura:**
+bloque de procedimiento que ejecuta la rutina de escritura y enciende una luz de indicación (DO_01). Primero, se ejecuta las rutinas `Logo`, `D1`, `I1`, `D2`, `I2` para escribir el logo DIDI. Luego, se escriben las inciales de los integrantes con las rutinas `M`, `P`, `Y` y `V`.  Al final de la rutina, el manipulador regresa a su posición de `HOME` y se apaga la luz de indicación.
+
+``` 
+PROC GoEscritura()
+    Homing;
+    SetDO DO_03,0;
+    SetDO DO_01,1;
+    Logo;
+    D1;
+    I1;
+    D2;
+    I2;
+    M;
+    P;
+    Y;
+    V;
+    SetDO DO_01,0;
+ENDPROC
+```
+
+- **GoMantenimeinto:**  posiciona el manipulador en una pose de mantenimiento donde se puede instalar o desinstalar la herramienta y enciende la luz de indicación (DO_02).
+```
+PROC GoMantenimeinto()
+    Homing;
+    SetDO DO_03,0;
+    SetDO DO_02,1;
+    MoveJ Mantenimiento,v200,z10,FinalTool\WObj:=wobj0;
+    SetDO DO_02,0;
+ENDPROC 
+
+```
+
+- **Homing:** mueve el robot a la posición de Home donde todos los ángulos articulares son 0 grados y enciende la luz de indicación (D0_03).
+  
+``` 
+PROC Homing()
+    SetDO DO_03,1;
+    MoveJ Home,v300,z10,FinalTool\WObj:=wobj0;
+ENDPRO 
+```
+
+Finalmente, las rutinas detalladas para cada letra y dibujo del logo (`Logo`, `D1`, `I1`, `D2`, `I2`, `M`, `P`, `Y` y `V`) se pueden encontrar en el modulo RAPID [Module1.mod](./RAPID/Module1.mod). 
 
 ## 7. Vídeo que contenga la simulación en _RobotStudio_ así como la implementación de la práctica con el robot real
 
