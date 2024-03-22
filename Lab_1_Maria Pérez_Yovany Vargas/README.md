@@ -53,6 +53,7 @@ La creación del WorkObject y la herramienta se llevo a cabo con el software Aut
 <label for = "Fig_6" ><br><b>Figura 6.</b> Modelado de herramienta para RobotStudio e impresión 3D Autodesk Inventor.</label></span>
 
 - Montaje de herramienta y WorkObject
+
 Desde Autodesk Inventor se exportan los modelados en formato .SAT, seguidamente se importan los modelados a RobotStudio. Desde la pestaña Modelado, sección Mecanismo, se crea la herramienta, donde una vez asignado el TCP en el modelado, la herramienta automáticamente se incorpora al robot ver **Figura 7**.
 
 <span><img id="Fig_7" src="Imágenes/Montaje.png" width="300"/>
@@ -64,6 +65,7 @@ Una vez importado el modelado del tablero con el logo e iniciales en su superfic
 <label for = "Fig_8" ><br><b>Figura 8.</b> Creación WorkObject_1 RobotStudio.</label></span>
 
 - Definición y programación de las trayectorias
+
 Para un proceso optimo, se decide separar la trayectoria general en sub-trayectorias, asignadas al logo y las iniciales, para un total de 9 sub-trayectorias. Junto a 2 trayectorias generales extras donde se establece el Home y la posición de Mantenimiento ver **FIGURA 9**.
 
 <span><img id="Fig_9" src="Imágenes/Trayectorias.png" width="300"/>
