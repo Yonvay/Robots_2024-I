@@ -238,4 +238,4 @@ El resultado final se ve en la **Figura 15**. Se observan pequeños trazos erró
 
 ## Referencias
 
-[1] ABB, Robotics, _Especificaciones del producto, IRB 140_, Skribenta version 5.3.075, ID: 3HAC041346-005. Recuperado de: [text](https://library.e.abb.com/public/84e6cb203eef4658839e7cf66e8eaf71/3HAC041346%20PS%20IRB%20140-es.pdf?x-sign=ImRvOsT2Jz0WrduLX2Ku7h+p8psQ+kwuvQhn/UcW7RoyrJUh8FyguShi/V3lJkkI)
+[1] ABB, Robotics, _Especificaciones del producto, IRB 140_, Skribenta version 5.3.075, ID: 3HAC041346-005. Recuperado de: [Abb library](https://library.e.abb.com/public/84e6cb203eef4658839e7cf66e8eaf71/3HAC041346%20PS%20IRB%20140-es.pdf?x-sign=ImRvOsT2Jz0WrduLX2Ku7h+p8psQ+kwuvQhn/UcW7RoyrJUh8FyguShi/V3lJkkI)
