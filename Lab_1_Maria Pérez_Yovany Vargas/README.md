@@ -126,7 +126,7 @@ Para visualizar correctamente el plano de planta, acceda a su enlace a continuac
 
 Para las instrucciones de movimiento se utilizaron los comandos RAPID  `MoveL`,`MoveJ`,y `MoveC` según la necesidad.
 
-- `MoveL`: Es una instrucción que mueve el robot en una línea recta desde su posición actual hasta la posición 
+- `MoveL`: Instrucción que mueve el robot en una línea recta desde su posición actual hasta la posición 
 objetivo especificada. **Sintaxis:**  ``MoveL ToPoint, Speed, Zone, Tool; ``
 
 -  `MoveJ`: Se utiliza para mover el robot rápidamente de un punto a otro cuando no es imprescindible que el 
