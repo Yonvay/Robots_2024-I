@@ -112,7 +112,7 @@ Una vez comprobado el correcto funcionamiento de las rutinas, entradas y salidas
 
 La figura 11 muestra el flujo de acciones del robot. El robot apenas inicia, ingresa a un bucle "WHILE TRUE DO". Dentro del bucle, se verifica el estado de las entradas digitales (DI). Si DI_01 está activo, se ejecuta el procedimiento "GoEscritura" que ejecuta una serie de instrucciones específicas para la tarea de escribir el logo de DIDI y las iniciales que se mostraron en la Figura 1. Si DI_02 está activo, se ejecuta la función "GoMantenimeinto" que  mueve el robot a la posición de "Mantenimiento" establecida. Si DI_03 está activo, se ejecuta la función "Homing" que mueve el robot a la posición "Home". Si ninguna de las entradas digitales está activa, el bucle continúa sin realizar ninguna acción.
 
-<span><img id="Fig_11" src=".\Imágenes\DiagramaDeFlujo.png" width="400"/>
+<span><img id="Fig_11" src=".\Imágenes\DiagramaDeFlujoMain.png" width="400"/>
 <label for = "Fig_11" ><br><b>Figura 11.</b> Diagrama de flujo de las acciones del robot.</label></span>
 
 
@@ -126,12 +126,16 @@ Para visualizar correctamente el plano de planta, acceda a su enlace a continuac
 Para las instrucciones de movimiento se utilizaron los comandos RAPID  `MoveL`,`MoveJ`,y `MoveC` según la necesidad.
 
 - `MoveL`: Es una instrucción que mueve el robot en una línea recta desde su posición actual hasta la posición 
-objetivo especificada.
+objetivo especificada. **Sintaxis:**  ``MoveL ToPoint, Speed, Zone, Tool; ``
 
 -  `MoveJ`: Se utiliza para mover el robot rápidamente de un punto a otro cuando no es imprescindible que el 
-movimiento siga una línea recta. Se utiliza para hacer acercamientos o alejamientos rápidos a una pieza.
+movimiento siga una línea recta. Se utiliza para hacer acercamientos o alejamientos rápidos a una pieza. **Sintaxis:**  ``MoveJ ToPoint, Speed, Zone, Tool; ``
 
-- `MoveC`: Se usa para mover el robot describiendo un arco de círculo, requiere dos puntos objetivo.
+- `MoveC`: Se usa para mover el robot describiendo un arco de círculo, requiere dos puntos objetivo.  **Sintaxis:**  ``MoveC ToPoint_1, ToPoint_2, Speed, Zone, Tool; ``
+
+El ``zonedata`` define el rango de tolerancia al llegar a una posición, es decir, a 
+qué distancia de la posición programada deben encontrarse los ejes antes de iniciar un 
+movimiento hasta la posición siguiente. En está práctica, se establece el parámetro Finep, fine point como True, con el fin de tener una mayor fidelidad en el trazo, sin embargo, presenta inconvenientes de singularidad en varias ocasiones.
 
 Para la configuración de las salidas digitales se uso el comando:
 - ``Set``: Da el valor de 1/0 lógico a la salida digital según se indique.
