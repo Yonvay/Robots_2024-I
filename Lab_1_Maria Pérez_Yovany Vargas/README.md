@@ -32,11 +32,11 @@ Donde las letras constan de un solo trazo y el logo todo su contorno. Para el de
 
 ### A. Reconocimiento y caracterización del WorkObject
 
-En el area de trabajo existen una tablero inclinado y varias cajas de madera, partiendo del objetivo de la practica de laboratorio, este tablero es el WorkObject a trabajar, sin embargo, es necesario ubicarlo considerando el alcance del robot ABB IRB 140. Para esto es primero se han de caracterizar este par de objetos.
+En el area de trabajo existen una tablero inclinado y varias cajas de madera, partiendo del objetivo de la practica de laboratorio, este tablero es el WorkObject a trabajar, sin embargo, es necesario ubicarlo considerando el alcance del robot ABB IRB 140. Para esto primero se han de caracterizar este par de objetos.
 
 - **Tablero, WorkObject_1**
 
-Las dimensiones del tablero son; 25.2 cm de alto y 25 cm de ancho, su parte trasera que cumple la función de apoyo tiene un largo de 26.5 cm. Partes unidas por sus extremos en un angulo de 90°, entonces el angulo entre la base y al tablero es de 46.76° ver **Figura 2**.
+Las dimensiones del tablero son; 25.2 cm de alto y 25 cm de ancho, su parte trasera que cumple la función de apoyo tiene un largo de 26.8 cm. Partes unidas por sus extremos en un angulo de 90°, entonces el angulo entre la base y al tablero es de 46.76° ver **Figura 2**.
 
 <span><img id="Fig_2" src="Imágenes/Board.png" width="400"/>
 <label for = "Fig_2" ><br><b>Figura 2.</b> Dimensiones de tablero inclinado.</label></span>
@@ -235,8 +235,8 @@ El video se encuentra alojado en YouTube, acceder mediante este link: [Video, si
 El resultado final se ve en la **Figura 15**. Se observan pequeños trazos erróneos en la letra Y, debido a la imposibilidad de ubicar de manera precisa el WorkObject_1. Por otra parte, las consideraciones de la herramienta fueron acertados, permitiendo replicar la practica en mas de una ocasión.
 
 <span><img id="Fig_15" src=".\Imágenes\Final.jpg" width="300"/>
-<label for = "Fig_15" ><br><b>Figura 14.</b> Resultado final.</label></span>
+<label for = "Fig_15" ><br><b>Figura 15.</b> Resultado final.</label></span>
 
 ## Referencias
 
-[1] ABB, Robotics, _Especificaciones del producto, IRB 140_, Skribenta version 5.3.075, ID: 3HAC041346-005. Recuperado de: [text](https://library.e.abb.com/public/84e6cb203eef4658839e7cf66e8eaf71/3HAC041346%20PS%20IRB%20140-es.pdf?x-sign=ImRvOsT2Jz0WrduLX2Ku7h+p8psQ+kwuvQhn/UcW7RoyrJUh8FyguShi/V3lJkkI)
+[1] ABB, Robotics, _Especificaciones del producto, IRB 140_, Skribenta version 5.3.075, ID: 3HAC041346-005. Recuperado de: [Abb library](https://library.e.abb.com/public/84e6cb203eef4658839e7cf66e8eaf71/3HAC041346%20PS%20IRB%20140-es.pdf?x-sign=ImRvOsT2Jz0WrduLX2Ku7h+p8psQ+kwuvQhn/UcW7RoyrJUh8FyguShi/V3lJkkI)
