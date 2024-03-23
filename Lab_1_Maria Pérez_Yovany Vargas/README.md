@@ -40,9 +40,9 @@ Las dimensiones del tablero son; 25.2 cm de alto y 25 cm de ancho, su parte tras
 <span><img id="Fig_2" src="Imágenes/Board.png" width="400"/>
 <label for = "Fig_2" ><br><b>Figura 2.</b> Dimensiones de tablero inclinado.</label></span>
 
-Ahora, se usa el ancho de la caja como soporte externo para el tablero, de medida 43 cm, ubicado desde el suelo. La distancia desde el cero de la base del robot ABB IRB 140 a la parte superior de la caja, es de 23 cm.
+Ahora, se usa el ancho de la caja como soporte externo para el tablero, de medida 43 cm, ubicado desde el suelo. La distancia desde el cero de la base del robot ABB IRB 140 a la parte superior de la caja, es de 24 cm.
 
-Con estos datos, la ubicación seleccionada para el *WorkObject_1* tomando como punto de referencia el punto inferior interno de la base del tablero ver **Figura 3** y respecto a la base del robot es; 1000 mm en X, -125 mm en Y y 230 mm en Z ver **Figura 4**.
+Con estos datos, la ubicación seleccionada para el *WorkObject_1* tomando como punto de referencia el punto inferior interno de la base del tablero ver **Figura 3** y respecto a la base del robot es; 1200 mm en X, -125 mm en Y y 190 mm en Z ver **Figura 4**.
 
 <span><img id="Fig_3" src="Imágenes/WorkObject_1.png" width="300"/>
 <label for = "Fig_3" ><br><b>Figura 3.</b> WorkObject_1 en RobotStudio.</label></span>
@@ -111,13 +111,13 @@ Una vez comprobado el correcto funcionamiento de las rutinas, entradas y salidas
 
 La figura 11 muestra el flujo de acciones del robot. El robot apenas inicia, ingresa a un bucle "WHILE TRUE DO". Dentro del bucle, se verifica el estado de las entradas digitales (DI). Si DI_01 está activo, se ejecuta el procedimiento "GoEscritura" que ejecuta una serie de instrucciones específicas para la tarea de escribir el logo de DIDI y las iniciales que se mostraron en la Figura 1. Si DI_02 está activo, se ejecuta la función "GoMantenimeinto" que  mueve el robot a la posición de "Mantenimiento" establecida. Si DI_03 está activo, se ejecuta la función "Homing" que mueve el robot a la posición "Home". Si ninguna de las entradas digitales está activa, el bucle continúa sin realizar ninguna acción.
 
-<span><img id="Fig_11" src=".\Imágenes\DiagramaDeFlujo.png" width="300"/>
-<label for = "Fig_10" ><br><b>Figura 11.</b> Diagrama de flujo de las acciones del robot.</label></span>
+<span><img id="Fig_11" src=".\Imágenes\DiagramaDeFlujo.png" width="400"/>
+<label for = "Fig_11" ><br><b>Figura 11.</b> Diagrama de flujo de las acciones del robot.</label></span>
 
 
 ## 3. Plano de planta de la ubicación de cada uno de los elementos
 Para visualizar correctamente el plano de planta, acceda a su enlace a continuación.
-[Plano de planta, ubicación de cada uno de los elementos.](/Lab_1_Maria%20Pérez_Yovany%20Vargas/Plano%20de%20planta.pdf)
+[Plano de planta, ubicación de cada uno de los elementos.](/Lab_1_Maria%20Pérez_Yovany%20Vargas/Plano%20Planta.pdf)
 
 
 ## 4. Descripción de las funciones utilizadas.
@@ -138,7 +138,22 @@ Para la configuración de las salidas digitales se uso el comando:
 
 ## 5. Diseño de herramienta.
 
-Para el diseño de la herramienta, se identifican las dimensiones de la base de la herramienta en el datasheet del robot, 
+Para el diseño de la herramienta, se identifican las dimensiones de la base de la herramienta en el datasheet del robot ver **Figura 12**.
+
+<span><img id="Fig_12" src=".\Imágenes\BaseHerramienta.png" width="300"/>
+<label for = "Fig_12" ><br><b>Figura 12.</b> Base de la herramienta, ABB IRB 140.</label></span>
+
+seguidamente junto a las medidas de un marcador `Pelikan 426` y las [consideraciones en el diseño de herramienta](#b-consideraciones-en-el-diseño-de-herramienta), se diseña la herramienta en 2 partes. El Porta-Marcador y un pasador que bloquea la salida del resorte ver Figura 13.
+
+<span><img id="Fig_13" src=".\Imágenes\FullTool.png" width="300"/>
+<label for = "Fig_13" ><br><b>Figura 13.</b> Herramienta.</label></span>
+
+Con la impresión 3D, el resultado final es el siguiente ver **Figura 14**. Ante posibles inconvenientes en las dimensiones finales se lijan las piezas involucradas, en este caso el pasador.
+
+<span><img id="Fig_14" src=".\Imágenes\RealTool.jpg" width="300"/>
+<label for = "Fig_14" ><br><b>Figura 14.</b> Herramienta.</label></span>
+
+Las dimensiones completas de la herramienta se encuentran en su plano asociado, [plano de la herramienta.](/Lab_1_Maria%20Pérez_Yovany%20Vargas/Plano%20Herramienta.pdf)
 
 ## 6. Código en RAPID del módulo utilizado para el desarrollo de la práctica.
 El código en RAPID del módulo utilizado para el desarrollo de la práctica se encuentra en el archivo [Module1.mod](./RAPID/Module1.mod). 
@@ -196,8 +211,7 @@ PROC GoMantenimeinto()
     SetDO DO_02,1;
     MoveJ Mantenimiento,v200,z10,FinalTool\WObj:=wobj0;
     SetDO DO_02,0;
-ENDPROC 
-
+ENDPROC
 ```
 
 - **Homing:** mueve el robot a la posición de Home donde todos los ángulos articulares son 0 grados, a excepción de la 5 que queda a 30° para evitar el caso donde la articulación 6 y 4 se alinean creando una singularidad en el robot. Adicionalmente, en está rutina se enciende la luz de indicación (D0_03).
@@ -213,4 +227,13 @@ Finalmente, las rutinas detalladas para cada letra y dibujo del logo (`Logo`, `D
 
 ## 7. Vídeo con la simulación en _RobotStudio_ así como la implementación de la práctica con el robot real
 
-El video se encuentra alojado en YouTube, acceder con este link: 
+El video se encuentra alojado en YouTube, acceder mediante este link: [Video, simulación y robot real.](https://youtu.be/UkpNaTU_DuQ)
+
+El resultado final se ve en la **Figura 15**. Se observan pequeños trazos erróneos en la letra Y, debido a la imposibilidad de ubicar de manera precisa el WorkObject_1. Por otra parte, las consideraciones de la herramienta fueron acertados, permitiendo replicar la practica en mas de una ocasión.
+
+<span><img id="Fig_15" src=".\Imágenes\Final.jpg" width="300"/>
+<label for = "Fig_15" ><br><b>Figura 14.</b> Resultado final.</label></span>
+
+## Referencias
+
+[1] ABB, Robotics, _Especificaciones del producto, IRB 140_, Skribenta version 5.3.075, ID: 3HAC041346-005. Recuperado de: [text](https://library.e.abb.com/public/84e6cb203eef4658839e7cf66e8eaf71/3HAC041346%20PS%20IRB%20140-es.pdf?x-sign=ImRvOsT2Jz0WrduLX2Ku7h+p8psQ+kwuvQhn/UcW7RoyrJUh8FyguShi/V3lJkkI)

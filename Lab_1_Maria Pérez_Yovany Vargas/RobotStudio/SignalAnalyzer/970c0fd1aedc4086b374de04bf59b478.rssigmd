@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Metadata Version="1">
+  <Id>970c0fd1aedc4086b374de04bf59b478</Id>
+  <Name>Recording-26</Name>
+  <EventCount>1</EventCount>
+  <StartedUtc>2024-03-23T03:00:11.4515170Z</StartedUtc>
+  <EndedUtc>2024-03-23T03:00:24.8105728Z</EndedUtc>
+  <TotalTime>0</TotalTime>
+  <Signals />
+  <Sources>
+    <Source type="Station" id="{dbcb5eef-1bf1-4b3c-8f07-604687582094}" displayName="Trayectoria_1" />
+  </Sources>
+</Metadata>
