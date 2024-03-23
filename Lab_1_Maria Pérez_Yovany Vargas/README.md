@@ -234,7 +234,7 @@ El video se encuentra alojado en YouTube, acceder mediante este link: [Video, si
 El resultado final se ve en la **Figura 15**. Se observan pequeños trazos erróneos en la letra Y, debido a la imposibilidad de ubicar de manera precisa el WorkObject_1. Por otra parte, las consideraciones de la herramienta fueron acertados, permitiendo replicar la practica en mas de una ocasión.
 
 <span><img id="Fig_15" src=".\Imágenes\Final.jpg" width="300"/>
-<label for = "Fig_15" ><br><b>Figura 14.</b> Resultado final.</label></span>
+<label for = "Fig_15" ><br><b>Figura 15.</b> Resultado final.</label></span>
 
 ## Referencias
 
