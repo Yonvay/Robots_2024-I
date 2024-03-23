@@ -141,15 +141,15 @@ Para la configuración de las salidas digitales se uso el comando:
 Para el diseño de la herramienta, se identifican las dimensiones de la base de la herramienta en el datasheet del robot, 
 
 ## 6. Código en RAPID del módulo utilizado para el desarrollo de la práctica.
-El código en RAPID del módulo utilizado para el desarrollo de la práctica se encuentra en el archivo [Module1.mod](./RAPID/Module1.mod). 
+El código en RAPID del módulo utilizado para el desarrollo de la práctica se encuentra en el archivo [Module1.mod](./RobotStudio/Controller%20Data/Controlador1/RAPID/TASK1/PROGMOD/Module1.mod). 
 
-Este módulo contiene las definiciones de las variables `robtarget` que representan las diferentes posiciones del robot. Cada variable robtarget se define como una lista que contiene los siguientes elementos:
+En primer lugar, el módulo contiene las definiciones de las variables `robtarget` que representan las diferentes posiciones del robot. Cada variable robtarget se define como una lista que contiene los siguientes elementos:
 - Posición X, Y, Z: Coordenadas de la posición en milímetros.
 - Orientación: Matriz de rotación 4x4 que define la orientación del robot en la posición.
 - Ejes de la herramienta: Vector que define los ejes de la herramienta en la posición.
 - Límites de singularidad: Vector que define los límites de singularidad del robot en la posición.
 
-Adicionalmente, este módulo contiene cada una de las rutinas del robot, las cuales se describen a continuación.
+Adicionalmente, el módulo contiene cada una de las rutinas del robot, las cuales se describen a continuación.
 
 - **Main:** bloque de procedimiento que contiene la lógica principal del flujo de acciones del robot.
   
@@ -189,6 +189,7 @@ ENDPROC
 ```
 
 - **GoMantenimeinto:**  posiciona el manipulador en una pose de mantenimiento donde se puede instalar o desinstalar la herramienta y enciende la luz de indicación (DO_02).
+
 ```
 PROC GoMantenimeinto()
     Homing;
@@ -209,7 +210,8 @@ PROC Homing()
 ENDPROC
 ```
 
-Finalmente, las rutinas detalladas para cada letra y dibujo del logo (`Logo`, `D1`, `I1`, `D2`, `I2`, `M`, `P`, `Y` y `V`) se pueden encontrar en el modulo RAPID [Module1.mod](./RAPID/Module1.mod). 
+Finalmente, las rutinas detalladas para cada letra y dibujo del logo (`Logo`, `D1`, `I1`, `D2`, `I2`, `M`, `P`, `Y` y `V`) se pueden encontrar en el modulo RAPID [Module1.mod](./RobotStudio/Controller%20Data/Controlador1/RAPID/TASK1/PROGMOD/Module1.mod). 
+
 
 ## 7. Vídeo con la simulación en _RobotStudio_ así como la implementación de la práctica con el robot real
 
