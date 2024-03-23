@@ -18,6 +18,7 @@ Universidad Nacional de Colombia
 - [5. Diseño de herramienta.](#5-diseño-de-herramienta)
 - [6. Código en RAPID del módulo utilizado para el desarrollo de la práctica.](#6-código-en-rapid-del-módulo-utilizado-para-el-desarrollo-de-la-práctica)
 - [7. Vídeo con la simulación en _RobotStudio_ así como la implementación de la práctica con el robot real](#7-vídeo-con-la-simulación-en-robotstudio-así-como-la-implementación-de-la-práctica-con-el-robot-real)
+- [Referencias](#referencias)
 
 
 ## 1. Descripción de la solución planteada
@@ -183,7 +184,7 @@ ENDPROC
 ```
    
 - **GoEscritura:**
-bloque de procedimiento que ejecuta la rutina de escritura y enciende una luz de indicación (DO_01). Primero, se ejecuta las rutinas `Logo`, `D1`, `I1`, `D2`, `I2` para escribir el logo DIDI. Luego, se escriben las inciales de los integrantes con las rutinas `M`, `P`, `Y` y `V`.  Al final de la rutina, el manipulador regresa a su posición de `HOME` y se apaga la luz de indicación.
+bloque de procedimiento que ejecuta la rutina de escritura y enciende una luz de indicación (DO_01). Primero, se ejecutan las rutinas `Logo`, `D1`, `I1`, `D2`, `I2` para escribir el logo DIDI. Luego, se escriben las inciales de los integrantes con las rutinas `M`, `P`, `Y` y `V`. Por último, el manipulador regresa a su posición de `HOME` y se apaga la luz de indicación.
 
 ``` 
 PROC GoEscritura()
@@ -215,7 +216,7 @@ PROC GoMantenimeinto()
 ENDPROC
 ```
 
-- **Homing:** mueve el robot a la posición de Home donde todos los ángulos articulares son 0 grados, a excepción de la 5 que queda a 30° para evitar el caso donde la articulación 6 y 4 se alinean creando una singularidad en el robot. Adicionalmente, en está rutina se enciende la luz de indicación (D0_03).
+- **Homing:** mueve el robot a la posición de Home y enciende la luz de indicación (D0_03). En la posición HOME todos los ángulos articulares son 0 grados, a excepción de la articulación 5 que queda a 30° para evitar el caso donde la articulación 6 y 4 se alinean creando una singularidad en el robot.
   
 ``` 
 PROC Homing()
