@@ -92,13 +92,13 @@ Con la ayuda de las herramientas para la selección de puntos en las aristas y c
 
 - **Definición y programación de las entradas y salidas**
 
-Aunque en las planteamientos de la practica de laboratorio se exige un total de 2 entras y salidas, se opta por
-una distribución de 3, para tener un mayor control sobre el robot, donde la DI_01 ejecuta la rutina de escritura a la vez que activa la salida DO_01, DI_02 ejecuta la rutina que lleva el robot a posición de mantenimiento de conmutando DO_02, y DI_03 ejecuta la acción de Homing ver **Figura 10**.
+Aunque en los planteamientos de la practica de laboratorio se exige un total de 2 entras y salidas, se opta por
+una distribución de 3, para tener un mayor control sobre el robot, donde la DI_01 ejecuta la rutina de escritura a la vez que activa la salida DO_01, DI_02 ejecuta la rutina que lleva el robot a posición de mantenimiento conmutando DO_02, y DI_03 ejecuta la acción de Homing ver **Figura 10**.
 
 <span><img id="Fig_10" src="Imágenes/IO's.png" width="300"/>
 <label for = "Fig_10" ><br><b>Figura 10.</b> I/O digitales RobotStudio.</label></span>
 
-De igual manera se entra en detalle en su programación en la **Sección 4**.
+Se entra en detalle en su programación en la **Sección 6**.
 
 - **Simulación**
 
