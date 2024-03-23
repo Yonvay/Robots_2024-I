@@ -102,21 +102,22 @@ Se entra en detalle en su programación en la **Sección 6**.
 
 - **Simulación**
 
-Una vez programadas las rutinas, entradas y salidas es posible ejecutar una simulación del robot, al mismo tiempo se simulan las entradas y salidas, con el fin de comprobar el correcto funcionamiento de la programación antes designada. Se lleva a cabo la simulación, esta se explora a detalle en la **Sección 7**.
+Una vez programadas las rutinas, entradas y salidas es posible emplear una simulación en RobotStudio, al mismo tiempo que se simulan las entradas y salidas, con el fin de comprobar el correcto funcionamiento de la programación antes designada, esto se explora en detalle en la **Sección 7**.
 
 - **Ejecución en vivo**
 
-Una vez comprobado el correcto funcionamiento de las rutinas, entradas y salidas. Se realiza un montaje aproximado del WorkObject_1, se instala la herramienta en el robot y se carga la programación mediante USB al FlexPendant, para su posterior ejecución en vivo la evidencia en video se encuentra en la **Sección 7**.
+Una vez comprobado el correcto funcionamiento de las rutinas, entradas y salidas. Se lleva a cabo el montaje aproximado del WorkObject_1, se instala la herramienta en el robot y se carga la programación con USB mediante el FlexPendant, para su posterior ejecución en vivo, la evidencia en video se encuentra en la **Sección 7**.
 
 ## 2. Diagrama de flujo de acciones del robot 
 
-La figura 11 muestra el flujo de acciones del robot. El robot apenas inicia, ingresa a un bucle "WHILE TRUE DO". Dentro del bucle, se verifica el estado de las entradas digitales (DI). Si DI_01 está activo, se ejecuta el procedimiento "GoEscritura" que ejecuta una serie de instrucciones específicas para la tarea de escribir el logo de DIDI y las iniciales que se mostraron en la Figura 1. Si DI_02 está activo, se ejecuta la función "GoMantenimeinto" que  mueve el robot a la posición de "Mantenimiento" establecida. Si DI_03 está activo, se ejecuta la función "Homing" que mueve el robot a la posición "Home". Si ninguna de las entradas digitales está activa, el bucle continúa sin realizar ninguna acción.
+La figura 11 muestra el flujo de acciones del robot. Cuando el robot arranca, ingresa a un bucle "WHILE TRUE DO". Dentro del bucle, se verifica el estado de las entradas digitales (DI). Si DI_01 está activo, se ejecuta el procedimiento "GoEscritura" que ejecuta una serie de instrucciones específicas para la tarea de escribir el logo de DIDI y las iniciales como se muestra en la **Figura 1**. Si DI_02 está activo, se ejecuta la función "GoMantenimeinto" que  mueve el robot a la posición de "Mantenimiento" establecida. Si DI_03 está activo, se ejecuta la función "Homing" que mueve el robot a la posición "Home". Si ninguna de las entradas digitales está activa, el bucle continúa sin realizar ninguna acción, es decir no realiza acciones a menos que reciba entradas.
 
 <span><img id="Fig_11" src=".\Imágenes\DiagramaDeFlujo.png" width="400"/>
 <label for = "Fig_11" ><br><b>Figura 11.</b> Diagrama de flujo de las acciones del robot.</label></span>
 
 
 ## 3. Plano de planta de la ubicación de cada uno de los elementos
+
 Para visualizar correctamente el plano de planta, acceda a su enlace a continuación.
 [Plano de planta, ubicación de cada uno de los elementos.](/Lab_1_Maria%20Pérez_Yovany%20Vargas/Plano%20Planta.pdf)
 
@@ -125,7 +126,7 @@ Para visualizar correctamente el plano de planta, acceda a su enlace a continuac
 
 Para las instrucciones de movimiento se utilizaron los comandos RAPID  `MoveL`,`MoveJ`,y `MoveC` según la necesidad.
 
-- `MoveL`: Es una instrucción que mueve el robot en una línea recta desde su posición actual hasta la posición 
+- `MoveL`: Instrucción que mueve el robot en una línea recta desde su posición actual hasta la posición 
 objetivo especificada.
 
 -  `MoveJ`: Se utiliza para mover el robot rápidamente de un punto a otro cuando no es imprescindible que el 
@@ -144,15 +145,15 @@ Para el diseño de la herramienta, se identifican las dimensiones de la base de 
 <span><img id="Fig_12" src=".\Imágenes\BaseHerramienta.png" width="300"/>
 <label for = "Fig_12" ><br><b>Figura 12.</b> Base de la herramienta, ABB IRB 140.</label></span>
 
-seguidamente junto a las medidas de un marcador `Pelikan 426` y las [consideraciones en el diseño de herramienta](#b-consideraciones-en-el-diseño-de-herramienta), se diseña la herramienta en 2 partes. El Porta-Marcador y un pasador que bloquea la salida del resorte ver Figura 13.
+Seguidamente junto a las medidas de un marcador `Pelikan 426` y las [consideraciones en el diseño de herramienta](#b-consideraciones-en-el-diseño-de-herramienta), se diseña la herramienta en 2 partes. El Porta-Marcador y un pasador que bloquea la salida del resorte ver **Figura 13**.
 
 <span><img id="Fig_13" src=".\Imágenes\FullTool.png" width="300"/>
-<label for = "Fig_13" ><br><b>Figura 13.</b> Herramienta.</label></span>
+<label for = "Fig_13" ><br><b>Figura 13.</b> Herramienta Autodesk Inventor.</label></span>
 
 Con la impresión 3D, el resultado final es el siguiente ver **Figura 14**. Ante posibles inconvenientes en las dimensiones finales se lijan las piezas involucradas, en este caso el pasador.
 
 <span><img id="Fig_14" src=".\Imágenes\RealTool.jpg" width="300"/>
-<label for = "Fig_14" ><br><b>Figura 14.</b> Herramienta.</label></span>
+<label for = "Fig_14" ><br><b>Figura 14.</b> Herramienta en físico.</label></span>
 
 Las dimensiones completas de la herramienta se encuentran en su plano asociado, [plano de la herramienta.](/Lab_1_Maria%20Pérez_Yovany%20Vargas/Plano%20Herramienta.pdf)
 
@@ -184,7 +185,7 @@ ENDPROC
 ```
    
 - **GoEscritura:**
-bloque de procedimiento que ejecuta la rutina de escritura y enciende una luz de indicación (DO_01). Primero, se ejecutan las rutinas `Logo`, `D1`, `I1`, `D2`, `I2` para escribir el logo DIDI. Luego, se escriben las inciales de los integrantes con las rutinas `M`, `P`, `Y` y `V`. Por último, el manipulador regresa a su posición de `HOME` y se apaga la luz de indicación.
+bloque de procedimiento que ejecuta la rutina de escritura y enciende una luz de indicación (DO_01). Primero, se ejecutan las rutinas `Logo`, `D1`, `I1`, `D2`, `I2` para escribir el logo DIDI. Luego, se escriben las iniciales de los integrantes con las rutinas `M`, `P`, `Y` y `V`. Por último, el manipulador se apaga la luz de indicación relacionada.
 
 ``` 
 PROC GoEscritura()
@@ -204,7 +205,7 @@ PROC GoEscritura()
 ENDPROC
 ```
 
-- **GoMantenimeinto:**  posiciona el manipulador en una pose de mantenimiento donde se puede instalar o desinstalar la herramienta y enciende la luz de indicación (DO_02).
+- **GoMantenimeinto:**  posiciona el manipulador en una pose de mantenimiento donde se puede instalar o desinstalar la herramienta y enciende la luz de indicación (DO_02) mientras está en ejecución.
 
 ```
 PROC GoMantenimeinto()
@@ -216,8 +217,7 @@ PROC GoMantenimeinto()
 ENDPROC
 ```
 
-- **Homing:** mueve el robot a la posición de Home y enciende la luz de indicación (D0_03). En la posición HOME todos los ángulos articulares son 0 grados, a excepción de la articulación 5 que queda a 30° para evitar el caso donde la articulación 6 y 4 se alinean creando una singularidad en el robot.
-  
+- **Homing:** mueve el robot a la posición de Home y enciende la luz de indicación (D0_03). En la posición HOME todos los ángulos articulares son 0 grados, a excepción de la articulación 6 que queda a 30°.
 ``` 
 PROC Homing()
     SetDO DO_03,1;
