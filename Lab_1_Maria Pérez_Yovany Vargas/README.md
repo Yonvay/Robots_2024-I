@@ -40,21 +40,21 @@ Las dimensiones del tablero son; 25.2 cm de alto y 25 cm de ancho, su parte tras
 <span><img id="Fig_2" src="Imágenes/Board.png" width="400"/>
 <label for = "Fig_2" ><br><b>Figura 2.</b> Dimensiones de tablero inclinado.</label></span>
 
-Ahora, se usa el ancho de la caja como soporte externo para el tablero, de medida 43 cm, ubicado desde el suelo. La distancia desde el cero de la base del robot ABB IRB 140 a la parte superior de la caja, es de 24 cm.
+Ahora, se usa el ancho de la caja como soporte externo para el tablero, de medida 43 cm, ubicado desde el suelo. La distancia desde el cero de la base del robot ABB IRB 140 a la parte superior de la caja, es de 19 cm.
 
 Con estos datos, la ubicación seleccionada para el *WorkObject_1* tomando como punto de referencia el punto inferior interno de la base del tablero ver **Figura 3** y respecto a la base del robot es; 1200 mm en X, -125 mm en Y y 190 mm en Z ver **Figura 4**.
 
 <span><img id="Fig_3" src="Imágenes/WorkObject_1.png" width="300"/>
 <label for = "Fig_3" ><br><b>Figura 3.</b> WorkObject_1 en RobotStudio.</label></span>
 
-<span><img id="Fig_4" src="Imágenes/Ubicación.jpg" width="300"/>
+<span><img id="Fig_4" src="Imágenes/Ubicación.png" width="300"/>
 <label for = "Fig_4" ><br><b>Figura 4.</b> Ubicación WorkObject_1 en RobotStudio.</label></span>
 
 Así el objecto de trabajo está en condiciones optimas para el trazo de las trayectorias.
 
 ### B. Consideraciones en el diseño de herramienta
 
-Debido a la alta exactitud del robot ABB IRB 140 se precisa la misma exactitud en la ubicación del WorkObject, sin embargo, no se poseen las herramientas necesarias para esta tarea, por tanto es necesario un método que permita tener un rango de tolerancia. Dicho método está ubicado en la herramienta, ya que el robot no admite modificaciones. Se plantea un resorte bloqueado a traves de un pasador con un desplazamiento de 3 cm, permitiendo el desplazamiento del marcador aun si el WorkObject no esta en la posición correcta.
+Debido a la alta exactitud del robot ABB IRB 140 se precisa la misma exactitud en la ubicación del WorkObject, sin embargo, no se poseen las herramientas necesarias para esta tarea, por tanto es necesario un método que permita tener un rango de tolerancia. Dicho método está ubicado en la herramienta, ya que el robot no admite modificaciones. Se plantea un resorte bloqueado por un pasador, con un desplazamiento de 3 cm, permitiendo el desplazamiento del marcador aun si el WorkObject no esta en la posición correcta.
 
 Bajo estás consideraciones, la metodología a desarrollar es la siguiente:
 
@@ -66,11 +66,11 @@ La creación del WorkObject y la herramienta se llevo a cabo con el software Aut
 <label for = "Fig_5" ><br><b>Figura 5.</b> Logo e iniciales Autodesk Inventor.</label></span>
 
 <span><img id="Fig_6" src="Imágenes/Herramienta.png" width="300"/>
-<label for = "Fig_6" ><br><b>Figura 6.</b> Modelado de herramienta para RobotStudio e impresión 3D Autodesk Inventor.</label></span>
+<label for = "Fig_6" ><br><b>Figura 6.</b> Modelado de herramienta para RobotStudio e impresión 3D, Autodesk Inventor.</label></span>
 
 - **Montaje de herramienta y WorkObject**
 
-Desde Autodesk Inventor se exportan los modelados en formato .SAT, seguidamente se importan los modelados a RobotStudio. Desde la pestaña Modelado, sección Mecanismo, se crea la herramienta, donde una vez asignado el TCP en el modelado, la herramienta se incorpora automáticamente al robot ver **Figura 7**.
+Desde Autodesk Inventor se exportan los modelados en formato .SAT, seguidamente se importan los modelados a RobotStudio. Desde la pestaña Modelado, sección Mecanismo, se crea la herramienta, donde una vez asignado el TCP en el modelado, la herramienta se incorpora al robot ver **Figura 7**.
 
 <span><img id="Fig_7" src="Imágenes/Montaje.png" width="300"/>
 <label for = "Fig_7" ><br><b>Figura 7.</b> Montaje de herramienta RobotStudio.</label></span>
