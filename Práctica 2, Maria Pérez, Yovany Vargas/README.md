@@ -9,9 +9,37 @@ Universidad Nacional de Colombia
 - Yovany Esneider Vargas Gutierrez
 
 **TABLA DE CONTENIDO**
+
 - [1. Especificaciones del robot utilizado](#1-Especificaciones del robot utilizado)
-  
-## 1 Especificaciones del robot utilizado
+
+## 1. Especificaciones del robot utilizado
+
+Modelo: EPSON VT6-A901S
+Tipo: Seis ejes
+Alcance: 920 mm
+Carga útil máxima: 6 kg
+
+El robot disponible no cuenta con modulo de entradas y salidas digitales.
+
+<span><img id="Fig_1" src="Imágenes/EPSON VT6-A901S.jpeg" width="400"/>
+<label for = "Fig_1" ><br><b>Figura 1.</b> Robot EPSON VT6-A901S.</label></span>
+
+Por precaución la ejecución de la rutina en el robot real, se ejecuta en potencia baja. Esto plantea un delimitador en la velocidad y aceleración.
+
+## 2. Descripción del código
+
+Al igual que en otros robots, EPSON cuenta con un software enfocado a la programación de los mismos en este caso **EPSON RC+ 7.0** compatible con tres tipos de robots. Scara, Seis ejes y Modulos EZ ver **Figura 2**.
+
+<span><img id="Fig_2" src="Imágenes/Tipos.png" width="400"/>
+<label for = "Fig_2" ><br><b>Figura 1.</b> Tipos de robots, EPSON RC+ 7.0.</label></span>
+
+En primer lugar para la correcta creación de trayectorias, se configuran los puntos. Estos se enseñan en el modulo administrador de robot, ver **Figura 3**.
+
+<span><img id="Fig_3" src="Imágenes/Enseñar.png" width="400"/>
+<label for = "Fig_3" ><br><b>Figura 3.</b> Modulo administrador de robot.</label></span>
+
+> [!NOTE]
+> Es importante no crear directamente los puntos mediante la inserción de coordenadas, esto ocasiona un error de interpretación por parte del software. En primera instancia enseñar puntos aleatorios y luego editarlos, así se evita dicho error.
 
 ```
 Global Integer i, j
@@ -29,6 +57,11 @@ Function main
 	SpeedS 100 'Velocidad de Move, Arc...
 	Accel 30, 30 '...
 	AccelS 100 '...
+```
+> [!NOTE]
+> Debido a que el robot no cuenta con modulo de entradas y salidas no es posible el control de trayectorias. Por ello se comentan las partes del código asociadas con la lectura de entras y salidas digitales.
+
+```
 	'Llamada de funciones, etc. Programación.
 	Do
 		'Se apagan todas las salidas para volver a empezar
