@@ -54,17 +54,17 @@ En primer lugar para la correcta creación de trayectorias, se configuran los pu
 
 Así se crean 3 tres puntos, con los cuales se desarrollan todas las trayectorias. Ver **Figura 4**.
 
-<span><img id="Fig_4" src="Imágenes/Puntos.png" width="500"/>
+<span><img id="Fig_4" src="Imágenes/Puntos.png" width="600"/>
 <label for = "Fig_4" ><br><b>Figura 4.</b> Puntos.</label></span>
 
 Finalmente se establece el punto para **HOME** este genera una trayectoria interna, que al llamarla en código, lleva el robot al **HOME** establecido, cabe resaltar que el software permite establecer el orden en que cada articulación se mueve para llegar a este punto, ver **Figura 5**.
 
-<span><img id="Fig_5" src="Imágenes/HOME.png" width="500"/>
+<span><img id="Fig_5" src="Imágenes/HOME.png" width="400"/>
 <label for = "Fig_5" ><br><b>Figura 5.</b> Punto HOME.</label></span>
 
 Para descargar el código creado en EPSON RC+ 7.0, se cambia la conexión del controlador virtual a USB. Ver **Figura 6**.
 
-<span><img id="Fig_6" src="Imágenes/USB.png" width="300"/>
+<span><img id="Fig_6" src="Imágenes/USB.png" width="200"/>
 <label for = "Fig_6" ><br><b>Figura 6.</b> Conexión USB.</label></span>
 
 ### B. Descripción de las funciones utilizadas
@@ -83,7 +83,7 @@ Como en cualquier lenguaje de programación, en primer lugar se crean todas las 
 
 Un pallet corresponde a un area distribuida en partes iguales, donde el centro de cada una de ellas son los puntos establecidos donde el tcp llega, para su definición son necesarios 3 puntos y las dimensiones de la distribución de partes iguales. **Sintaxis:**  ``Pallet Index, Point_1, Point_2, Point_3, Rows, Columns``, existe una variación del mismo, que permite adicionar una fila y columna extra en caso de requerirlo; ``Pallet Outside Index, Point_1, Point_2, Point_3, Rows, Columns``. Ver **Figura 7**.
 
-<span><img id="Fig_7" src="Imágenes/Pallet.png" width="500"/>
+<span><img id="Fig_7" src="Imágenes/Pallet.png" width="150"/>
 <label for = "Fig_7" ><br><b>Figura 7.</b> Pallet.</label></span>
 
 Seguidamente se establecen los valores de potencia, velocidad y aceleración a los cuales el robot ha de funcionar.
@@ -238,11 +238,13 @@ El código completo se encuentra en el archivo [Main.prg](./Main.prg).
 Los videos están almacenados en una carpeta de drive con acceso general [Link](https://drive.google.com/drive/folders/1T4iOJfjbF1U0leWlQVlbVVba-X9EQseo?usp=drive_link). Hay un total de 3 videos.
 
 [1. Ejecución del código del programa de Maria Peréz](https://drive.google.com/file/d/1h_bwgz-KlUIUS3DazlSsES4aIiHJqVMX/view?usp=drive_link)
+
 [2. Ejecución del código del programa de Yovany Vargas](https://drive.google.com/file/d/1kXkxF5EArWzg4wBgNJhnc32K4FhgaQRT/view?usp=drive_link)
+
 [3. Vista del software EPSON RC+ 7.0 con el robot en ejecución](https://drive.google.com/file/d/1mAecAb9SD7CPf3xmbNIcIN6Cff_7Qffc/view?usp=drive_link)
 
 En este ultimo se evidencia el seguimiento de los movimientos del robot en EPSON RC+ 7.0, esto se logra mediante la conexión USB, presente al momento de descargar el código en el controlador del robot.
 
 ## Referencias
 
-[1] Control De Movimiento, Control De Movimiento, _CAPACITACIÓN BÁSICA EPSON RC+ 7.0 - ROBOTS SCARA SERIE T_. Recuperado de: [micampus.unal.edu.co](https://micampus.unal.edu.co/pluginfile.php/2688481/mod_assign/introattachment/0/Capacitacio%CC%81n%20ba%CC%81sica%20EPSON%20RC%20%2B%207.0%20SCARA%20SERIE%20T%20131023.pdf?forcedownload=1)
+[1] Control De Movimiento, Control De Movimiento, _CAPACITACIÓN BÁSICA EPSON RC+ 7.0 - ROBOTS SCARA SERIE T_. Recuperado de: [micampus.unal.edu.co](https://micampus.unal.edu.co/pluginfile.php/2688481/mod_assign/introattachment/0/Capacitacio%CC%81n%20ba%CC%81sica%20EPSON%20RC%20%2B%207.0%20SCARA%20SERIE%20T%20131023.pdf?forcedownload=1).
