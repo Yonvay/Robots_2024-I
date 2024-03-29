@@ -67,7 +67,7 @@ movimiento siga una línea recta. Se utiliza para hacer acercamientos o alejamie
 Para la configuración de las salidas digitales se usaron los comandos **On** y **Off**, lleva la salida a 1 o 0, respectivamente.
 
 ### C. Descripción detalla del código
-```SPEL+
+```SPEL
 Global Integer i, j
 Function main
 	'Se definen los pallets y las salidas
