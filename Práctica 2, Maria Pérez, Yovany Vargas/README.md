@@ -15,6 +15,8 @@ Universidad Nacional de Colombia
     - [A. Consideraciones](#a-consideraciones)
     - [B. Descripción de las funciones utilizadas](#b-descripción-de-las-funciones-utilizadas)
     - [C. Descripción detalla del código](#c-descripción-detalla-del-código)
+- [3. Videos](#3-videos)
+- [4. Referencias](#referencias)
 
 ## 1. Especificaciones del robot utilizado
 
@@ -31,11 +33,12 @@ El robot disponible no cuenta con modulo de entradas y salidas digitales, ni Tea
 <span><img id="Fig_1" src="Imágenes/EPSON VT6-A901S.jpeg" width="150"/>
 <label for = "Fig_1" ><br><b>Figura 1.</b> Robot EPSON VT6-A901S.</label></span>
 
-Por precaución, la ejecución de la rutina en el robot real, se ejecuta en potencia baja. Esto plantea un delimitador en la velocidad y aceleración.
+Por precaución, la ejecución de la rutina en el robot real, se ejecuta en potencia baja. Esto plantea un delimitador en la velocidad y aceleración. También el robot tiene dos condiciones de parada de emergencia, botón de parada de emergencia y desconexión del puerto USB.
 
 ## 2. Desarrollo de práctica
 
 ### A. Consideraciones
+
 Al igual que en otros robots, EPSON cuenta con un software enfocado a la programación de los mismos en este caso **EPSON RC+ 7.0** compatible con tres tipos de robots. Scara, Seis ejes y Módulos EZ ver **Figura 2**. El lenguaje de programación que utiliza es **SPEL+**.
 
 <span><img id="Fig_2" src="Imágenes/Tipos.png" width="300"/>
@@ -59,6 +62,11 @@ Finalmente se establece el punto para **HOME** este genera una trayectoria inter
 <span><img id="Fig_5" src="Imágenes/HOME.png" width="500"/>
 <label for = "Fig_5" ><br><b>Figura 5.</b> Punto HOME.</label></span>
 
+Para descargar el código creado en EPSON RC+ 7.0, se cambia la conexión del controlador virtual a USB. Ver **Figura 6**.
+
+<span><img id="Fig_6" src="Imágenes/USB.png" width="300"/>
+<label for = "Fig_6" ><br><b>Figura 6.</b> Conexión USB.</label></span>
+
 ### B. Descripción de las funciones utilizadas
 
 - **Go:** Se utiliza para mover el robot rápidamente de un punto a otro cuando no es imprescindible que el 
@@ -73,10 +81,10 @@ Para la configuración de las salidas digitales se usaron los comandos **On** y 
 ### C. Descripción detalla del código
 Como en cualquier lenguaje de programación, en primer lugar se crean todas las variable a utilizar, entre ellas se encuentran contadores, pallets y se definen las salidas digitales.
 
-Un pallet corresponde a un area distribuida en partes iguales, donde el centro de cada una de ellas son los puntos establecidos donde el tcp llega, para su definición son necesarios 3 puntos y las dimensiones de la distribución de partes iguales. **Sintaxis:**  ``Pallet Index, Point_1, Point_2, Point_3, Rows, Columns``, existe una variación del mismo, que permite adicionar una fila y columna extra en caso de requerirlo; ``Pallet Outside Index, Point_1, Point_2, Point_3, Rows, Columns``. Ver **Figura 6**.
+Un pallet corresponde a un area distribuida en partes iguales, donde el centro de cada una de ellas son los puntos establecidos donde el tcp llega, para su definición son necesarios 3 puntos y las dimensiones de la distribución de partes iguales. **Sintaxis:**  ``Pallet Index, Point_1, Point_2, Point_3, Rows, Columns``, existe una variación del mismo, que permite adicionar una fila y columna extra en caso de requerirlo; ``Pallet Outside Index, Point_1, Point_2, Point_3, Rows, Columns``. Ver **Figura 7**.
 
-<span><img id="Fig_6" src="Imágenes/Pallet.png" width="500"/>
-<label for = "Fig_6" ><br><b>Figura 6.</b> Pallet.</label></span>
+<span><img id="Fig_7" src="Imágenes/Pallet.png" width="500"/>
+<label for = "Fig_7" ><br><b>Figura 7.</b> Pallet.</label></span>
 
 Seguidamente se establecen los valores de potencia, velocidad y aceleración a los cuales el robot ha de funcionar.
 
@@ -225,6 +233,16 @@ Fend
 
 El código completo se encuentra en el archivo [Main.prg](./Main.prg).
 
+## 3. Videos
+
+Los videos están almacenados en una carpeta de drive con acceso general [Link](https://drive.google.com/drive/folders/1T4iOJfjbF1U0leWlQVlbVVba-X9EQseo?usp=drive_link). Hay un total de 3 videos.
+
+[1. Ejecución del código del programa de Maria Peréz](https://drive.google.com/file/d/1h_bwgz-KlUIUS3DazlSsES4aIiHJqVMX/view?usp=drive_link)
+[2. Ejecución del código del programa de Yovany Vargas](https://drive.google.com/file/d/1kXkxF5EArWzg4wBgNJhnc32K4FhgaQRT/view?usp=drive_link)
+[3. Vista del software EPSON RC+ 7.0 con el robot en ejecución](https://drive.google.com/file/d/1mAecAb9SD7CPf3xmbNIcIN6Cff_7Qffc/view?usp=drive_link)
+
+En este ultimo se evidencia el seguimiento de los movimientos del robot en EPSON RC+ 7.0, esto se logra mediante la conexión USB, presente al momento de descargar el código en el controlador del robot.
+
 ## Referencias
 
-[1] Control De Movimiento, Control De Movimiento, _CAPACITACIÓN BÁSICA EPSON RC+ 7.0 - ROBOTS SCARA SERIE T_. Recuperado de: [Micampus.unal.edu.co](https://micampus.unal.edu.co/pluginfile.php/2688481/mod_assign/introattachment/0/Capacitacio%CC%81n%20ba%CC%81sica%20EPSON%20RC%20%2B%207.0%20SCARA%20SERIE%20T%20131023.pdf?forcedownload=1)
+[1] Control De Movimiento, Control De Movimiento, _CAPACITACIÓN BÁSICA EPSON RC+ 7.0 - ROBOTS SCARA SERIE T_. Recuperado de: [micampus.unal.edu.co](https://micampus.unal.edu.co/pluginfile.php/2688481/mod_assign/introattachment/0/Capacitacio%CC%81n%20ba%CC%81sica%20EPSON%20RC%20%2B%207.0%20SCARA%20SERIE%20T%20131023.pdf?forcedownload=1)
