@@ -237,6 +237,9 @@ El código completo se encuentra en el archivo [Main.prg](./Main.prg).
 
 Los videos están almacenados en una carpeta de drive con acceso general [Link](https://drive.google.com/drive/folders/1T4iOJfjbF1U0leWlQVlbVVba-X9EQseo?usp=drive_link). Hay un total de 3 videos.
 
+> [!IMPORTANT]
+> Acceda a Google Drive con su cuenta UNAL, ejemplo@unal.edu.co
+
 [1. Ejecución del código del programa de Maria Peréz](https://drive.google.com/file/d/1h_bwgz-KlUIUS3DazlSsES4aIiHJqVMX/view?usp=drive_link)
 
 [2. Ejecución del código del programa de Yovany Vargas](https://drive.google.com/file/d/1kXkxF5EArWzg4wBgNJhnc32K4FhgaQRT/view?usp=drive_link)
