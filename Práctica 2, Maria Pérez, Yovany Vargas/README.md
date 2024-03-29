@@ -10,7 +10,7 @@ Universidad Nacional de Colombia
 
 **TABLA DE CONTENIDO**
 
-- [1. Especificaciones del robot utilizado](#1-Especificaciones del robot utilizado)
+- [1. Especificaciones del robot utilizado](#1-especificaciones-del-robot-utilizado)
 
 ## 1. Especificaciones del robot utilizado
 
