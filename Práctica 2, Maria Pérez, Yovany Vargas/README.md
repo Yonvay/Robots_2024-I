@@ -32,7 +32,7 @@ Por precaución, la ejecución de la rutina en el robot real, se ejecuta en pote
 ## 2. Desarrollo de práctica
 
 ### A. Consideraciones
-Al igual que en otros robots, EPSON cuenta con un software enfocado a la programación de los mismos en este caso **EPSON RC+ 7.0** compatible con tres tipos de robots. Scara, Seis ejes y Módulos EZ ver **Figura 2**.
+Al igual que en otros robots, EPSON cuenta con un software enfocado a la programación de los mismos en este caso **EPSON RC+ 7.0** compatible con tres tipos de robots. Scara, Seis ejes y Módulos EZ ver **Figura 2**. El lenguaje de programación es **SPEL+**.
 
 <span><img id="Fig_2" src="Imágenes/Tipos.png" width="300"/>
 <label for = "Fig_2" ><br><b>Figura 1.</b> Tipos de robots, EPSON RC+ 7.0.</label></span>
@@ -68,7 +68,7 @@ objetivo especificada. **Sintaxis:**  ``Move ToPoint``
 Para la configuración de las salidas digitales se usaron los comandos **On** y **Off**, lleva la salida a 1 o 0, respectivamente.
 
 ### C. Descripción detalla del código
-```
+```SPEL+
 Global Integer i, j
 Function main
 	'Se definen los pallets y las salidas
