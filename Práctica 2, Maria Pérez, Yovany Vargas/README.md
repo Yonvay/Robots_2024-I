@@ -13,7 +13,7 @@ Universidad Nacional de Colombia
   
 ## 1 Especificaciones del robot utilizado
 
-```    
+````
 Global Integer i, j
 Function main
 	'Se definen los pallets y las salidas
@@ -145,4 +145,4 @@ Function paletizado_extremo
 	Off estado_paletizado_ex
 Fend
 
-```
+````
