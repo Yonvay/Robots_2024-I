@@ -15,20 +15,24 @@ Universidad Nacional de Colombia
 ## 1. Especificaciones del robot utilizado
 
 Modelo: EPSON VT6-A901S
+
 Tipo: Seis ejes
+
 Alcance: 920 mm
+
 Carga útil máxima: 6 kg
 
-El robot disponible no cuenta con modulo de entradas y salidas digitales.
+El robot disponible no cuenta con modulo de entradas y salidas digitales, ni Teach Pendant.
 
 <span><img id="Fig_1" src="Imágenes/EPSON VT6-A901S.jpeg" width="150"/>
 <label for = "Fig_1" ><br><b>Figura 1.</b> Robot EPSON VT6-A901S.</label></span>
 
-Por precaución la ejecución de la rutina en el robot real, se ejecuta en potencia baja. Esto plantea un delimitador en la velocidad y aceleración.
+Por precaución, la ejecución de la rutina en el robot real, se ejecuta en potencia baja. Esto plantea un delimitador en la velocidad y aceleración.
 
-## 2. Descripción del código
+## 2. Desarrollo de práctica
 
-Al igual que en otros robots, EPSON cuenta con un software enfocado a la programación de los mismos en este caso **EPSON RC+ 7.0** compatible con tres tipos de robots. Scara, Seis ejes y Modulos EZ ver **Figura 2**.
+### A. Consideraciones
+Al igual que en otros robots, EPSON cuenta con un software enfocado a la programación de los mismos en este caso **EPSON RC+ 7.0** compatible con tres tipos de robots. Scara, Seis ejes y Módulos EZ ver **Figura 2**.
 
 <span><img id="Fig_2" src="Imágenes/Tipos.png" width="300"/>
 <label for = "Fig_2" ><br><b>Figura 1.</b> Tipos de robots, EPSON RC+ 7.0.</label></span>
@@ -39,8 +43,32 @@ En primer lugar para la correcta creación de trayectorias, se configuran los pu
 <label for = "Fig_3" ><br><b>Figura 3.</b> Modulo administrador de robot.</label></span>
 
 > [!NOTE]
-> Es importante no crear directamente los puntos mediante la inserción de coordenadas, esto ocasiona un error de interpretación por parte del software. En primera instancia enseñar puntos aleatorios y luego editarlos, así se evita dicho error.
+> Es importante no crear directamente los puntos mediante la inserción de coordenadas, esto ocasiona un error de interpretación por parte del software. En lugar de eso, enseñar puntos aleatorios y luego editarlos, así se evita dicho error.
 
+Así se crean 3 tres puntos, con los cuales se desarrollan todas las trayectorias. Ver **Figura 4**.
+
+<span><img id="Fig_4" src="Imágenes/Puntos.png" width="500"/>
+<label for = "Fig_4" ><br><b>Figura 4.</b> Puntos.</label></span>
+
+Finalmente se establece el punto para **HOME** este genera una trayectoria interna, que al llamarla en código, lleva el robot al **HOME** establecido, cabe resaltar que el software permite establecer el orden en que cada articulación se mueve para llegar a este punto, ver **Figura 5**.
+
+<span><img id="Fig_5" src="Imágenes/HOME.png" width="500"/>
+<label for = "Fig_5" ><br><b>Figura 5.</b> Punto HOME.</label></span>
+
+### B. Descripción de las funciones utilizadas
+
+- **Go:** Se utiliza para mover el robot rápidamente de un punto a otro cuando no es imprescindible que el 
+movimiento siga una línea recta. Se utiliza para hacer acercamientos o alejamientos rápidos a una pieza. **Sintaxis:**  ``Go ToPoint``, también admite como entrada un pallet. Adicionalmente, permite la implementación de offsets sin modificar los puntos preestablecidos ``Go ToPoint :Axis(Offset)``.
+
+- **Wait:** Instrucción donde el robot espera una cantidad de tiempo especificado, sus unidades son los segundos, sin embargo acepta decimales, permitiendo así la inserción de milisegundos (0.5, 500 ms). **Sintaxis:**  ``Wait Time``
+
+- **Move:** Instrucción que mueve el robot en línea recta desde su posición actual hasta la posición 
+objetivo especificada. **Sintaxis:**  ``Move ToPoint``
+
+Para la configuración de las salidas digitales se uso el comando:
+- ``Set``: Da el valor de 1/0 lógico a la salida digital según se indique.
+
+### C. Descripción detalla del código
 ```
 Global Integer i, j
 Function main
@@ -58,7 +86,7 @@ Function main
 	Accel 30, 30 '...
 	AccelS 100 '...
 ```
-> [!NOTE    ]
+> [!NOTE]
 > Debido a que el robot no cuenta con modulo de entradas y salidas no es posible el control de trayectorias. Por ello se comentan las partes del código asociadas con la lectura de entras y salidas digitales.
 
 ```
