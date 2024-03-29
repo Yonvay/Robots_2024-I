@@ -14,7 +14,7 @@ Function main
 	SpeedS 100 'Velocidad de Move, Arc...
 	Accel 30, 30 '...
 	AccelS 100 '...
-	'Llamada de funciones, etc. Programación.
+	'Llamada de funciones, etc. Programaciï¿½n.
 	Do
 		'Se apagan todas las salidas para volver a empezar
 		Off estado_navegar
@@ -31,7 +31,7 @@ Function main
 			Call paletizado_s
 			Home
 		'ElseIf Sw(11) Then '8.
-			Call paletizado_extremo
+			Call paletizado_externo
 		'Else Vuelve a home
 		'EndIf
 	Loop
@@ -39,7 +39,7 @@ Fend
 
 Function navegar
 	'Se enciende la salida 10
-	'Indicando que está en ejecución
+	'Indicando que estï¿½ en ejecuciï¿½n
 	On estado_navegar
 	'Movimientos con Go
 	Go Origen
@@ -62,7 +62,7 @@ Fend
 
 Function paletizado_z
 	'Se enciende la salida 11
-	'Indicando que está en ejecución
+	'Indicando que estï¿½ en ejecuciï¿½n
 	On estado_paletizado_z
 	'Mediante un For recorre todas las posiciones
 	For i = 1 To 9
@@ -77,7 +77,7 @@ Fend
 
 Function paletizado_s
 	'Se enciende la salida 12
-	'Indicando que está en ejecución
+	'Indicando que estï¿½ en ejecuciï¿½n
 	On estado_paletizado_s
 	For i = 1 To 3
 		Go Pallet(1, i) :Z(200)
@@ -99,9 +99,9 @@ Function paletizado_s
 	Off estado_paletizado_s
 Fend
 
-Function paletizado_extremo
+Function paletizado_externo
 	'Se enciende la salida 13
-	'Indicando que está en ejecución
+	'Indicando que estï¿½ en ejecuciï¿½n
 	On estado_paletizado_ex
 	'Mediante dos For recorre todas las posiciones
 	For i = 1 To 4
