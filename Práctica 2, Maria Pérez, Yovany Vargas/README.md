@@ -13,7 +13,7 @@ Universidad Nacional de Colombia
   
 ## 1 Especificaciones del robot utilizado
 
-```C++
+```PRG
 Global Integer i, j
 Function main
 	'Se definen los pallets y las salidas
