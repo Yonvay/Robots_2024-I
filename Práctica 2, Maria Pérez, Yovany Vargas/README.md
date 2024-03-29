@@ -73,7 +73,13 @@ Para la configuración de las salidas digitales se usaron los comandos **On** y 
 ### C. Descripción detalla del código
 Como en cualquier lenguaje de programación, en primer lugar se crean todas las variable a utilizar, entre ellas se encuentran contadores, pallets y se definen las salidas digitales.
 
+Un pallet corresponde a un area distribuida en partes iguales, donde el centro de cada una de ellas son los puntos establecidos donde el tcp llega, para su definición son necesarios 3 puntos y las dimensiones de la distribución de partes iguales. **Sintaxis:**  ``Pallet Index, Point_1, Point_2, Point_3, Rows, Columns``, existe una variación del mismo, que permite adicionar una fila y columna extra en caso de requerirlo; ``Pallet Outside Index, Point_1, Point_2, Point_3, Rows, Columns``. Ver **Figura 6**.
+
+<span><img id="Fig_6" src="Imágenes/Pallet.png" width="500"/>
+<label for = "Fig_6" ><br><b>Figura 6.</b> Pallet.</label></span>
+
 Seguidamente se establecen los valores de potencia, velocidad y aceleración a los cuales el robot ha de funcionar.
+
 ```SPEL
 Global Integer i, j
 Function main
@@ -91,10 +97,11 @@ Function main
 	Accel 30, 30 'Aceleración de Go, Jump y Pulse
 	AccelS 100 'Aceleración de Move, Arc, entre otros
 ```
+
 > [!NOTE]
 > Debido a que el robot no cuenta con modulo de entradas y salidas no es posible el control de trayectorias. Por ello se comentan las partes del código asociadas con la lectura de entras, ubicadas en los comandos ``If Sw(Input)``.
 
-La rutina de **main** consiste en ir a **HOME**, seguidamente llamar la trayectoria ``navegar_2``, ``paletizado_z`` y ``paletizado_externo``, volviendo a **HOME** entre trayectorias.
+La rutina de **main** consiste en ir a **HOME**, seguidamente llamar la trayectoria ``navegar``, ``paletizado_z``, ``paletizado_s`` y ``paletizado_externo``, volviendo a **HOME** entre trayectorias.
 
 ```SPEL+
 	'Llamada de funciones, etc. Programación.
@@ -106,7 +113,7 @@ La rutina de **main** consiste en ir a **HOME**, seguidamente llamar la trayecto
 		Off estado_paletizado_ex
 			Home
 		'If Sw(8) Then '4. Navegar
-			Call navegar_2
+			Call navegar
 		'ElseIf Sw(9) Then '5.
 			Call paletizado_z
 			Home
@@ -119,21 +126,22 @@ La rutina de **main** consiste en ir a **HOME**, seguidamente llamar la trayecto
 		'EndIf
 	'Loop
 Fend
-```SPEL+
-
-La trayectoria ``navegar`` corresponde a la función con su mismo nombre, la cual hace un recorrido por los tres puntos creados con anterioridad, como se vio en la sección de [consideraciones](#a-consideraciones).
 ```
+
+La trayectoria ``navegar`` corresponde a la función con su mismo nombre, la cual hace el recorrido por los tres puntos creados con anterioridad, como se vio en la sección de [consideraciones](#a-consideraciones). Se hace el recorrido en primer lugar con la función **Go**, y luego **Move**. Esperando 500 ms entre cada movimiento.
+
+```SPEL+
 Function navegar
 	'Se enciende la salida 10
 	'Indicando que está en ejecución
 	On estado_navegar
 	'Movimientos con Go
 	Go Origen
-	Wait 0.5
+	Wait 0.5 'Espera 500 ms
 	Go EjeX
 	Wait 0.5
 	Go EjeY
-	Wait 0.5 'Espera 500 ms
+	Wait 0.5
 	'Movimientos con Move
 	Move Origen
 	Wait 0.5
@@ -145,22 +153,11 @@ Function navegar
 	'Indicando que esta ha terminado
 	Off estado_navegar
 Fend
+```
 
-Function navegar_2
-	Go Origen :Z(200)
-	Go Origen
-	Go Origen :Z(200)
-	Wait 0.5
-	Go EjeX :Z(200)
-	Go EjeX
-	Go EjeX :Z(200)
-	Wait 0.5
-	Go EjeY :Z(200)
-	Go EjeY
-	Go EjeY :Z(200)
-	Wait 0.5
-Fend
+La trayectoria ``paletizado_z``, hace el recorrido con la función **Go** del pallet de dimensiones 3x3 creado en las primeras lineas di código. Este recorrido se logra mediante un ``for`` que permite el recorrido secuencial de cada una de las nueve ubicaciones en el pallet.
 
+```SPEL+
 Function paletizado_z
 	'Se enciende la salida 11
 	'Indicando que está en ejecución
@@ -175,7 +172,11 @@ Function paletizado_z
 	'Indicando que esta ha terminado
 	Off estado_paletizado_z
 Fend
+```
 
+La trayectoria ``paletizado_s``, hace el recorrido con la función **Go** del pallet en S. Este recorrido se logra alternando entre un paso positivo y negativo, ya que la segunda fila debe recorrerse en dirección contraria para el recorrido en S.
+
+```SPEL+
 Function paletizado_s
 	'Se enciende la salida 12
 	'Indicando que está en ejecución
@@ -199,7 +200,11 @@ Function paletizado_s
 	'Indicando que esta ha terminado
 	Off estado_paletizado_s
 Fend
+```
 
+La trayectoria ``paletizado_externo``, hace el recorrido con la función **Go** del pallet outside. En este caso se recorre mediante dos ciclos ``for``. Este método también es posible en un pallet normal.
+
+```SPEL+
 Function paletizado_externo
 	'Se enciende la salida 13
 	'Indicando que está en ejecución
@@ -217,3 +222,9 @@ Function paletizado_externo
 	Off estado_paletizado_ex
 Fend
 ```
+
+El código completo se encuentra en el archivo [Main.prg](./Main.prg).
+
+## Referencias
+
+[1] Control De Movimiento, Control De Movimiento, _CAPACITACIÓN BÁSICA EPSON RC+ 7.0 - ROBOTS SCARA SERIE T_. Recuperado de: [Micampus.unal.edu.co](https://micampus.unal.edu.co/pluginfile.php/2688481/mod_assign/introattachment/0/Capacitacio%CC%81n%20ba%CC%81sica%20EPSON%20RC%20%2B%207.0%20SCARA%20SERIE%20T%20131023.pdf?forcedownload=1)
