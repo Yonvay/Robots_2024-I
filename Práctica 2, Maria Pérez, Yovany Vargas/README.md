@@ -21,7 +21,7 @@ Carga útil máxima: 6 kg
 
 El robot disponible no cuenta con modulo de entradas y salidas digitales.
 
-<span><img id="Fig_1" src="Imágenes/EPSON VT6-A901S.jpeg" width="400"/>
+<span><img id="Fig_1" src="Imágenes/EPSON VT6-A901S.jpeg" width="150"/>
 <label for = "Fig_1" ><br><b>Figura 1.</b> Robot EPSON VT6-A901S.</label></span>
 
 Por precaución la ejecución de la rutina en el robot real, se ejecuta en potencia baja. Esto plantea un delimitador en la velocidad y aceleración.
@@ -30,15 +30,15 @@ Por precaución la ejecución de la rutina en el robot real, se ejecuta en poten
 
 Al igual que en otros robots, EPSON cuenta con un software enfocado a la programación de los mismos en este caso **EPSON RC+ 7.0** compatible con tres tipos de robots. Scara, Seis ejes y Modulos EZ ver **Figura 2**.
 
-<span><img id="Fig_2" src="Imágenes/Tipos.png" width="400"/>
+<span><img id="Fig_2" src="Imágenes/Tipos.png" width="300"/>
 <label for = "Fig_2" ><br><b>Figura 1.</b> Tipos de robots, EPSON RC+ 7.0.</label></span>
 
 En primer lugar para la correcta creación de trayectorias, se configuran los puntos. Estos se enseñan en el modulo administrador de robot, ver **Figura 3**.
 
-<span><img id="Fig_3" src="Imágenes/Enseñar.png" width="400"/>
+<span><img id="Fig_3" src="Imágenes/Enseñar.png" width="500"/>
 <label for = "Fig_3" ><br><b>Figura 3.</b> Modulo administrador de robot.</label></span>
 
-> [!Nota]
+> [!NOTE]
 > Es importante no crear directamente los puntos mediante la inserción de coordenadas, esto ocasiona un error de interpretación por parte del software. En primera instancia enseñar puntos aleatorios y luego editarlos, así se evita dicho error.
 
 ```
@@ -58,7 +58,7 @@ Function main
 	Accel 30, 30 '...
 	AccelS 100 '...
 ```
-> [!Nota]
+> [!NOTE    ]
 > Debido a que el robot no cuenta con modulo de entradas y salidas no es posible el control de trayectorias. Por ello se comentan las partes del código asociadas con la lectura de entras y salidas digitales.
 
 ```
