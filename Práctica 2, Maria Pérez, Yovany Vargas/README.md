@@ -38,7 +38,7 @@ En primer lugar para la correcta creación de trayectorias, se configuran los pu
 <span><img id="Fig_3" src="Imágenes/Enseñar.png" width="400"/>
 <label for = "Fig_3" ><br><b>Figura 3.</b> Modulo administrador de robot.</label></span>
 
-> [!NOTE]
+> [!Nota]
 > Es importante no crear directamente los puntos mediante la inserción de coordenadas, esto ocasiona un error de interpretación por parte del software. En primera instancia enseñar puntos aleatorios y luego editarlos, así se evita dicho error.
 
 ```
@@ -58,7 +58,7 @@ Function main
 	Accel 30, 30 '...
 	AccelS 100 '...
 ```
-> [!NOTE]
+> [!Nota]
 > Debido a que el robot no cuenta con modulo de entradas y salidas no es posible el control de trayectorias. Por ello se comentan las partes del código asociadas con la lectura de entras y salidas digitales.
 
 ```
