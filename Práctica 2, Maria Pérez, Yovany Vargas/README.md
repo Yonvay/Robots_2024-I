@@ -11,6 +11,10 @@ Universidad Nacional de Colombia
 **TABLA DE CONTENIDO**
 
 - [1. Especificaciones del robot utilizado](#1-especificaciones-del-robot-utilizado)
+- [2. Especificaciones del robot utilizado](#2-desarrollo-de-práctica)
+    - [A. Consideraciones](#a-consideraciones)
+    - [B. Descripción de las funciones utilizadas](#b-descripción-de-las-funciones-utilizadas)
+    - [C. Descripción detalla del código](#c-descripción-detalla-del-código)
 
 ## 1. Especificaciones del robot utilizado
 
@@ -67,6 +71,9 @@ movimiento siga una línea recta. Se utiliza para hacer acercamientos o alejamie
 Para la configuración de las salidas digitales se usaron los comandos **On** y **Off**, lleva la salida a 1 o 0, respectivamente.
 
 ### C. Descripción detalla del código
+Como en cualquier lenguaje de programación, en primer lugar se crean todas las variable a utilizar, entre ellas se encuentran contadores, pallets y se definen las salidas digitales.
+
+Seguidamente se establecen los valores de potencia, velocidad y aceleración a los cuales el robot ha de funcionar.
 ```SPEL
 Global Integer i, j
 Function main
@@ -80,16 +87,18 @@ Function main
 	Motor On 'Motores On
 	Power Low 'Potencia baja
 	Speed 30 'Velocidad de Go, Jump y Pulse
-	SpeedS 100 'Velocidad de Move, Arc...
-	Accel 30, 30 '...
-	AccelS 100 '...
+	SpeedS 100 'Velocidad de Move, Arc, entre otros
+	Accel 30, 30 'Aceleración de Go, Jump y Pulse
+	AccelS 100 'Aceleración de Move, Arc, entre otros
 ```
 > [!NOTE]
-> Debido a que el robot no cuenta con modulo de entradas y salidas no es posible el control de trayectorias. Por ello se comentan las partes del código asociadas con la lectura de entras y salidas digitales.
+> Debido a que el robot no cuenta con modulo de entradas y salidas no es posible el control de trayectorias. Por ello se comentan las partes del código asociadas con la lectura de entras, ubicadas en los comandos ``If Sw(Input)``.
+
+La rutina de **main** consiste en ir a **HOME**, seguidamente llamar la trayectoria ``navegar_2``, ``paletizado_z`` y ``paletizado_externo``, volviendo a **HOME** entre trayectorias.
 
 ```SPEL+
 	'Llamada de funciones, etc. Programación.
-	Do
+	'Do
 		'Se apagan todas las salidas para volver a empezar
 		Off estado_navegar
 		Off estado_paletizado_z
@@ -105,12 +114,15 @@ Function main
 			Call paletizado_s
 			Home
 		'ElseIf Sw(11) Then '8.
-			Call paletizado_extremo
+			Call paletizado_externo
 		'Else 'Vuelve a home
 		'EndIf
-	Loop
+	'Loop
 Fend
+```SPEL+
 
+La trayectoria ``navegar`` corresponde a la función con su mismo nombre, la cual hace un recorrido por los tres puntos creados con anterioridad, como se vio en la sección de [consideraciones](#a-consideraciones).
+```
 Function navegar
 	'Se enciende la salida 10
 	'Indicando que está en ejecución
@@ -133,6 +145,7 @@ Function navegar
 	'Indicando que esta ha terminado
 	Off estado_navegar
 Fend
+
 Function navegar_2
 	Go Origen :Z(200)
 	Go Origen
@@ -187,7 +200,7 @@ Function paletizado_s
 	Off estado_paletizado_s
 Fend
 
-Function paletizado_extremo
+Function paletizado_externo
 	'Se enciende la salida 13
 	'Indicando que está en ejecución
 	On estado_paletizado_ex
