@@ -32,7 +32,7 @@ Por precaución, la ejecución de la rutina en el robot real, se ejecuta en pote
 ## 2. Desarrollo de práctica
 
 ### A. Consideraciones
-Al igual que en otros robots, EPSON cuenta con un software enfocado a la programación de los mismos en este caso **EPSON RC+ 7.0** compatible con tres tipos de robots. Scara, Seis ejes y Módulos EZ ver **Figura 2**. El lenguaje de programación es **SPEL+**.
+Al igual que en otros robots, EPSON cuenta con un software enfocado a la programación de los mismos en este caso **EPSON RC+ 7.0** compatible con tres tipos de robots. Scara, Seis ejes y Módulos EZ ver **Figura 2**. El lenguaje de programación que utiliza es **SPEL+**.
 
 <span><img id="Fig_2" src="Imágenes/Tipos.png" width="300"/>
 <label for = "Fig_2" ><br><b>Figura 1.</b> Tipos de robots, EPSON RC+ 7.0.</label></span>
@@ -62,8 +62,7 @@ movimiento siga una línea recta. Se utiliza para hacer acercamientos o alejamie
 
 - **Wait:** Instrucción donde el robot espera una cantidad de tiempo especificado, sus unidades son los segundos, sin embargo acepta decimales, permitiendo así la inserción de milisegundos (0.5, 500 ms). **Sintaxis:**  ``Wait Time``.
 
-- **Move:** Instrucción que mueve el robot en línea recta desde su posición actual hasta la posición 
-objetivo especificada. **Sintaxis:**  ``Move ToPoint``
+- **Move:** Instrucción que mueve el robot en línea recta desde su posición actual hasta la posición objetivo especificada. **Sintaxis:**  ``Move ToPoint``
 
 Para la configuración de las salidas digitales se usaron los comandos **On** y **Off**, lleva la salida a 1 o 0, respectivamente.
 
@@ -88,7 +87,7 @@ Function main
 > [!NOTE]
 > Debido a que el robot no cuenta con modulo de entradas y salidas no es posible el control de trayectorias. Por ello se comentan las partes del código asociadas con la lectura de entras y salidas digitales.
 
-```
+```SPEL+
 	'Llamada de funciones, etc. Programación.
 	Do
 		'Se apagan todas las salidas para volver a empezar
@@ -204,5 +203,4 @@ Function paletizado_extremo
 	'Indicando que esta ha terminado
 	Off estado_paletizado_ex
 Fend
-
 ```
