@@ -60,13 +60,12 @@ Finalmente se establece el punto para **HOME** este genera una trayectoria inter
 - **Go:** Se utiliza para mover el robot rápidamente de un punto a otro cuando no es imprescindible que el 
 movimiento siga una línea recta. Se utiliza para hacer acercamientos o alejamientos rápidos a una pieza. **Sintaxis:**  ``Go ToPoint``, también admite como entrada un pallet. Adicionalmente, permite la implementación de offsets sin modificar los puntos preestablecidos ``Go ToPoint :Axis(Offset)``.
 
-- **Wait:** Instrucción donde el robot espera una cantidad de tiempo especificado, sus unidades son los segundos, sin embargo acepta decimales, permitiendo así la inserción de milisegundos (0.5, 500 ms). **Sintaxis:**  ``Wait Time``
+- **Wait:** Instrucción donde el robot espera una cantidad de tiempo especificado, sus unidades son los segundos, sin embargo acepta decimales, permitiendo así la inserción de milisegundos (0.5, 500 ms). **Sintaxis:**  ``Wait Time``.
 
 - **Move:** Instrucción que mueve el robot en línea recta desde su posición actual hasta la posición 
 objetivo especificada. **Sintaxis:**  ``Move ToPoint``
 
-Para la configuración de las salidas digitales se uso el comando:
-- ``Set``: Da el valor de 1/0 lógico a la salida digital según se indique.
+Para la configuración de las salidas digitales se usaron los comandos **On** y **Off**, lleva la salida a 1 o 0, respectivamente.
 
 ### C. Descripción detalla del código
 ```
