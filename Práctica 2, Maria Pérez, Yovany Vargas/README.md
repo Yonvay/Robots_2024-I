@@ -15,6 +15,8 @@ Universidad Nacional de Colombia
 	- [B. Descripción de las funciones utilizadas](#b-descripción-de-las-funciones-utilizadas)
 	- [C. Descripción detalla del código](#c-descripción-detalla-del-código)
 - [3. Videos](#3-videos)
+- [A. Simulación](#a-simulación)
+- [B. Ejecución en Robot](#b-ejecución-en-robot)
   
 ## 1. Especificaciones del robot utilizado
 
@@ -31,13 +33,13 @@ El robot disponible no cuenta con modulo de entradas y salidas digitales, ni Tea
 <span><img id="Fig_1" src="Imágenes/EPSON VT6-A901S.jpeg" width="150"/>
 <label for = "Fig_1" ><br><b>Figura 1.</b> Robot EPSON VT6-A901S.</label></span>
 
-El robot tiene dos condiciones de parada de emergencia, botón de parada de emergencia y desconexión del puerto USB. Por precaución, la ejecución de la rutina en el robot real, se ejecuta en potencia baja. Esto plantea un delimitador en la velocidad y aceleración. 
+El robot tiene dos condiciones de parada de emergencia, botón de parada de emergencia y desconexión del puerto USB. 
 
 ## 2. Desarrollo de práctica
 
 ### A. Consideraciones
 
-Al igual que en otros robots, EPSON cuenta con un software enfocado a la programación de los mismos en este caso **EPSON RC+ 7.0** compatible con tres tipos de robots. Scara, Seis ejes y Módulos EZ ver **Figura 2**. El lenguaje de programación que utiliza es **SPEL+**.
+Al igual que en otros robots, EPSON cuenta con un software enfocado a la programación de los mismos en este caso **EPSON RC+ 7.0** compatible con tres tipos de robots: Scara, Seis ejes y Módulos EZ (ver **Figura 2**). El lenguaje de programación que utiliza es **SPEL+**.
 
 <span><img id="Fig_2" src="Imágenes/Tipos.png" width="300"/>
 <label for = "Fig_2" ><br><b>Figura 2.</b> Tipos de robots, EPSON RC+ 7.0.</label></span>
@@ -86,46 +88,52 @@ Un pallet corresponde a un área distribuida en partes iguales. Para la definci�
 
 En el main se establecen los valores de potencia, velocidad y aceleración a los cuales el robot ha de funcionar. La rutina de **main** consiste en ir a **HOME**, seguidamente llamar la trayectoria ``navegar``, ``paletizado_z``, ``paletizado_s`` y ``paletizado_externo``, volviendo a **HOME** entre trayectorias.
 
-> [!NOTE]
-> Debido a que el robot no cuenta con modulo de entradas y salidas no es posible el control de trayectorias por medio de entradas digitales. Por ello, se comentan las partes del código ``If Sw(Input)`` asociadas con la lectura de entradas.
-
 ```SPEL+
 Global Integer i, j
+
 Function main
-	'Se definen los pallets y las salidas
+	'Se definen los pallets 
 	Pallet Outside, 2, Origen, EjeX, EjeY, 3, 3
 	Pallet 1, Origen, EjeX, EjeY, 3, 3
+	'Se definen las salidas digitales
 	#define estado_navegar 10
-	#define estado_paletizado_z 11
-	#define estado_paletizado_s 12
-	#define estado_paletizado_ex 13
+	#define estado_navegar_2 11
+	#define estado_paletizado_z 12
+	#define estado_paletizado_s 13
+	#define estado_paletizado_ex 14
+	
 	Motor On 'Motores On
-	Power Low 'Potencia baja
+	Power High 'Potencia Alta para simular y Baja para probar en el robot
 	Speed 30 'Velocidad de Go, Jump y Pulse
-	SpeedS 100 'Velocidad de Move, Arc, entre otros
-	Accel 30, 30 'Aceleración de Go, Jump y Pulse
-	AccelS 100 'Aceleración de Move, Arc, entre otros
-	'Llamada de funciones, etc. Programación.
-	'Do
+	SpeedS 100 'Velocidad de Move, Arc...
+	Accel 30, 30 '...
+	AccelS 100 '...	
+	
+	Do
 		'Se apagan todas las salidas para volver a empezar
 		Off estado_navegar
+		Off estado_navegar_2
 		Off estado_paletizado_z
 		Off estado_paletizado_s
 		Off estado_paletizado_ex
-			Home
-		'If Sw(8) Then '4. Navegar
+		'Ejecución de rutinas	
+		Home
+		If Sw(8) Then
 			Call navegar
-		'ElseIf Sw(9) Then '5.
+			Home
+		ElseIf Sw(9) Then
+			Call navegar_2
+			Home
+		ElseIf Sw(10) Then
 			Call paletizado_z
 			Home
-		'ElseIf Sw(10) Then '6.
+		ElseIf Sw(11) Then
 			Call paletizado_s
 			Home
-		'ElseIf Sw(11) Then '8.
+		ElseIf Sw(12) Then
 			Call paletizado_externo
-		'Else 'Vuelve a home
-		'EndIf
-	'Loop
+		EndIf
+	Loop
 Fend
 ```
 
@@ -156,11 +164,38 @@ Function navegar
 Fend
 ```
 
+La trayectoria ``navegar_2`` es una modificación de la trayectoria anterior con Go, en la cual la altura de Z se modifica en 200mm, antes y después de la ejecución
+de cada punto.
+
+```
+Function navegar_2
+	'Se enciende la salida 11
+	'Indicando que está en ejecución
+	On estado_navegar_2
+	Go Origen :Z(200)
+	Go Origen
+	Go Origen :Z(200)
+	Wait 0.5
+	Go EjeX :Z(200)
+	Go EjeX
+	Go EjeX :Z(200)
+	Wait 0.5
+	Go EjeY :Z(200)
+	Go EjeY
+	Go EjeY :Z(200)
+	Go Origen :Z(200)
+	Wait 0.5
+	'Se apaga la salida 11
+	'Indicando que la rutina ha terminado
+	Off estado_navegar_2
+Fend
+```
+
 La trayectoria ``paletizado_z``, hace el recorrido con la función **Go** del pallet de dimensiones 3x3 creado en las primeras lineas di código. Este recorrido se logra mediante un ``for`` que permite el recorrido secuencial de cada una de las nueve ubicaciones en el pallet.
 
 ```SPEL+
 Function paletizado_z
-	'Se enciende la salida 11
+	'Se enciende la salida 12
 	'Indicando que está en ejecución
 	On estado_paletizado_z
 	'Mediante un For recorre todas las posiciones
@@ -169,7 +204,7 @@ Function paletizado_z
 		Go Pallet(1, i)
 		Go Pallet(1, i) :Z(200)
 	Next
-	'Se apaga la salida 11
+	'Se apaga la salida 12
 	'Indicando que esta ha terminado
 	Off estado_paletizado_z
 Fend
@@ -179,7 +214,7 @@ La trayectoria ``paletizado_s``, hace el recorrido con la función **Go** del pa
 
 ```SPEL+
 Function paletizado_s
-	'Se enciende la salida 12
+	'Se enciende la salida 13
 	'Indicando que está en ejecución
 	On estado_paletizado_s
 	For i = 1 To 3
@@ -197,7 +232,7 @@ Function paletizado_s
 		Go Pallet(1, i)
 		Go Pallet(1, i) :Z(200)
 	Next
-	'Se apaga la salida 12
+	'Se apaga la salida 13
 	'Indicando que esta ha terminado
 	Off estado_paletizado_s
 Fend
@@ -207,7 +242,7 @@ La trayectoria ``paletizado_externo``, hace el recorrido con la función **Go** 
 
 ```SPEL+
 Function paletizado_externo
-	'Se enciende la salida 13
+	'Se enciende la salida 14
 	'Indicando que está en ejecución
 	On estado_paletizado_ex
 	'Mediante dos For recorre todas las posiciones
@@ -218,27 +253,40 @@ Function paletizado_externo
 			Go Pallet(2, i, j) :Z(200)
 		Next
 	Next
-	'Se apaga la salida 13
+	'Se apaga la salida 14
 	'Indicando que esta ha terminado
 	Off estado_paletizado_ex
 Fend
 ```
-
-El código completo se encuentra en el archivo [Main.prg](./Main.prg).
+> [!NOTE]
+> Ambos integrantes elaboraron sus propios códigos, los cuales son esencialmente los mismos. Estos son: [Main_Maria.prg](./Main_Maria.prg) y [Main_Yonvay.prg](./Main_Maria.prg)
 
 ## 3. Videos
-Los videos están almacenados en una carpeta de drive con acceso general [Link](https://drive.google.com/drive/folders/1T4iOJfjbF1U0leWlQVlbVVba-X9EQseo?usp=drive_link). Hay un total de 3 videos.
+Los videos están almacenados en una carpeta de drive con acceso general [Link](https://drive.google.com/drive/folders/1T4iOJfjbF1U0leWlQVlbVVba-X9EQseo?usp=drive_link). Hay un total de 4 videos.
 
 > [!IMPORTANT]
 > Acceda a Google Drive con su cuenta UNAL, ejemplo@unal.edu.co
 
-[1. Ejecución del código del programa de Maria Peréz](https://drive.google.com/file/d/1h_bwgz-KlUIUS3DazlSsES4aIiHJqVMX/view?usp=drive_link)
 
-[2. Ejecución del código del programa de Yovany Vargas](https://drive.google.com/file/d/1kXkxF5EArWzg4wBgNJhnc32K4FhgaQRT/view?usp=drive_link)
+## A. Simulación
+Se realizó la simulación de las rutinas antes descritas. Para ello, la potencia se estableció en alta (``Power High``). 
 
-[3. Vista del software EPSON RC+ 7.0 con el robot en ejecución](https://drive.google.com/file/d/1mAecAb9SD7CPf3xmbNIcIN6Cff_7Qffc/view?usp=drive_link)
+[1. EPSON RC- SIMULACION.mp4](https://drive.google.com/file/d/1xH5PlPFYrfEegFigQBrtOAGVHLPFAI4V/view?usp=sharing)
 
-En este ultimo se evidencia el seguimiento de los movimientos del robot en EPSON RC+ 7.0, esto se logra mediante la conexión USB, presente al momento de descargar el código en el controlador del robot.
+## B. Ejecución en Robot 
+Debido a que el robot no cuenta con modulo de entradas y salidas no es posible el control de trayectorias por medio de entradas digitales. Por ello, se comentan las partes del código ``If Sw(Digital_input)`` asociadas con la lectura de entradas. Adicionalmente, por precaución, la ejecución de la rutina en el robot real se ejecuta en potencia baja (``Power Low``), lo que plantea un delimitador en la velocidad y aceleración. 
+
+Durante la práctica ambos miembros probaron sus códigos elaborados en el robot, los videos de dicha ejecución se presentan a continuación.
+
+[2. Ejecución del código del programa de Maria Peréz](https://drive.google.com/file/d/1h_bwgz-KlUIUS3DazlSsES4aIiHJqVMX/view?usp=drive_link)
+
+[3. Ejecución del código del programa de Yovany Vargas](https://drive.google.com/file/d/1kXkxF5EArWzg4wBgNJhnc32K4FhgaQRT/view?usp=drive_link)
+
+Por último, se presenta un video corto en el que se evidencia el seguimiento de los movimientos del robot en EPSON RC+ 7.0, esto se logra mediante la conexión USB, presente al momento de descargar el código en el controlador del robot.
+
+[4. Vista del software EPSON RC+ 7.0 con el robot en ejecución](https://drive.google.com/file/d/1mAecAb9SD7CPf3xmbNIcIN6Cff_7Qffc/view?usp=drive_link)
+
+
 
 ## Referencias <!-- omit from toc -->
 
