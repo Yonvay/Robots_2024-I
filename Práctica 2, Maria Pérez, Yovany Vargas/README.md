@@ -259,7 +259,7 @@ Function paletizado_externo
 Fend
 ```
 > [!NOTE]
-> Ambos integrantes elaboraron sus propios códigos, los cuales son esencialmente los mismos. Estos son: [Main_Maria.prg](./Main_Maria.prg) y [Main_Yonvay.prg](./Main_Maria.prg)
+> Ambos integrantes elaboraron sus propios códigos, los cuales son esencialmente los mismos. Estos son: [Main_Maria.prg](./Main_Maria.prg) y [Main_Yovany.prg](./Main_Yovany.prg)
 
 ## 3. Videos
 Los videos están almacenados en una carpeta de drive con acceso general [Link](https://drive.google.com/drive/folders/1T4iOJfjbF1U0leWlQVlbVVba-X9EQseo?usp=drive_link). Hay un total de 4 videos.
@@ -277,7 +277,7 @@ Los videos están almacenados en una carpeta de drive con acceso general [Link](
  La simulación se presenta en el siguiente video:
  [1.Simulacion.mp4](https://drive.google.com/file/d/1ruolqe_OU1eA8WTGTtbdTOF6UgHmL4Xo/view?usp=sharing).
 
- <span><img id="Fig_9" src="Imágenes\resultados_simulacion.png" width="300"/> <label for = "Fig_9" ><br><b>Figura 9.</b> Resultados de simulación.</label></span>
+ <span><img id="Fig_9" src="Imágenes\resultados_simulacion.png" width="500"/> <label for = "Fig_9" ><br><b>Figura 9.</b> Resultados de simulación.</label></span>
 
 ### B. Ejecución en Robot 
 Debido a que el robot no cuenta con modulo de entradas y salidas no es posible el control de trayectorias por medio de entradas digitales. Por ello, se comentan las partes del código ``If Sw(Digital_input)`` asociadas con la lectura de entradas. Adicionalmente, por precaución, la ejecución de la rutina en el robot real se ejecuta en potencia baja (``Power Low``), lo que plantea un delimitador en la velocidad y aceleración. 
