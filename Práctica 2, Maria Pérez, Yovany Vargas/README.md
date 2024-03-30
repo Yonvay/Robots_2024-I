@@ -15,8 +15,8 @@ Universidad Nacional de Colombia
 	- [B. Descripción de las funciones utilizadas](#b-descripción-de-las-funciones-utilizadas)
 	- [C. Descripción detalla del código](#c-descripción-detalla-del-código)
 - [3. Videos](#3-videos)
-- [A. Simulación](#a-simulación)
-- [B. Ejecución en Robot](#b-ejecución-en-robot)
+	- [A. Simulación](#a-simulación)
+	- [B. Ejecución en Robot](#b-ejecución-en-robot)
   
 ## 1. Especificaciones del robot utilizado
 
@@ -268,12 +268,18 @@ Los videos están almacenados en una carpeta de drive con acceso general [Link](
 > Acceda a Google Drive con su cuenta UNAL, ejemplo@unal.edu.co
 
 
-## A. Simulación
-Se realizó la simulación de las rutinas antes descritas. Para ello, la potencia se estableció en alta (``Power High``). 
+### A. Simulación
+ Para la simulación, la potencia se estableció en alta (``Power High``) y con el _monitor de E/S_ se controló el inicio de cada rutina.
 
-[1. EPSON RC- SIMULACION.mp4](https://drive.google.com/file/d/1xH5PlPFYrfEegFigQBrtOAGVHLPFAI4V/view?usp=sharing)
+<span><img id="Fig_8" src="Imágenes/monitor_E_S.png" width="300"/>
+<label for = "Fig_8" ><br><b>Figura 8.</b> Monitor de entradas y salidas.</label></span>
+	
+ La simulación se presenta en el siguiente video:
+ [1.Simulacion.mp4](https://drive.google.com/file/d/1ruolqe_OU1eA8WTGTtbdTOF6UgHmL4Xo/view?usp=sharing).
 
-## B. Ejecución en Robot 
+ <span><img id="Fig_9" src="Imágenes\resultados_simulacion.png" width="300"/> <label for = "Fig_9" ><br><b>Figura 9.</b> Resultados de simulación.</label></span>
+
+### B. Ejecución en Robot 
 Debido a que el robot no cuenta con modulo de entradas y salidas no es posible el control de trayectorias por medio de entradas digitales. Por ello, se comentan las partes del código ``If Sw(Digital_input)`` asociadas con la lectura de entradas. Adicionalmente, por precaución, la ejecución de la rutina en el robot real se ejecuta en potencia baja (``Power Low``), lo que plantea un delimitador en la velocidad y aceleración. 
 
 Durante la práctica ambos miembros probaron sus códigos elaborados en el robot, los videos de dicha ejecución se presentan a continuación.
