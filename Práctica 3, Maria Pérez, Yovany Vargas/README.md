@@ -65,9 +65,9 @@ Finalmente se detiene la conexión con el nodo maestro con el comando `rosshutdo
 
 ## Conclusiones
 
-* MatLab es un software con un amplio desarrollo en diferentes areas de estudio, si bien no fue necesario la llamada de funciones de un nivel de complejidad más alta. Siendo así que cuenta con un toolbox para ROS, que permite la conexión directa con el nodo maestro.
+* MatLab es un software con un amplio desarrollo en diferentes areas de estudio. Siendo así que cuenta con un toolbox para ROS, que permite la conexión directa con el nodo maestro, si bien no fue necesario la llamada de funciones de un nivel de complejidad más alta, este toolbox puede ser muy util en próximas practicas.
 
-<span><img id="Fig_7" src="Imágenes/Toolbox.png" width="300"/>
+<span><img id="Fig_7" src="Imágenes/Toolbox.png" width="450"/>
 <label for = "Fig_7" ><br><b>Figura 7.</b> ROS Toolbox.</label></span>
 
-* Cabe resaltan que el proceso de pre-desarrollo tiene un mayor grado de complejidad que la practica en si, ya que se somete al practicante a nuevos entornos, sistemas operativos. Con los cuales no está familiarizado, generando una retroalimentación constante sobre sus errores y aciertos.
+* El proceso de pre-desarrollo tiene un mayor grado de complejidad que la practica en si, ya que se somete al practicante a nuevos entornos de desarrollo, sistemas operativos. Con los cuales no está familiarizado, generando una retroalimentación constante sobre sus errores y aciertos.
