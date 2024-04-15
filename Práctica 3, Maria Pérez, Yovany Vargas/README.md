@@ -66,7 +66,7 @@ Finalmente se detiene la conexión con el nodo maestro con el comando `rosshutdo
 
 Los atributos de la tortuga son, posición en **_X_** y **_Y_**, angulo de inclinación en radianes, velocidad linear y angular.
 
-Respectivamente las entradas `/turtle1/cmd_vel` y `/turtle1/pose`, permiten obtener la velocidad y pose de la tortuga. Donde está se ejecuta como un objeto con métodos y atributos asignados.
+Respectivamente las entradas `/turtle1/cmd_vel` y `/turtle1/pose`, permiten obtener la velocidad y pose de la tortuga. Donde esta se ejecuta como un objeto con métodos y atributos asignados.
 
 ## Conclusiones
 
