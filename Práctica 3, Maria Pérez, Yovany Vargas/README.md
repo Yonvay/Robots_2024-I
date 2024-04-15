@@ -47,9 +47,10 @@ Donde la primera sección inicia el nodo maestro, seguidamente se inicializan la
 <span><img id="Fig_3" src="Imágenes/Matlab 1.png" width="600"/>
 <label for = "Fig_3" ><br><b>Figura 3.</b> Conexión MatLab con ROS.</label></span>
 
-Para la obtención del ultimo mensaje se deja la obtención del mensaje sin punto y coma de manera que imprima en consola y se visualice la información.
+Para la obtención del ultimo mensaje se deja la obtención del mensaje sin punto y coma de manera que imprima en consola y se visualice la información, dicha información corresponde a la pose o trama de la tortuga.
 
 ```
+posPub = rospublisher('/turtle1/pose','turtlesim/Pose');
 rosmessage(posPub); % -----> rosmessage(posPub)
 ```
 Se observa para la primera conexión en la **Figura 4** y para la ultima en la **Figura 5**.
@@ -62,12 +63,16 @@ Se observa para la primera conexión en la **Figura 4** y para la ultima en la *
 
 Con el paso anterior se obtienen todos los atributos que tiene el objeto tortuga, por tanto el ultimo script que permite enviar todos los valores asociados a la pose de la tortuga, debe tener lineas de código donde se cambie cada uno de estos atributos, y finalmente se envíen para su ejecución.
 
-Los atributos de la tortuga son, posición en **_X_** y **_Y_**, angulo de inclinación en radianes, velocidad linear y angular.
 Finalmente se detiene la conexión con el nodo maestro con el comando `rosshutdown`.
 
 <span><img id="Fig_6" src="Imágenes/Matlab 4.png" width="600"/>
 <label for = "Fig_6" ><br><b>Figura 6.</b> Desconexión del nodo maestro.</label></span>
 
+## Análisis
+
+Los atributos de la tortuga son, posición en **_X_** y **_Y_**, angulo de inclinación en radianes, velocidad linear y angular.
+
+Respectivamente las entradas `/turtle1/cmd_vel` y `/turtle1/pose`, permiten obtener la velocidad y pose de la tortuga. Donde esta se ejecuta como un objeto con métodos y atributos asignados.
 
 # 2. Conexión de ROS con python
 
