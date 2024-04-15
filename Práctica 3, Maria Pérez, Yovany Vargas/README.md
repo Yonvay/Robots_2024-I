@@ -230,7 +230,7 @@ def move_turtle():
 ## Resultados
 En el siguiente video, se muestra los resultados obtenidos al ejecutar el script de python elaborado.
 
-
+https://github.com/Yonvay/Robots_2024-I/assets/98606581/c5dd18ac-6603-471b-ab83-f554edfdba16
 
 ## Análisis
 
