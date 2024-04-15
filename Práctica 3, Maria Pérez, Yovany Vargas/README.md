@@ -9,3 +9,61 @@ Universidad Nacional de Colombia
 - Yovany Esneider Vargas Gutierrez
 
 **TABLA DE CONTENIDO**
+
+
+## 1. Conexión de ROS con Matlab:
+
+Se inician 2 instancias de terminal, en la primera se llama al nodo maestro con el comando _roscore_.
+
+<span><img id="Fig_1" src="Imágenes/Comando 1.png" width="150"/>
+<label for = "Fig_1" ><br><b>Figura 1.</b>  Llamada de nodo maestro.</label></span>
+
+En la segunda el comand _rosrun turtlesim turtlesim node_, este inicializa el programa de la tortuga.
+
+<span><img id="Fig_2" src="Imágenes/Comando 2.png" width="150"/>
+<label for = "Fig_2" ><br><b>Figura 2.</b>  Ejecución tortuga.</label></span>
+
+Script en MatLab, este se conecta con ROS y permite asignar valores a la posición de la tortuga.
+```
+%%
+rosinit;
+%%
+velPub = rospublisher('/turtle1/cmd_vel','geometry_msgs/Twist');
+velMsg = rosmessage(velPub)
+%%
+velMsg.Linear.X = 2 
+velMsg.Linear.Y = 3
+send(velPub,velMsg)
+pause(1)
+```
+Donde la primera sección inicia el nodo maestro, seguidamente se inicializan las variables, se modifican sus atributos y se envía para su posterior visualización ver *Figura 3*.
+
+<span><img id="Fig_3" src="Imágenes/Matlab 1.png" width="150"/>
+<label for = "Fig_3" ><br><b>Figura 3.</b> Conexión MatLab con ROS.</label></span>
+
+Para la obtención del ultimo mensaje se deja la obtención del mensaje sin punto y coma de manera que imprima en consola y se visualice la información.
+```
+rosmessage(posPub); % -----> rosmessage(posPub)
+```
+Se observa para la primera conexión en la *Figura 4* y para la ultima en la *Figura 5*.
+<span><img id="Fig_4" src="Imágenes/Matlab 2.png" width="150"/>
+<label for = "Fig_4" ><br><b>Figura 4.</b> Obtención del ultimo mensaje, primera conexión.</label></span>
+
+<span><img id="Fig_5" src="Imágenes/Matlab 3.png" width="150"/>
+<label for = "Fig_5" ><br><b>Figura 5.</b> Obtención del ultimo mensaje, ultima conexión.</label></span>
+
+Con el paso anterior se obtienen todos los atributos que tiene el objeto tortuga, por tanto el ultimo script que permite enviar todos los valores asociados a la pose de la tortuga, debe tener lineas de código donde se cambie cada uno de estos atributos, y finalmente se envíen para su ejecución.
+```
+posMsg.X = 2;
+posMsg.Y = 3;
+posMsg.Theta = 1.572;
+posMsg.LinearVelocity = 1;
+posMsg.AngularVelocity = 1;
+send(posPub,posMsg)
+pause(1)
+```
+Los atributos de la tortuga son, posición en _X_ y _Y_, angulo de inclinación en radianes, velocidad linear y angular.
+Finalmente se detiene la conexión con el nodo maestro con el comando _rosshutdown_.
+
+<span><img id="Fig_6" src="Imágenes/Matlab 4.png" width="150"/>
+<label for = "Fig_6" ><br><b>Figura 4.</b> Desconexión del nodo maestro.</label></span>
