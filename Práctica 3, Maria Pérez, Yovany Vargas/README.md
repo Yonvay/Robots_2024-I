@@ -10,13 +10,16 @@ Universidad Nacional de Colombia
 
 **TABLA DE CONTENIDO**
 - [1. Conexión Matlab con ROS](#1-conexión-matlab-con-ros)
+  - [Análisis](#análisis)
 - [2. Conexión de ROS con python](#2-conexión-de-ros-con-python)
   - [Objetivo](#objetivo)
   - [Procedimiento](#procedimiento)
   - [Explicación de myTeleopKey.py](#explicación-de-myteleopkeypy)
   - [Resultados](#resultados)
-  - [Análisis](#análisis)
+  - [Análisis](#análisis-1)
 - [Conclusiones](#conclusiones)
+- [Referencias](#referencias)
+
 
 # 1. Conexión Matlab con ROS
 
@@ -95,14 +98,14 @@ mkdir src
 catkin build
 ```
 
-2. Se clona el repositorio hello_turtle dentro de la carpeta src del espacio de trabajo creado, permitiendo la descarga del paquete turtlesim para su integración en el proyecto.
+2. Se clona el repositorio [hello_turtle](https://github.com/felipeg17/hello_turtle.git) dentro de la carpeta src del espacio de trabajo creado, permitiendo la descarga del paquete turtlesim para su integración en el proyecto.
 
 ```
 cd catkin_ws/src
 git clone https://github.com/felipeg17/hello_turtle.git
 ```
 
-3. En la carpeta `catkin_ws/src/hello_turtle/scrpits`, se agrega el script de Python creado [myTeleopKey.py](./src/hello_turtle/scripts/myTeleopKey.py).
+3. En la carpeta `catkin_ws/src/hello_turtle/scrpits`, se agrega el script de Python creado [myTeleopKey.py](./catkin_ws/src/hello_turtle/scripts/myTeleopKey.py).
 
 4. incluir el script en el apartado catkin_install_python del archivo `CMakeLists.txt` que se encuentra en el directorio `catkin_ws/src/hello_turtle/`. Dicho apartado lucirá así cuando el script ya sea añadido:
    
@@ -152,7 +155,7 @@ from numpy import pi
 
 `get_key()`: esta función decteta la techa preeionada por el usuario. Utiliza la biblioteca termios para cambiar la configuración del terminal para que pueda leer un solo carácter sin que el usuario tenga que presionar Enter. Ver [link](http://python4fun.blogspot.com/2008/06/get-key-press-in-python.html.)
 
-```Python
+```python
 TERMIOS = termios
 
 def get_key():  
@@ -172,6 +175,13 @@ def get_key():
 ```
 
 `handle_key(key, vel_msg, vel_pub)`: esta función toma como argumentos la pulsación de una tecla, un mensaje de Twist y un editor. Comprueba qué tecla se presionó y modifica el mensaje Twist en consecuencia, luego publica el mensaje.
+
+- Cuando la tecla A sea presionada se publicará un tópico Twist() con una velocidad angular en z de +1 para rotación antihoraria.
+- Cuando la tecla D sea presionada se publicará un tópico Twist() con una velocidad angular en z de -1 para rotación horaria.
+-  Cuando la telca W sea presionada se publicará un tópico Twist() con una velocidad lineal en x de +1 para ir hacia adelante.
+- Cuando la telca S sea presionada se publicará un tópico Twist() con una velocidad lineal en x de -1 para ir hacia atras. 
+- Cuando la tecla R sea presionada se llamará al servicio TeleportAbsolute() para que lleve a la tortuga a las coordenadas (5.5,5.5) y le de una orientación de 0°respecto a la horizontal de la pantalla.
+- Cuando la tecla Espacio sea presionada se llamará al servicio TeleportRelative() con un desplazamiento lineal nulo y un desplazamiento angular de 180°.
 
 ``` Python
 def handle_key(key, vel_msg, vel_pub):
@@ -246,12 +256,18 @@ El mensaje geometry_msgs/Twist se compone de dos vectores 3x1:
 
 **Control de movimiento del robot:**
 
-  - Cuando la tecla A sea presionada se publicará un tópico Twist() con una velocidad angular en z de +1 para rotación antihoraria.
-  - Cuando la tecla D sea presionada se publicará un tópico Twist() con una velocidad angular en z de -1 para rotación horaria.
- -  Cuando la telca W sea presionada se publicará un tópico Twist() con una velocidad lineal en x de +1 para ir hacia adelante.
-  - Cuando la telca S sea presionada se publicará un tópico Twist() con una velocidad lineal en x de -1 para ir hacia atras.
- - Cuando la tecla R sea presionada se llamará al servicio TeleportAbsolute() para que lleve a la tortuga a las coordenadas (5.5,5.5) y le de una orientación de 0°respecto a la horizontal de la pantalla.
-- Cuando la tecla Espacio sea presionada se llamará al servicio TeleportRelative() con un desplazamiento lineal nulo y un desplazamiento angular de 180°.
+**Movimiento lineal:**
+
+- **Hacia adelante:** Para mover el robot hacia adelante, se debe establecer un valor positivo en el componente x del vector de velocidad lineal. La magnitud del valor determinará la velocidad de avance del robot.
+
+- **Hacia atrás:** Para mover el robot hacia atrás, se debe establecer un valor negativo en el componente x del vector de velocidad lineal. La magnitud del valor determinará la velocidad de retroceso del robot.
+
+**Movimiento angular:**
+
+- **Giro en sentido antihorario:** Para girar el robot en sentido antihorario, se debe establecer un valor positivo en el componente z del vector de velocidad angular. La magnitud del valor determinará la velocidad de giro.
+
+- **Giro en sentido horario:** Para girar el robot en sentido horario, se debe establecer un valor negativo en el componente z del vector de velocidad angular. La magnitud del valor determinará la velocidad de giro.
+
 
 # Conclusiones
 * El tópico `/cmd_vel` proporciona una forma sencilla y estandarizada de controlar el movimiento de robots en ROS. Al comprender la estructura del mensaje `geometry_msgs/Twist` y las relaciones entre los componentes de velocidad lineal y angular, se puede controlar el movimiento del robot con precisión y eficiencia.
@@ -263,3 +279,8 @@ El mensaje geometry_msgs/Twist se compone de dos vectores 3x1:
 <label for = "Fig_7" ><br><b>Figura 7.</b> ROS Toolbox.</label></span>
 
 * El proceso de pre-desarrollo tiene un mayor grado de complejidad que la practica en si, ya que se somete al practicante a nuevos entornos de desarrollo, sistemas operativos. Con los cuales no está familiarizado, generando una retroalimentación constante sobre sus errores y aciertos.
+
+# Referencias
+[1]Intro a ROS. [Repositorio en GitHub]. https://github.com/PedroFCardenas/Intro_Ros
+
+[2] Hello Turtle. [Repositorio en GitHub]. Disponible en: https://github.com/felipeg17/hello_turtl
