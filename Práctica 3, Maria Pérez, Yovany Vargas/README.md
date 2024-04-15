@@ -153,7 +153,7 @@ import termios, sys, os
 from numpy import pi
 ```
 
-`get_key()`: esta función decteta la techa preeionada por el usuario. Utiliza la biblioteca termios para cambiar la configuración del terminal para que pueda leer un solo carácter sin que el usuario tenga que presionar Enter. Ver [link](http://python4fun.blogspot.com/2008/06/get-key-press-in-python.html.)
+`get_key()`: esta función decteta la techa preeionada por el usuario. Utiliza la biblioteca termios para cambiar la configuración del terminal para que pueda leer un solo carácter sin que el usuario tenga que presionar Enter. Ver [link](https://python4fun.blogspot.com/2008/06/get-key-press-in-python.html)
 
 ```python
 TERMIOS = termios
