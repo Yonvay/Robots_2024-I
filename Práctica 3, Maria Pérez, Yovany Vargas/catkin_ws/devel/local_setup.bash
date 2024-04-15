@@ -1,0 +1,1 @@
+/home/male/Documents/Robots_2024-I/Práctica 3, Maria Pérez, Yovany Vargas/catkin_ws/devel/.private/catkin_tools_prebuild/local_setup.bash
