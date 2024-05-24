@@ -1,1 +1,0 @@
-/home/male/Documents/Robots_2024-I/Práctica 3, Maria Pérez, Yovany Vargas/catkin_ws/devel/.private/hello_turtle/share/hello_turtle/cmake/hello_turtleConfig-version.cmake

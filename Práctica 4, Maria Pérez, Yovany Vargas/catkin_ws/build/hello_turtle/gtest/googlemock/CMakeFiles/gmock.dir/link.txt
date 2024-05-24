@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC   -shared -Wl,-soname,libgmock.so -o ../lib/libgmock.so CMakeFiles/gmock.dir/src/gmock-all.cc.o  -Wl,-rpath,"/home/male/Documents/Robots_2024-I/Práctica 3, Maria Pérez, Yovany Vargas/catkin_ws/build/hello_turtle/gtest/lib" ../lib/libgtest.so -lpthread 
