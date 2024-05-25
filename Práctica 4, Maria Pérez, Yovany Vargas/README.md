@@ -9,6 +9,25 @@ Universidad Nacional de Colombia
 - Yovany Esneider Vargas Gutierrez
 
 **TABLA DE CONTENIDO**
+- [Tabla de Parámetros de Denavit-Hartenberg Estándar (DHstd).](#tabla-de-parámetros-de-denavit-hartenberg-estándar-dhstd)
+- [Matríz de Transformación Homogénea (MTH).](#matríz-de-transformación-homogénea-mth)
+- [Conexión con Python](#conexión-con-python)
+- [Interfaz gráfica](#interfaz-gráfica)
+- [Video de demostración](#video-de-demostración)
+- [Comparación Gráficas Digitales vs Gráficas Reales.](#comparación-gráficas-digitales-vs-gráficas-reales)
+- [Referencias](#referencias)
+
+# Tabla de Parámetros de Denavit-Hartenberg Estándar (DHstd).
+
+# Matríz de Transformación Homogénea (MTH).
+
+# Conexión con Python
+
+# Interfaz gráfica
+
+# Video de demostración
+
+# Comparación Gráficas Digitales vs Gráficas Reales.
 
 
 # Referencias
