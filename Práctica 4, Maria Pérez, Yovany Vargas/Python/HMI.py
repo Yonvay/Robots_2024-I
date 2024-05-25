@@ -53,7 +53,7 @@ def show_contenido(root):
     radio_var = StringVar()
     radio_var.set(None)  # Set the default value to an empty string
 
-    radio_buttons_text = ["[0, 0, 0, 0, 0]", "[25, 25, 20, -20, 0]", "[-35, 35, -30, 30, 0]", "[85, -20, 55, 25 , 0]", "[85, -35, 55, -45, 0]"]
+    radio_buttons_text = ["[0, 0, 0, 0, 0]", "[25, 25, 20, -20, 0]", "[-35, 35, -30, 30, 0]", "[85, -10, 55, 25 , 0]", "[0, -10, 90, -90, 0]"]
 
     # Create five radio buttons
     for i in range(5):
