@@ -10,7 +10,7 @@ Universidad Nacional de Colombia
 
 **TABLA DE CONTENIDO**
 - [Tabla de Parámetros de Denavit-Hartenberg Estándar (DHstd).](#tabla-de-parámetros-de-denavit-hartenberg-estándar-dhstd)
-- [Matríz de Transformación Homogénea (MTH).](#matríz-de-transformación-homogénea-mth)
+- [Matriz de Transformación Homogénea (MTH).](#matriz-de-transformación-homogénea-mth)
 - [Conexión con Python](#conexión-con-python)
 - [Interfaz gráfica](#interfaz-gráfica)
 - [Video de demostración](#video-de-demostración)
@@ -19,7 +19,7 @@ Universidad Nacional de Colombia
 
 # Tabla de Parámetros de Denavit-Hartenberg Estándar (DHstd).
 
-# Matríz de Transformación Homogénea (MTH).
+# Matriz de Transformación Homogénea (MTH).
 
 # Conexión con Python
 
