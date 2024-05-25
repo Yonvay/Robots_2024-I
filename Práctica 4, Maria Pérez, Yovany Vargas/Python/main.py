@@ -1,3 +1,4 @@
+# -- coding: utf-8 --
 import rospy
 import numpy as np
 from std_msgs.msg import String

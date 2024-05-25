@@ -1,5 +1,6 @@
+# -- coding: utf-8 --
 # Librerias necesarias para la creacion de la interfaz grafica
-from tkinter import Tk, Frame, Label, Button, Radiobutton, StringVar, LEFT
+from tkinter import Canvas, Tk, Frame, Label, Button, Radiobutton, StringVar, LEFT, RIGHT
 from PIL import ImageTk, Image
 from pathlib import Path
 import main_HMI
@@ -8,7 +9,8 @@ import math
 # Get the current working directory
 current_dir = Path(__file__).parent
 
-cells = []
+actual_pose = None
+previus_pose = None
 
 def show_encabezado(root):
     global current_dir
@@ -19,10 +21,10 @@ def show_encabezado(root):
     img_logo = img_logo.resize((100, 100), Image.LANCZOS)  # resize to 100x100 pixels
     img_logo = ImageTk.PhotoImage(img_logo)  # convert the image object to a tkinter-compatible photo image
 
-    img_pose_label = Label(frm_encabezado, image=img_logo)
-    img_pose_label.image = img_logo  # keep a reference to the image to prevent it from being garbage collected
-    img_pose_label.pack(side=LEFT)
-
+    lb_img_logo = Label(frm_encabezado, image=img_logo)
+    lb_img_logo.image = img_logo  # keep a reference to the image to prevent it from being garbage collected
+    lb_img_logo.pack(side=LEFT)
+    
     frm_names = Frame(frm_encabezado, bg="#94b43b")
     frm_names.pack(side=LEFT, fill='both', expand=True)
 
@@ -41,10 +43,11 @@ def show_encabezado(root):
 
 def show_contenido(root):
     global cells 
+    global lb_img_actual, lb_img_previus
 
     # Create a frame to hold the radio buttons and teach button
     frm_commands= Frame(root)
-    frm_commands.pack(side=LEFT, padx=10, pady=10, fill = 'both', expand=True)
+    frm_commands.pack(side=LEFT, fill = 'both', expand=True)
 
     # Create a variable to keep track of which radio button is selected
     radio_var = StringVar()
@@ -54,16 +57,15 @@ def show_contenido(root):
 
     # Create five radio buttons
     for i in range(5):
-        rb = Radiobutton(frm_commands, text=f"Pose {i+1} = {radio_buttons_text[i]}", variable=radio_var, value=f"{i+1}", 
-                     command=lambda: callback_radiobutton(radio_var, img_pose_label))
+        rb = Radiobutton(frm_commands, text=f"Pose {i+1} = {radio_buttons_text[i]}", variable=radio_var, value=f"{i+1}")
         rb.pack(fill="both", expand=True)
 
     teach_button = Button(frm_commands, text="Ir a posición", bg="#94b43b", font=("Arial", 20), command=lambda: callback_teach_button(radio_var))
-    teach_button.pack(fill="both", expand=True)
+    teach_button.pack()
 
     # Create a frame to hold the table of articulation positions
-    frm_positions = Frame(root)
-    frm_positions.pack(side=LEFT, padx=10, pady=10, fill = 'both', expand=True)
+    frm_positions = Frame(frm_commands)
+    frm_positions.pack(side='bottom', anchor='center', padx=10, pady=10)
 
     # Define the data for the table
     data = [
@@ -84,40 +86,68 @@ def show_contenido(root):
             cell.grid(row=i, column=j)
             cells[i].append(cell)
 
-    # Create a label to display the image
-    img_pose_label = Label(root)
-    img_pose_label.pack()
+    # Create a frame to hold the images
+    frm_images = Frame(root)
+    frm_images.pack(side=RIGHT, padx=10, pady=10, fill = 'both', expand=True)
+    
+    lb_txt_previus = Label(frm_images, text="Última posición enviada", font=("Arial", 16))
+    lb_txt_previus.grid(row = 0, column = 0, padx= 10)
+
+    lb_txt_actual = Label(frm_images, text="Posición actual", font=("Arial", 16))
+    lb_txt_actual.grid(row = 0, column = 1, padx= 10)
+
+    lb_img_previus = Label(frm_images)
+    lb_img_previus.grid(row=1, column=0, padx=10, pady=10)
+
+    lb_img_actual = Label(frm_images)
+    lb_img_actual.grid(row=1, column=1, padx=10, pady=10)
+
 
 def callback_teach_button(radio_var):
-    print(radio_var.get())
-    pose_seleccionada = int(radio_var.get())-1
-    main_HMI.joint_publisher(pose_seleccionada)
+    global actual_pose, previus_pose
+    previus_pose = actual_pose
+    actual_pose = int(radio_var.get())
+    callback_images(previus_pose, actual_pose)
+    main_HMI.joint_publisher(actual_pose - 1) 
     main_HMI.listener()
     
     
 # Function that displays an image based on the selected radio button
-def callback_radiobutton(radio_var, img_pose_label):
+def callback_images(previus_pose: int, actual_pose: int):
     global current_dir
-    selected_option = radio_var.get() # Get the selected radio button
-    
+    global lb_img_actual, lb_img_previus
+
     # Map the selected option to an image file
-    img_file = {
-        "1": current_dir / "IMGS" / "pose1.png",
-        "2": current_dir / "IMGS" / "pose2.png",
-        "3": current_dir / "IMGS" / "pose3.png",
-        "4": current_dir / "IMGS" / "pose4.png",
-        "5": current_dir / "IMGS" / "pose5.png",
-    }.get(selected_option, current_dir / "IMGS" / "default.jpg")
+    dic_img_path = {
+        1: current_dir / "IMGS" / "pose1.png",
+        2: current_dir / "IMGS" / "pose2.png",
+        3: current_dir / "IMGS" / "pose3.png",
+        4: current_dir / "IMGS" / "pose4.png",
+        5: current_dir / "IMGS" / "pose5.png",
+    }
+
+    default = current_dir / "IMGS" / "default.jpg"
+
+    actual_img_path = dic_img_path.get(actual_pose, default)
+    previus_img_path = dic_img_path.get(previus_pose, default)
 
     # Load the image
-    img = Image.open(img_file)
+    actual_img = Image.open(actual_img_path)
+    actual_img = actual_img.resize((300, 300), Image.LANCZOS)  # Resize the image to 300x300 pixels
+
+    previus_img = Image.open(previus_img_path)
+    previus_img = previus_img.resize((300, 300), Image.LANCZOS)  # Resize the image to 300x300 pixels
 
     # Convert the image to a PhotoImage object
-    photo = ImageTk.PhotoImage(img)
+    photo_actual = ImageTk.PhotoImage(actual_img)
+    photo_previus = ImageTk.PhotoImage(previus_img)
 
     # Set the image of the label
-    img_pose_label.config(image=photo)
-    img_pose_label.image = photo  # Keep a reference to the image to prevent it from being garbage collected
+    lb_img_actual.config(image=photo_actual)
+    lb_img_actual.image = photo_actual  # Keep a reference to the image to prevent it from being garbage collected
+
+    lb_img_previus.config(image=photo_previus)
+    lb_img_previus.image = photo_previus  # Keep a reference to the image to prevent it from being garbage collected
 
 def data_to_HMI(data):
     global cells
@@ -130,7 +160,7 @@ def data_to_HMI(data):
 def main():
 
     root = Tk() # Create an instance of tkinter window
-    root.geometry("1000x500") # Define the geometry of the window
+    root.geometry("1000x600") # Define the geometry of the window
     root.title("HMI") # Set the title of the window
 
     show_encabezado(root)
