@@ -5,7 +5,7 @@ from sensor_msgs.msg import JointState
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 import HMI 
 
-pub = None
+pub = rospy.Publisher('/joint_trajectory', JointTrajectory, queue_size=0)
 
 def Deg2Rad(pose_deg):
     pose_rad = [value*np.pi/180 for value in pose_deg]

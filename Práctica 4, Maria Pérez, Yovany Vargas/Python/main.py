@@ -18,7 +18,7 @@ def listener():
     rospy.Subscriber("/dynamixel_workbench/joint_states", JointState, callback)
 
 # Función que permite publicar en cada tópico de controlador de articulación
-def joint_publisher(postura: list[float], pub: rospy.Publisher):
+def joint_publisher(postura: list, pub: rospy.Publisher):
     state = JointTrajectory()
     state.header.stamp = rospy.Time.now()
     state.joint_names = ["joint_1","joint_2","joint_3","joint_4","joint_5"]
