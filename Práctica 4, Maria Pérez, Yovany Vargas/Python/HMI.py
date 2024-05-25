@@ -4,7 +4,6 @@ from tkinter import Canvas, Tk, Frame, Label, Button, Radiobutton, StringVar, LE
 from PIL import ImageTk, Image
 from pathlib import Path
 import main_HMI
-import math
 
 # Get the current working directory
 current_dir = Path(__file__).parent
@@ -13,7 +12,6 @@ actual_pose = None
 previus_pose = None
 
 def show_encabezado(root):
-    global current_dir
     frm_encabezado = Frame(root, bg="#cccccc")
     frm_encabezado.pack(fill='x')
 
@@ -86,6 +84,9 @@ def show_contenido(root):
             cell.grid(row=i, column=j)
             cells[i].append(cell)
 
+    cells[0][0].config(font=("Arial", 12, "bold"))  # Set the font style to bold
+    cells[0][1].config(font=("Arial", 12, "bold"))  # Set the font style to bold
+
     # Create a frame to hold the images
     frm_images = Frame(root)
     frm_images.pack(side=RIGHT, padx=10, pady=10, fill = 'both', expand=True)
@@ -114,8 +115,6 @@ def callback_teach_button(radio_var):
     
 # Function that displays an image based on the selected radio button
 def callback_images(previus_pose: int, actual_pose: int):
-    global current_dir
-    global lb_img_actual, lb_img_previus
 
     # Map the selected option to an image file
     dic_img_path = {
@@ -165,7 +164,6 @@ def main():
 
     show_encabezado(root)
     show_contenido(root)
-    #show_radio_buttons(root)
 
     root.mainloop()
 
