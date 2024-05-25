@@ -33,9 +33,9 @@ def main():
     # Poses en radianes
     home = Deg2Rad([0, 0, 0, 0, 0])
     pose2 = Deg2Rad([25, 25, 20, -20, 0])
-    pose3 = Deg2Rad([-35, 35, -30, 30, 10])
-    pose4 = Deg2Rad([85, -20, 55, 25, 30])
-    pose5 = Deg2Rad([0, -10, 90, -90, 45])
+    pose3 = Deg2Rad([-35, 35, -30, 30, 0])
+    pose4 = Deg2Rad([85, -20, 55, 25, 0])
+    pose5 = Deg2Rad([0, -10, 90, -90, 0])
     posturas=[home,pose2,pose3,pose4,pose5] # array de poses
     postura_seleccionada = None # postura seleccionada
 
