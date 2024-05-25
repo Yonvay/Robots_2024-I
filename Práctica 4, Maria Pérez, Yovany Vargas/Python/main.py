@@ -11,7 +11,6 @@ def Deg2Rad(pose_deg):
 def callback(data):
     data = [value*180/np.pi for value in data.position]
     print (f"Joint1: {data[0]:.2f}°, Joint2: {data[1]:.2f}°, Joint3: {data[2]:.2f}°, Joint4: {data[3]:.2f}°, Joint5: {data[4]:.2f}°")
-    rospy.sleep(3)
 
 # Función que permite suscribirse al tópico de articulaciones
 def listener():
@@ -24,7 +23,7 @@ def joint_publisher(postura: list, pub: rospy.Publisher):
     state.joint_names = ["joint_1","joint_2","joint_3","joint_4","joint_5"]
     point = JointTrajectoryPoint()
     point.positions = postura  
-    point.time_from_start = rospy.Duration(0.5)
+    point.time_from_start = rospy.Duration(1)
     state.points.append(point)
     pub.publish(state)
     print('published command')
@@ -34,9 +33,9 @@ def main():
     # Poses en radianes
     home = Deg2Rad([0, 0, 0, 0, 0])
     pose2 = Deg2Rad([25, 25, 20, -20, 0])
-    pose3 = Deg2Rad([-35, 35, -30, 30, 0])
-    pose4 = Deg2Rad([85, -20, 55, 25, 0])
-    pose5 = Deg2Rad([80, -35, 55, -45, 0])
+    pose3 = Deg2Rad([-35, 35, -30, 30, 10])
+    pose4 = Deg2Rad([85, -20, 55, 25, 30])
+    pose5 = Deg2Rad([0, -10, 90, -90, 45])
     posturas=[home,pose2,pose3,pose4,pose5] # array de poses
     postura_seleccionada = None # postura seleccionada
 
@@ -48,6 +47,7 @@ def main():
         #control de mov. con teclas.
         print("\n1=home, \n2=[25, 25, 20, -20, 0], \n3=[-35, 35, -30, 30, 0], \n4=[85, -20, 55, 25, 0], \n5=[80, -35, 55, -45, 0]")
         key=input("Ingrese la tecla de la postura deseada: " )
+        
         if key == '1':
             postura_seleccionada = home
             key = ' '

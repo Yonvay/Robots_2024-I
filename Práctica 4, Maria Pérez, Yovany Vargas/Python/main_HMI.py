@@ -15,15 +15,14 @@ def Deg2Rad(pose_deg):
 home = Deg2Rad([0, 0, 0, 0, 0])
 pose2 = Deg2Rad([25, 25, 20, -20, 0])
 pose3 = Deg2Rad([-35, 35, -30, 30, 0])
-pose4 = Deg2Rad([85, -20, 55, 25, 0])
-pose5 = Deg2Rad([80, -35, 55, -45, 0])
+pose4 = Deg2Rad([85, -10, 55, 25, 0])
+pose5 = Deg2Rad([0, -10, 90, -90, 45])
 
 posturas = [home, pose2, pose3, pose4, pose5] # array de poses
 
 def callback(data):
     data = [value*180/np.pi for value in data.position]
     HMI.data_to_HMI(data)
-    rospy.sleep(3)
 
 # Función que permite suscribirse al tópico de articulaciones
 def listener():
@@ -47,7 +46,6 @@ def joint_publisher(postura_seleccionada:int):
 def main():
     global pub
     # Publicador de tópico de controlador de articulación
-    pub = rospy.Publisher('/joint_trajectory', JointTrajectory, queue_size=0)
     rospy.init_node('joint_publisher', anonymous=False)
     
     HMI.main()
