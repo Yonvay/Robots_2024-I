@@ -111,11 +111,12 @@ Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el re
 <label for = "Fig_1" ><br><b>Figura 1.</b> ROS Corriendo correctamente.</label></span>
 
 # 2. Extracción de parámetros de Denavit-Hartenberg Estándar (DHstd)
-
+\begin{center}
 | $i$ | $\theta_i$ | $d_i$ (cm) | $a_i$ (cm) | $\alpha_i$ (rad)| $offset$ (rad)|
 |-----|-------------|-------------|-------------|-------------|-------------|
 | 1 | $\theta_i$  | 9.7  | 0 | $\pi/2$ | 0 |
 | 2 | $\epsilon$| $\zeta$   |
+\end{center}
 
 # 3. Conexión con Python
 
