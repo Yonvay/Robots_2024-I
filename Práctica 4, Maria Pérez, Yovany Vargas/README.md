@@ -17,7 +17,7 @@ Universidad Nacional de Colombia
 - [Comparación Gráficas Digitales vs Gráficas Reales.](#comparación-gráficas-digitales-vs-gráficas-reales)
 - [Referencias](#referencias)
 
-# 1. Preparación del entorno para la conexión de los motores Dynamixel con ROS
+# 1. Configuración del software para el correcto funcionamiento de las herramientas
 
 Si bien el enfoque de la practica es el uso de herramientas como el toolbox de Peter Corke y ROS, análisis morfológico y control del robot, buena parte del tiempo es invertida en explorar los repositorios de referencia, hasta encontrar la manera en que el sistema reconozca los motores y sea posible su conexión con ROS. Por tanto, a continuación se expone el procedimiento correcto y todos los comandos necesarios.
 
@@ -106,7 +106,7 @@ joint_5:
  roslaunch dynamixel_one_motor one_controller.launch
 ```
 
-Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el resultado debe ser el siguiente. Ver **Figura 1.**
+Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el resultado debe ser el siguiente. Ver **Figura 1.**, allí se evidencia como ROS reconoce los 5 motores del robot.
 
 <span><img id="Fig_1" src="Pantallazos/terminal roslaunch running.png" width="600"/>
 <label for = "Fig_1" ><br><b>Figura 1.</b> ROS Corriendo correctamente.</label></span>
