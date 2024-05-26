@@ -17,6 +17,12 @@ Universidad Nacional de Colombia
 - [Comparación Gráficas Digitales vs Gráficas Reales.](#comparación-gráficas-digitales-vs-gráficas-reales)
 - [Referencias](#referencias)
 
+# 1. Preparación del entorno para la conexión de los motores Dynamixel con ROS
+
+Si bien el enfoque de la practica es el uso de herramientas como el toolbox de Peter Corke y ROS, análisis morfológico y control del robot, buena parte del tiempo es invertida en explorar los repositorios de referencia, hasta encontrar la manera en que el sistema reconozca los motores y sea posible su conexión con ROS. Por tanto, a continuación se expone el procedimiento y todos los comandos necesarios.
+
+## a.
+
 # Tabla de Parámetros de Denavit-Hartenberg Estándar (DHstd).
 
 # Matriz de Transformación Homogénea (MTH).
