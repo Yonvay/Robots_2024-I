@@ -63,7 +63,7 @@ Una vez terminado el proceso anterior, Ubuntu esta configurado para permitir el 
 
 ## b. Instalación y configuración de *dynamixel_one_motor*
 
-Para pasar al desarrollo de esta practica es necesario haber culminado con éxito la practica No. 3, donde se hace uso del paquete turtlesim, por ello se da por hecho que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`. Entonces, en la carpeta `src` se clona el repositorio *dynamixel_one_motor* para ello, se abre una terminal en la carpeta `src` y se ejecuta el siguiente comando.
+Para pasar al desarrollo de esta practica es necesario haber culminado con éxito la practica No. 3, donde se hace uso del paquete turtlesim, por ello, se da por hecho que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`. Entonces, en la carpeta `src` se clona el repositorio *dynamixel_one_motor* para ello, se abre una terminal en la carpeta `src` y se ejecuta el siguiente comando.
 
 ```
 git clone https://github.com/fegonzalez7/dynamixel_one_motor.git
@@ -108,7 +108,7 @@ joint_5:
 
 Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el resultado debe ser el siguiente. Ver **Figura 1.**
 
-<span><img id="Fig_1" src="Imágenes/terminal roslaunch running.png" width="600"/>
+<span><img id="Fig_1" src="Pantallazos/terminal roslaunch running.png" width="600"/>
 <label for = "Fig_1" ><br><b>Figura 1.</b> ROS Corriendo correctamente.</label></span>
 
 # Tabla de Parámetros de Denavit-Hartenberg Estándar (DHstd).
