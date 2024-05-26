@@ -33,31 +33,31 @@ Si bien el enfoque de la practica es el uso de herramientas como el toolbox de P
 
 Para ello, con el paquete de instalación ya descargado en Ubuntu <a href= https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/>Aquí</a>, se abre una terminal en la carpeta donde se ubica el paquete antes descargado, y se ejecutan en el mismo orden los siguiente comandos.
 
-    - Otorgar permisos al paquete en cuestión
+- Otorgar permisos al paquete en cuestión
 
-        ```
-        sudo chmod 775 DynamixelWizard2Setup_x64
-        ```
+```
+sudo chmod 775 DynamixelWizard2Setup_x64
+```
 
-    - Iniciar el programa de instalación y finalizar la instalación
+- Iniciar el programa de instalación y finalizar la instalación
 
-        ```
-        ./DynamixelWizard2Setup_x64
-        ```
+```
+./DynamixelWizard2Setup_x64
+```
 
-    - Dar acceso a los puertos USB
+- Dar acceso a los puertos USB
 
-        ```
-        sudo usermod -aG dialout **User Name**
-        ```
+```
+sudo usermod -aG dialout UserName
+```
 
-        User Name, corresponde al nombre de cuenta Linux, con la que inicias sesión en Ubuntu
+*UserName*, corresponde al nombre de cuenta Linux, con la que inicias sesión en Ubuntu
 
-    - Reiniciar
-    
-        ```
-        reboot
-        ```
+- Reiniciar
+
+```
+reboot
+```
 
 Una vez terminado el proceso anterior, Ubuntu esta configurado para permitir el paso de información por parte de los motores. Así el software de Dynamixel puede identificar los motores a la hora de ejecutar el Scan encargado de su búsqueda, sin embargo ROS aún no los reconoce.
 
