@@ -113,6 +113,7 @@ Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el re
 # 2. Extracción de parámetros de Denavit-Hartenberg Estándar (DHstd)
 
 | $i$ | $\theta_i$ | $d_i$ (cm) | $a_i$ (cm) | $\alpha_i$ (rad)| $offset$ (rad)|
+|-----|-------------|-------------|-------------|-------------|-------------|
 | 1 | $\theta_i$  | 9.7  | 0 | $\pi/2$ | 0 |
 | 2 | $\epsilon$| $\zeta$   |
 
