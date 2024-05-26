@@ -9,13 +9,12 @@ Universidad Nacional de Colombia
 - Yovany Esneider Vargas Gutierrez
 
 **TABLA DE CONTENIDO**
-- [Tabla de Parámetros de Denavit-Hartenberg Estándar (DHstd).](#tabla-de-parámetros-de-denavit-hartenberg-estándar-dhstd)
-- [Matriz de Transformación Homogénea (MTH).](#matriz-de-transformación-homogénea-mth)
-- [Conexión con Python](#conexión-con-python)
-- [Interfaz gráfica](#interfaz-gráfica)
-- [Video de demostración](#video-de-demostración)
-- [Comparación Gráficas Digitales vs Gráficas Reales.](#comparación-gráficas-digitales-vs-gráficas-reales)
-- [Referencias](#referencias)
+- [1. Configuración del software para el correcto funcionamiento de las herramientas](#1-configuración-del-software-para-el-correcto-funcionamiento-de-las-herramientas)
+- [2. Extracción de parámetros de Denavit-Hartenberg Estándar (DHstd)](#2-extracción-de-parámetros-de-denavit-hartenberg-estándar-dhstd)
+- [3. Conexión con Python](#3-conexión-con-python)
+- [4. Interfaz gráfica](#4-interfaz-gráfica)
+- [5. Video de demostración](#5-video-de-demostración)
+- [6. Comparación Gráficas Digitales vs Gráficas Reales.](#6-comparación-gráficas-digitales-vs-gráficas-reales)
 
 # 1. Configuración del software para el correcto funcionamiento de las herramientas
 
@@ -120,7 +119,7 @@ Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el re
 
 # 5. Video de demostración
 
-# 6. Comparación Gráficas Digitales vs Gráficas Reales.
+# 6. Comparación Gráficas Digitales vs Gráficas Reales
 
 
 # Referencias
