@@ -111,17 +111,16 @@ Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el re
 <span><img id="Fig_1" src="Pantallazos/terminal roslaunch running.png" width="600"/>
 <label for = "Fig_1" ><br><b>Figura 1.</b> ROS Corriendo correctamente.</label></span>
 
-# Tabla de Parámetros de Denavit-Hartenberg Estándar (DHstd).
+# 2. Extracción de parámetros de Denavit-Hartenberg Estándar (DHstd)
 
-# Matriz de Transformación Homogénea (MTH).
 
-# Conexión con Python
+# 3. Conexión con Python
 
-# Interfaz gráfica
+# 4. Interfaz gráfica
 
-# Video de demostración
+# 5. Video de demostración
 
-# Comparación Gráficas Digitales vs Gráficas Reales.
+# 6. Comparación Gráficas Digitales vs Gráficas Reales.
 
 
 # Referencias
