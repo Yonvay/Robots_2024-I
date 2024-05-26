@@ -32,6 +32,7 @@ Si bien el enfoque de la practica es el uso de herramientas como el toolbox de P
 ## a. Descarga de Dynamixel
 
 Para ello, con el paquete de instalación ya descargado en Ubuntu <a href= https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/>Aquí</a>, se abre una terminal en la carpeta donde se ubica el paquete antes descargado, y se ejecutan en el mismo orden los siguiente comandos.
+
     - Otorgar permisos al paquete en cuestión
 
         ```
@@ -53,6 +54,7 @@ Para ello, con el paquete de instalación ya descargado en Ubuntu <a href= https
         User Name, corresponde al nombre de cuenta Linux, con la que inicias sesión en Ubuntu
 
     - Reiniciar
+    
         ```
         reboot
         ```
