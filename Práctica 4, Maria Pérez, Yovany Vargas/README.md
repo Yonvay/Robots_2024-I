@@ -126,6 +126,7 @@ Los parámetros se encuentran en la **Tabla 1**, el ángulo entre $a_1$ y $a_2$,
 | 3 | $\theta_3$  | 0  | 10.135 | 0 | -1.242 |
 | 4 | $-\theta_4$  | 0  | 0 | $\pi/2$ | $\pi/2$ |
 | 5 | 0 | 11.19 | 0 | 0 | 0 |
+
 <label for = "Tab_2" ><br><b>Tabla 1.</b> Parámetros DHstd.</label></span>
 
 # 3. Conexión con Python
