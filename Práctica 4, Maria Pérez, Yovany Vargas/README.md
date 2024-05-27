@@ -195,11 +195,7 @@ Allí se observa el correcto funcionamiento de la interfaz y al robot alcanzando
 
 # 6. Comparación Gráficas Digitales vs Gráficas Reales
 
-Para la obtención de los gráficos para cada posición, se hizo uso de la función `SerialLink()` del toolbox de Peter Corke, que solicita los parametros Denavit-Hartenberg ya vinculados a las conexiones, para ello se usa la función `Link()` que recibe 6 parámetros.
-
-```
-Link($/theta_i$, $d_i$, $a_i$, $/alpha_i$, $Type$, $Offset$)
-```
+Para la obtención de los gráficos para cada posición, se hizo uso de la función `SerialLink()` del toolbox de Peter Corke, que solicita los parametros Denavit-Hartenberg ya vinculados a las conexiones, para ello se usa la función `Link()` que recibe 6 parámetros `Link($/theta_i$, $d_i$, $a_i$, $/alpha_i$, $Type$, $Offset$)`.
 
 Siendo $Type$ el tipo de articulación, donde 0 es cilíndrica y 1 prismática. En este caso el Phantom X, solo posee articulaciones cilíndricas. Para la herramienta como se recomienda en la guía, se utiliza el comando `phantomX.tool()`, desde el cual se define una traslación en el eje approach de la distancia correspondiente entre los ejes $X_4$ y $n$. Se asignan los nombres y finalmente con el comando `phantomX.plot(q)` se obtienen las gráficas. Ver **Figuras x, x, x, x y x**.
 
