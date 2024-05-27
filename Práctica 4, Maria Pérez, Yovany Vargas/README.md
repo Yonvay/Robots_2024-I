@@ -121,10 +121,10 @@ Los parámetros se encuentran en la **Tabla 1**, el ángulo entre $a_1$ y $a_2$,
 
 | $i$ | $\theta_i$ | $d_i$ $(cm)$ | $a_i$ $(cm)$ | $\alpha_i$ $(rad)$| $offset$ $(rad)$|
 |-|-|-|-|-|-|
-| 1 | $\theta_1$  | 9.7  | 0 | $\pi/2$ | 0 |
-| 2 | $-\theta_2$  | 0  | 10.67 | 0 | 1.242 |
-| 3 | $\theta_3$  | 0  | 10.135 | 0 | -1.242 |
-| 4 | $-\theta_4$  | 0  | 0 | $\pi/2$ | $\pi/2$ |
+| 1 | $q_1$  | 9.7  | 0 | $\pi/2$ | 0 |
+| 2 | $-q_2$  | 0  | 10.67 | 0 | 1.242 |
+| 3 | $q_3$  | 0  | 10.135 | 0 | -1.242 |
+| 4 | $-q_4$  | 0  | 0 | $\pi/2$ | $\pi/2$ |
 | 5 | 0 | 11.19 | 0 | 0 | 0 |
 
 <label for = "Tab_2" ><br><b>Tabla 1.</b> Parámetros DHstd.</label></span>
