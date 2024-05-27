@@ -158,7 +158,7 @@ Se obtienen las matrices individuales T01 a T45, ver **Figuras 3, 4, 5, 6 y 7**.
 <span><img id="Fig_7" src="Imágenes/T45.png" width="100"/>
 <label for = "Fig_7" ><br><b>Figura 7.</b> Matriz T45.</label></span>
 
-Para obtener la matriz T05, se multiplican todas las anteriores `T05 = T01*T12*T23*T34*T45`. Ver **Figura 8**.
+Para obtener la matriz T05, es decir la herramienta `tool` respecto a la base, se multiplican todas las anteriores `T05 = T01*T12*T23*T34*T45`. Ver **Figura 8**.
 
 <span><img id="Fig_8" src="Imágenes/T05.png" width="1000"/>
 <label for = "Fig_8" ><br><b>Figura 7.</b> Matriz T05.</label></span>
@@ -171,6 +171,10 @@ Para obtener la matriz T05, se multiplican todas las anteriores `T05 = T01*T12*T
 # 4. Interfaz gráfica
 
 # 5. Video de demostración
+
+Se optó por hacer un video donde se vean ambos requerimientos, la demostración de uso de la interfaz de usuario y el brazo alcanzando cada posición solicitada. Dicho video se encuentra en Google Drive, se puede acceder a el mediante este <a href= https://drive.google.com/file/d/1fMCtE7DXn7XliofkItHqumCnGdevGWHD/view?usp=drive_link>link</a>, es importante que acceda con la cuenta institucional *(ejemplo@unal.edu.co)*.
+
+Allí se observa el correcto funcionamiento de la interfaz y al robot alcanzando las 5 posiciones solicitadas.
 
 # 6. Comparación Gráficas Digitales vs Gráficas Reales
 
