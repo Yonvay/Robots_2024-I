@@ -114,11 +114,11 @@ Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el re
 \begin{center}
 
 | $i$ | $\theta_i$ | $d_i$ (cm) | $a_i$ (cm) | $\alpha_i$ (rad)| $offset$ (rad)|
-|-----|-------------|-------------|-------------|-------------|-------------|
+|-|-|-|-|-|-|
 | 1 | $\theta_1$  | 9.7  | 0 | $\pi/2$ | 0 |
-| 2 | - $\theta_2$  | 0  | 10.67 | $\pi/2$ | 0 |
+| 2 | $-\theta_2$  | 0  | 10.67 | $\pi/2$ | 0 |
 | 3 | $\theta_3$  | 0  | 10.135 | $\pi/2$ | 0 |
-| 4 | - $\theta_4$  | 0  | 0 | $\pi/2$ | 0 |
+| 4 | $-\theta_4$  | 0  | 0 | $\pi/2$ | 0 |
 | 5 | 0 | 11.19 | 0 | 0 | 0 |
 
 \end{center}
