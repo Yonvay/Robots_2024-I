@@ -10,11 +10,10 @@ Universidad Nacional de Colombia
 
 **TABLA DE CONTENIDO**
 - [1. Configuración del espacio de trabajo](#1-configuración-del-espacio-de-trabajo)
-  - [Recomendaciones iniciales.](#recomendaciones-iniciales)
   - [a. Descarga de Dynamixel](#a-descarga-de-dynamixel)
   - [b. Configuración de *dynamixel\_one\_motor*](#b-configuración-de-dynamixel_one_motor)
 - [2. Extracción de parámetros de Denavit-Hartenberg Estándar (DHstd)](#2-extracción-de-parámetros-de-denavit-hartenberg-estándar-dhstd)
-- [3. Conexión con Python](#3-conexión-con-python)
+- [3. Conexión ROS + Python](#3-conexión-ros--python)
 - [4. Interfaz gráfica](#4-interfaz-gráfica)
 - [5. Video de demostración](#5-video-de-demostración)
 - [6. Comparación Gráficas Digitales vs Gráficas Reales](#6-comparación-gráficas-digitales-vs-gráficas-reales)
@@ -183,11 +182,68 @@ Para obtener la matriz T05, es decir la herramienta `tool` respecto a la base, s
 <span><img id="Fig_9" src="Imágenes/T05V.png" width="400"/>
 <label for = "Fig_9" ><br><b>Figura 9.</b> Variables de la matriz T05.</label></span>
 
-# 3. Conexión con Python
+# 3. Conexión ROS + Python
+
+Se elaboró el script en python [main_HMI.py](./Python/main_HMI.py) para realizar la conexión con ROS.
+
+**Nodo Publisher**
+
+Estas dos lineas dos lineas crean un nodo publicador dentro de la arquitectura ROS y lo inicializan, con el fin de luego poder usarlo.
+
+```python
+pub = rospy.Publisher('/joint_trajectory', JointTrajectory, queue_size=0)
+rospy.init_node('joint_publisher', anonymous=False)
+```
+
+**Movimiento de las articulaciones**
+
+Esta función recibe por parámetro un entero que corresponde a la postura seleccionada en la interfaz y publica un mensaje que le indica al robot moverse a la pose seleccionada.
+
+Para ello, se crea la variable `state` que es una instancia de la clase `JointTrajectory`, un tipo de mensaje ROS utilizado para especificar una trayectoria para un robot de múltiples articulaciones. El campo `header.stamp` se establece en la hora actual y el campo `joint_names` se asigna con nombres a los diferentes motores.
+
+Se crea un objeto `JointTrajectoryPoint` y se almacena en la variable de `point`. El campo ``time_from_start`` se establece en una duración de 0,5 segundos. Esto significa que el robot debe alcanzar esta posición articular 0,5 segundos después de iniciar la trayectoria. Luego, el punto `point` se agrega al campo `points` del objeto `state`. 
+
+Finalmente se llama al método `publish` del nodo `pub` con el objeto de `state` como argumento, con el fin de enviar el mensaje definido con la trayectoria de un punto al robot.
+
+```python
+def joint_publisher(postura_seleccionada:int):
+    postura_seleccionada = posturas[postura_seleccionada]
+    state = JointTrajectory()
+    state.header.stamp = rospy.Time.now()
+    state.joint_names = ["joint_1","joint_2","joint_3","joint_4","joint_5"]
+    point = JointTrajectoryPoint()
+    point.positions = postura_seleccionada
+    point.time_from_start = rospy.Duration(0.5)
+    state.points.append(point)
+    pub.publish(state)
+    print('published command')
+    rospy.sleep(1)
+```
+
+**Lectura de los valores articulares**
+
+Para realizar la lectura de los valores articulares se creo la función `listener()` la cual permite suscribirse al tópico `joint_states`.
+
+```python
+def listener():
+    rospy.Subscriber("/dynamixel_workbench/joint_states", JointState, callback)
+```
+La función `callback()` se ejecuta cada vez que el _suscriber_ recibe mensajes. Esta función recibe por parámetro el objeto `data` y envia a la interfaz de usuario los valores articulares en grados por medio de la función `HMI.data_to_HMI()`. 
+
+```python
+def callback(data):
+    data = [value*180/np.pi for value in data.position]
+    HMI.data_to_HMI(data)
+```
 
 # 4. Interfaz gráfica
 
 # 5. Video de demostración
+
+En la carpeta catkin_ws/src/dynamixel_one_motor/scrpits, agregar los scripts de python [HMI.py](./Python/HMI.py) y [main_HMI.py](./Python/main_HMI.py). Luego seguir los pasos indicados en el video.
+
+<span><img id="Fig_9" src="Imágenes/" width="300"/>
+<label for = "Fig_9" ><br><b>Figura 9.</b> Comandos para correr en la terminal</label></span>
 
 Se optó por hacer un video donde se vean ambos requerimientos, la demostración de uso de la interfaz de usuario y el brazo alcanzando cada posición solicitada. Dicho video se encuentra en Google Drive, se puede acceder a el mediante este <a href=https://drive.google.com/file/d/1fMCtE7DXn7XliofkItHqumCnGdevGWHD/view?usp/>link</a>, es importante que acceda con la cuenta institucional *(ejemplo@unal.edu.co)*.
 
@@ -273,10 +329,8 @@ Se observa una similitud adecuada, aunque el eslabón representado en la gráfic
 
 [3] Paquete del robot Phantom X. [Repositorio en GitHub]. https://github.com/felipeg17/px_robot
 
-[4] Tutorial Phantom X Robot. [Repositorio en GitHub]. https://github.cPhantom X Robotom/fegonzalez7/rob_unal_clase4
+[4] Tutorial Phantom X Robot. [Repositorio en GitHub]. https://github.com/fegonzalez7/rob_unal_clase4
 
-Repo de referencia 1
-https://github.com/sofiaponteb/Labs-Robotica-2022-2/blob/main/Lab4.md
+[5] [Repositorio en GitHub] https://github.com/sofiaponteb/Labs-Robotica-2022-2/blob/main/Lab4.md
 
-Repo de referencia 2
-https://github.com/aholguinr/Lab4_Robotica_Caipa_Holguin
+[6] [Repositorio en GitHub] https://github.com/aholguinr/Lab4_Robotica_Caipa_Holguin
