@@ -131,7 +131,7 @@ Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el re
 
 En primer lugar se considero a la base como primera articulación, ahorrando un eje en el proceso, la quinta articulación corresponde a la herramienta `tool`. Siguiendo los 7 pasos para la extracción de los parámetros DH, el diagrama resultante que representa al robot *Phantom X* es el siguiente. Ver **Figura 2**.
 
-<span><img id="Fig_2" src="Imágenes/SKDH.png" width="600"/> 
+<span><img id="Fig_2" src="Imágenes/diagramaDH.png" width="600"/> 
 <label for = "Fig_2" ><br><b>Figura 2.</b> Análisis DHstd.</label></span>
 
 Los parámetros DHstd resultantes, se encuentran en la **Tabla 1**, donde el ángulo entre $a_1$ y $a_2$, es igual en magnitud al ángulo entre $a_2$ y $a_3$, pero en sentido contrario, con valor 71.138° es decir 1.242 rad.
