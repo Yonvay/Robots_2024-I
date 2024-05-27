@@ -239,8 +239,14 @@ def callback(data):
 
 La interfaz gráfica desarrollada ([HMI.py](./Python/HMI.py)) se muestra a continuación.
 
-<span><img id="Fig_10" src="Imágenes/6. beginning interfaz.png" width="600"/>
-<label for = "Fig_10" ><br><b>Figura 11.</b> Interfaz grafica desarrollada </label></span>
+<span><img id="Fig_10" src="Imágenes/Interfaz.png" width="700"/>
+<label for = "Fig_10" ><br><b>Figura 10.</b> Interfaz grafica desarrollada </label></span>
+
+1. Selección múltiple de pose: esta opción de selección múltiple permite al usuario elegir una de las cinco posibles configuraciones cinemáticas que se han establecido para el robot.
+2. Botón "Ir a la Posición": Si se oprime este botón, una vez se ha seleccionado una pose, se ejecuta la función `joint_publisher()` que le indicará al robot que se mueva a la posición deseada.
+3. Tabla de valores articulares: Cada vez que se cambia de posición (al oprimir el botón anterior) se actualiza los cinco valores articulares en grados.
+4. Imagen de la última posición enviada. Se actualiza cada vez que se presiona el botón. 
+5. Imagen con la posIción actual. Se actualiza cada vez que se presiona el botón.
 
 # 5. Video de demostración
 
@@ -261,7 +267,7 @@ python3 main_HMI.py
 
 Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el resultado debe ser el siguiente. Ver **Figura 11.**, allí se evidencia como se abre la ventana de la interfaz.
 
-<span><img id="Fig_11" src="Imágenes/6. beginning interfaz.png" width="600"/>
+<span><img id="Fig_11" src="Imágenes/6. beginning interfaz.png" width="700"/>
 <label for = "Fig_11" ><br><b>Figura 11.</b> Demostración del funcionamiento de la interfaz</label></span>
 
 Se optó por hacer un video donde se vean ambos requerimientos, la demostración de uso de la interfaz de usuario y el brazo alcanzando cada posición solicitada. Dicho video se encuentra en Google Drive, se puede acceder a el mediante este <a href=https://drive.google.com/file/d/1fMCtE7DXn7XliofkItHqumCnGdevGWHD/view?usp/>link</a>, es importante que acceda con la cuenta institucional *(ejemplo@unal.edu.co)*.
@@ -272,7 +278,7 @@ Allí se observa el correcto funcionamiento de la interfaz y al robot alcanzando
 
 Para la obtención de los gráficos para cada posición, se hizo uso de la función `SerialLink()` del toolbox de Peter Corke, que solicita los parametros Denavit-Hartenberg ya vinculados a las conexiones, para ello se usa la función `Link()` que recibe 6 parámetros `Link(theta_i, d_i, a_i, alpha_i, type, offset)`.
 
-Siendo $type$ el tipo de articulación, donde 0 es cilíndrica y 1 prismática. En este caso el Phantom X, solo posee articulaciones cilíndricas. Para la herramienta como se recomienda en la guía, se utiliza el comando `phantomX.tool()`, desde el cual se define una traslación en el eje approach de la distancia correspondiente entre los ejes $X_4$ y $n$. Se asignan los nombres y finalmente con el comando `phantomX.plot(q)` se obtienen las gráficas. Ver **Figuras x, x, x, x y x**.
+Siendo $type$ el tipo de articulación, donde 0 es cilíndrica y 1 prismática. En este caso el Phantom X, solo posee articulaciones cilíndricas. Para la herramienta como se recomienda en la guía, se utiliza el comando `phantomX.tool()`, desde el cual se define una traslación en el eje approach de la distancia correspondiente entre los ejes $X_4$ y $n$. Se asignan los nombres y finalmente con el comando `phantomX.plot(q)` se obtienen las gráficas. Ver **Figuras 12, 13, 14, 15 y 16**.
 
 ```matlab
 %Poses
@@ -307,37 +313,37 @@ for i = 1:length(poses)
 end
 ```
 
-<span><img id="Fig_x" src="Python/IMGS/pose1.png" width="300"/>
-<label for = "Fig_x" ><br><b>Figura x.</b> Pose 1, Home.</label></span>
+<span><img id="Fig_12" src="Python/IMGS/pose1.png" width="300"/>
+<label for = "Fig_12" ><br><b>Figura 12.</b> Pose 1, Home.</label></span>
 
-<span><img id="Fig_x" src="Python/IMGS/pose2.png" width="300"/>
-<label for = "Fig_x" ><br><b>Figura x.</b> Pose 2.</label></span>
+<span><img id="Fig_13" src="Python/IMGS/pose2.png" width="300"/>
+<label for = "Fig_13" ><br><b>Figura 13.</b> Pose 2.</label></span>
 
-<span><img id="Fig_x" src="Python/IMGS/pose3.png" width="300"/>
-<label for = "Fig_x" ><br><b>Figura x.</b> Pose 3.</label></span>
+<span><img id="Fig_14" src="Python/IMGS/pose3.png" width="300"/>
+<label for = "Fig_14" ><br><b>Figura 14.</b> Pose 3.</label></span>
 
-<span><img id="Fig_x" src="Python/IMGS/pose4.png" width="300"/>
-<label for = "Fig_x" ><br><b>Figura x.</b> Pose 4.</label></span>
+<span><img id="Fig_15" src="Python/IMGS/pose4.png" width="300"/>
+<label for = "Fig_15" ><br><b>Figura 15.</b> Pose 4.</label></span>
 
-<span><img id="Fig_x" src="Python/IMGS/pose5.png" width="300"/>
-<label for = "Fig_x" ><br><b>Figura x.</b> Pose 5.</label></span>
+<span><img id="Fig_16" src="Python/IMGS/pose5.png" width="300"/>
+<label for = "Fig_16" ><br><b>Figura 16.</b> Pose 5.</label></span>
 
 Una vez solicitadas las poses en el robot, los resultados reales respecto a estas gráficas son los siguientes.
 
-<span><img id="Fig_x" src="Imágenes/CHome.png" width="400"/>
-<label for = "Fig_x" ><br><b>Figura x.</b> Comparación pose 1, Home.</label></span>
+<span><img id="Fig_17" src="Imágenes/CHome.png" width="400"/>
+<label for = "Fig_17" ><br><b>Figura 17.</b> Comparación pose 1, Home.</label></span>
 
-<span><img id="Fig_x" src="Imágenes/C2.png" width="400"/>
-<label for = "Fig_x" ><br><b>Figura x.</b> Comparación pose 2.</label></span>
+<span><img id="Fig_18" src="Imágenes/C2.png" width="400"/>
+<label for = "Fig_18" ><br><b>Figura 18.</b> Comparación pose 2.</label></span>
 
-<span><img id="Fig_x" src="Imágenes/C3.png" width="400"/>
-<label for = "Fig_x" ><br><b>Figura x.</b> Comparación pose 3.</label></span>
+<span><img id="Fig_19" src="Imágenes/C3.png" width="400"/>
+<label for = "Fig_19" ><br><b>Figura 19.</b> Comparación pose 3.</label></span>
 
-<span><img id="Fig_x" src="Imágenes/C4.png" width="400"/>
-<label for = "Fig_x" ><br><b>Figura x.</b> Comparación pose 4.</label></span>
+<span><img id="Fig_20" src="Imágenes/C4.png" width="400"/>
+<label for = "Fig_20" ><br><b>Figura 20.</b> Comparación pose 4.</label></span>
 
-<span><img id="Fig_x" src="Imágenes/C5.png" width="400"/>
-<label for = "Fig_x" ><br><b>Figura x.</b> Comparación pose 5.</label></span>
+<span><img id="Fig_21" src="Imágenes/C5.png" width="400"/>
+<label for = "Fig_21" ><br><b>Figura 21.</b> Comparación pose 5.</label></span>
 
 Se observa una similitud adecuada, aunque el eslabón representado en la gráfica entre las articulaciones 2 y 3 es la linea recta entre ambos puntos, es claro identificar que gráfica corresponde a cada pose. Es decir, la similitud esperada por parte del Phantom X.
 
