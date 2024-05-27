@@ -197,7 +197,7 @@ Allí se observa el correcto funcionamiento de la interfaz y al robot alcanzando
 
 Para la obtención de los gráficos para cada posición, se hizo uso de la función `SerialLink()` del toolbox de Peter Corke, que solicita los parametros Denavit-Hartenberg ya vinculados a las conexiones, para ello se usa la función `Link()` que recibe 6 parámetros.
 
-```matlab
+```
 Link($/theta_i$, $d_i$, $a_i$, $/alpha_i$, $Type$, $Offset$)
 ```
 
