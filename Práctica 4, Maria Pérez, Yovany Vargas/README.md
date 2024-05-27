@@ -9,48 +9,52 @@ Universidad Nacional de Colombia
 - Yovany Esneider Vargas Gutierrez
 
 **TABLA DE CONTENIDO**
-- [1. Configuración del software para el correcto funcionamiento de las herramientas](#1-configuración-del-software-para-el-correcto-funcionamiento-de-las-herramientas)
+- [1. Configuración del espacio de trabajo](#1-configuración-del-espacio-de-trabajo)
+  - [Recomendaciones iniciales.](#recomendaciones-iniciales)
+  - [a. Descarga de Dynamixel](#a-descarga-de-dynamixel)
+  - [b. Configuración de *dynamixel\_one\_motor*](#b-configuración-de-dynamixel_one_motor)
 - [2. Extracción de parámetros de Denavit-Hartenberg Estándar (DHstd)](#2-extracción-de-parámetros-de-denavit-hartenberg-estándar-dhstd)
 - [3. Conexión con Python](#3-conexión-con-python)
 - [4. Interfaz gráfica](#4-interfaz-gráfica)
 - [5. Video de demostración](#5-video-de-demostración)
-- [6. Comparación Gráficas Digitales vs Gráficas Reales.](#6-comparación-gráficas-digitales-vs-gráficas-reales)
+- [6. Comparación Gráficas Digitales vs Gráficas Reales](#6-comparación-gráficas-digitales-vs-gráficas-reales)
+- [Referencias](#referencias)
 
-# 1. Configuración del software para el correcto funcionamiento de las herramientas
+# 1. Configuración del espacio de trabajo
 
-Si bien el enfoque de la practica es el uso de herramientas como el toolbox de Peter Corke y ROS, análisis morfológico y control del robot, buena parte del tiempo es invertida en explorar los repositorios de referencia, hasta encontrar la manera en que el sistema reconozca los motores y sea posible su conexión con ROS. Por tanto, a continuación se expone el procedimiento correcto a seguir, junto a todos los comandos necesarios.
+Aunque el enfoque de la práctica es el uso de herramientas, como el toolbox de Peter Corke y ROS, buena parte del tiempo es invertida en explorar la documentación y los repositorios de referencia. Por tanto, a continuación se expone el procedimiento a seguir para configurar el espacio de trabajo previo a la elaboración de la práctica, con el fin de que el sistema reconozca los motores y sea posible la conexión con ROS.
 
 ## Recomendaciones iniciales.
 
- - No es necesario y llega a ser perjudicial actualizar Python, cabe recordar que ROS es un software de código abierto que no ha tenido soporte por un tiempo. Con la version de Python que trae la version 20.04 LTS de Ubuntu es más que suficiente.
+ - No es necesario y llega a ser perjudicial actualizar Python. Con la version de Python que trae la version 20.04 LTS de Ubuntu es más que suficiente.
 
  - No es necesario eliminar los repositorios antes utilizados en la herramienta `Catkin`, no existe evidencia alguna que determine si esto afecta el funcionamiento de la conexión de los motores con ROS.
 
- - Es totalmente necesario conectar el robot a la fuente de alimentación y el cable de datos a la computadora, en caso contrario, tanto ROS como el software de Dynamixel NO detectaran los motores por más comandos de configuración que se ejecuten.
+ - Se debe conectar el robot a la fuente de alimentación y el cable de datos a la computadora, en caso contrario, tanto ROS como el software de Dynamixel NO detectaran los motores por más comandos de configuración que se ejecuten.
 
 ## a. Descarga de Dynamixel
 
-Para ello, con el paquete de instalación ya descargado en Ubuntu <a href= https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/>(aquí)</a>, se abre una terminal en la carpeta donde se ubica el paquete antes descargado, para ejecutar los siguiente comandos en el mismo orden.
+Primero, descargue el paquete de instalación para Ubuntu (linux) <a href= https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/>(aquí)</a>. Luego, abra la terminal en la carpeta donde se ubica el paquete descargado y ejecute los siguientes comandos en el orden dado.
 
-- Otorgar permisos al paquete en cuestión
+- Otorgar permisos al paquete en cuestión.
 
 ```
 sudo chmod 775 DynamixelWizard2Setup_x64
 ```
 
-- Iniciar el programa y finalizar la instalación
+- Iniciar el programa y finalizar la instalación.
 
 ```
 ./DynamixelWizard2Setup_x64
 ```
 
-- Dar acceso a los puertos USB
+- Dar acceso a los puertos USB.
 
 ```
 sudo usermod -aG dialout UserName
 ```
 
-*UserName*, corresponde al nombre de cuenta Linux, con la que se inicia sesión en Ubuntu
+*UserName*, corresponde al nombre de usuario de su cuenta Linux, con la que se inicia sesión en Ubuntu.
 
 - Reiniciar
 
@@ -60,15 +64,25 @@ reboot
 
 Una vez terminado el proceso anterior, Ubuntu esta configurado para permitir el paso de información por parte de los motores. Así el software de Dynamixel puede identificar los motores a la hora de ejecutar el Scan encargado de su búsqueda, sin embargo ROS aún no los reconoce.
 
-## b. Instalación y configuración de *dynamixel_one_motor*
+## b. Configuración de *dynamixel_one_motor*
 
-Para pasar al desarrollo de esta practica es necesario haber culminado con éxito la practica No. 3, donde se hace uso del paquete turtlesim, por ello, se da por hecho que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`. Entonces, en la carpeta `src` se clona el repositorio *dynamixel_one_motor* para ello, se abre una terminal en la carpeta `src` y se ejecuta el siguiente comando.
+Se asume que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`. 
+
+1. Se crea un directorio (carpeta) llamado `catkin_ws`, el cual servirá como espacio de trabajo para el proyecto ROS. Luego, se crea la carpeta `src`y se compila todo el código dentro del espacio de trabajo con el comando `catkin build`.
+```
+cd ~
+mkdir catkin_ws
+cd catkin_ws
+mkdir src
+catkin build
+```
+2. Se clona el repositorio [dynamixel_one_motor](https://github.com/fegonzalez7/dynamixel_one_motor.git) dentro de la carpeta src del espacio de trabajo creado.
 
 ```
 git clone https://github.com/fegonzalez7/dynamixel_one_motor.git
 ```
 
-Ahora es necesario otorgar los ID de cada uno de los motores, para ello es necesario editar el archivo `basic.yaml`, ubicado en la carpeta `config`, en la ruta `...\catkin_ws\src\dynamixel_one_motor\config\`. Allí se debe dejar la siguiente configuración, y guardar los cambios.
+3. Editar el archivo `basic.yaml`, ubicado en la carpeta `config`, en la ruta `...\catkin_ws\src\dynamixel_one_motor\config\`. Allí se debe dejar la siguiente configuración de los ID de cada uno de los motores y guardar los cambios.
 
 ```
 joint_1:
@@ -92,16 +106,19 @@ joint_5:
  Return_Delay_Time: 4
  ```
 
- Como se puede observar `Return_Delay_Time`, es la característica encargada del retardo por articulación recomendado en la guía de trabajo. Seguidamente es necesario cargar estos cambios, para ello con una terminal abierta en la carpeta `catkin_ws`, se ejecuta el siguiente comando.
+ Como se puede observar `Return_Delay_Time`, es la característica encargada del retardo por articulación recomendado en la guía de trabajo. 
+ 
+ 4. Con una terminal abierta en la carpeta `catkin_ws`, ejecute los siguientes comandos para guardar los cambios.
 
  ```
- catkin build dynamixel_one_motor
+catkin build dynamixel_one_motor
+source devel/setup.bash
  ```
 
- Con esto, la conexión de los motores a ROS está lista y correctamente configurada, para su comprobación se ejecutan 2 comandos, los cuales dan pie a la ejecución y conexión de ROS con los motores. Estos comandos se deben hacer en una terminal en la carpeta `catkin_ws`.
+5. Con la terminal abierta en la carpeta `catkin_ws`, ejecute el siguiente comando, el cual da pie a la ejecución y conexión de ROS con los motores.
 
  ```
- source devel/setup.bash
+ 
  roslaunch dynamixel_one_motor one_controller.launch
 ```
 
