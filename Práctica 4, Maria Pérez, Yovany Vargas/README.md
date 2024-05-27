@@ -116,8 +116,7 @@ source devel/setup.bash
 
 5. Con la terminal abierta en la carpeta `catkin_ws`, ejecute el siguiente comando, el cual da pie a la ejecución y conexión de ROS con los motores.
 
- ```
- 
+ ``` 
  roslaunch dynamixel_one_motor one_controller.launch
 ```
 
@@ -238,12 +237,32 @@ def callback(data):
 
 # 4. Interfaz gráfica
 
+La interfaz gráfica desarrollada ([HMI.py](./Python/HMI.py)) se muestra a continuación.
+
+<span><img id="Fig_10" src="Imágenes/6. beginning interfaz.png" width="600"/>
+<label for = "Fig_10" ><br><b>Figura 11.</b> Interfaz grafica desarrollada </label></span>
+
 # 5. Video de demostración
 
-En la carpeta catkin_ws/src/dynamixel_one_motor/scrpits, agregar los scripts de python [HMI.py](./Python/HMI.py) y [main_HMI.py](./Python/main_HMI.py). Luego seguir los pasos indicados en el video.
+Para poder probar la interfaz desarrollada, ubicar en una mismo directorio los scripts de python [HMI.py](./Python/HMI.py) y [main_HMI.py](./Python/main_HMI.py). Por ejemplo, en la carpeta catkin_ws/src/dynamixel_one_motor/scrpits.
 
-<span><img id="Fig_9" src="Imágenes/" width="300"/>
-<label for = "Fig_9" ><br><b>Figura 9.</b> Comandos para correr en la terminal</label></span>
+Luego, abrir una terminal y correr los comandos:
+
+ ```
+catkin build dynamixel_one_motor
+source devel/setup.bash
+roslaunch dynamixel_one_motor one_controller.launch
+```
+
+Finalmente, en otra terminal ejecutar el script [main_HMI.py](./Python/main_HMI.py).
+```
+python3 main_HMI.py
+```
+
+Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el resultado debe ser el siguiente. Ver **Figura 11.**, allí se evidencia como se abre la ventana de la interfaz.
+
+<span><img id="Fig_11" src="Imágenes/6. beginning interfaz.png" width="600"/>
+<label for = "Fig_11" ><br><b>Figura 11.</b> Demostración del funcionamiento de la interfaz</label></span>
 
 Se optó por hacer un video donde se vean ambos requerimientos, la demostración de uso de la interfaz de usuario y el brazo alcanzando cada posición solicitada. Dicho video se encuentra en Google Drive, se puede acceder a el mediante este <a href=https://drive.google.com/file/d/1fMCtE7DXn7XliofkItHqumCnGdevGWHD/view?usp/>link</a>, es importante que acceda con la cuenta institucional *(ejemplo@unal.edu.co)*.
 
