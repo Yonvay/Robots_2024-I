@@ -172,7 +172,8 @@ Para obtener la matriz T05, es decir la herramienta `tool` respecto a la base, s
 
 # 5. Video de demostración
 
-Se optó por hacer un video donde se vean ambos requerimientos, la demostración de uso de la interfaz de usuario y el brazo alcanzando cada posición solicitada. Dicho video se encuentra en Google Drive, se puede acceder a el mediante este <a href=https://drive.google.com/file/d/1fMCtE7DXn7XliofkItHqumCnGdevGWHD/view?usp=drive_link/>link</a>, es importante que acceda con la cuenta institucional *(ejemplo@unal.edu.co)*.
+Se optó por hacer un video donde se vean ambos requerimientos, la demostración de uso de la interfaz de usuario y el brazo alcanzando cada posición solicitada. Dicho video se encuentra en Google Drive, se puede acceder a el mediante este
+<a href=https://drive.google.com/file/d/1fMCtE7DXn7XliofkItHqumCnGdevGWHD/view?usp=drive_link/>link</a>, es importante que acceda con la cuenta institucional *(ejemplo@unal.edu.co)*.
 
 Allí se observa el correcto funcionamiento de la interfaz y al robot alcanzando las 5 posiciones solicitadas.
 
