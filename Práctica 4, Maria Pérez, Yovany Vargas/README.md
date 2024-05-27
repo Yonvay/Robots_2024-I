@@ -134,7 +134,7 @@ En primer lugar se considero a la base como primera articulación, ahorrando un 
 <span><img id="Fig_2" src="Imágenes/diagramaDH.png" width="600"/> 
 <label for = "Fig_2" ><br><b>Figura 2.</b> Análisis DHstd.</label></span>
 
-Los parámetros DHstd resultantes, se encuentran en la **Tabla 1**, donde el ángulo entre $a_1$ y $a_2$, es igual en magnitud al ángulo entre $a_2$ y $a_3$, pero en sentido contrario, con valor 71.138° es decir 1.242 rad.
+Los parámetros DHstd resultantes, se encuentran en la **Tabla 1**, donde el ángulo entre $X_1$ y $X_2$, es igual en magnitud al ángulo entre $X_2$ y $X_3$, pero en sentido contrario, con valor 71.138° es decir 1.242 rad.
 
 | $i$ | $\theta_i$ | $d_i$ $(cm)$ | $a_i$ $(cm)$ | $\alpha_i$ $(rad)$| $offset$ $(rad)$|
 |-|-|-|-|-|-|
@@ -195,6 +195,80 @@ Allí se observa el correcto funcionamiento de la interfaz y al robot alcanzando
 
 # 6. Comparación Gráficas Digitales vs Gráficas Reales
 
+Para la obtención de los gráficos para cada posición, se hizo uso de la función `SerialLink()` del toolbox de Peter Corke, que solicita los parametros Denavit-Hartenberg ya vinculados a las conexiones, para ello se usa la función `Link()` que recibe 6 parámetros.
+
+```matlab
+Link($/theta_i$, $d_i$, $a_i$, $/alpha_i$, $Type$, $Offset$)
+```
+
+Siendo $Type$ el tipo de articulación, donde 0 es cilíndrica y 1 prismática. En este caso el Phantom X, solo posee articulaciones cilíndricas. Para la herramienta como se recomienda en la guía, se utiliza el comando `phantomX.tool()`, desde el cual se define una traslación en el eje approach de la distancia correspondiente entre los ejes $X_4$ y $n$. Se asignan los nombres y finalmente con el comando `phantomX.plot(q)` se obtienen las gráficas. Ver **Figuras x, x, x, x y x**.
+
+```matlab
+%Poses
+q1 = [0, 0, 0, 0];
+q2 = [25, 25, 20, -20];
+q3 = [-35, 35, -30, 30];
+q4 = [85, -20, 55, 25];
+q5 = [0, -10, 90, 90];
+poses = [q1; q2; q3; q4; q5];
+
+names = ["Home", "Pose 2", "Pose 3", "Pose 4", "Pose 5"];
+beta = deg2rad(71.138);
+DHparameters = [[0 9.7 0 pi/2 0 0];
+                [0 0 10.67 0 0 beta];
+                [0 0 10.135 0 0 -beta];
+                [0 0 0 pi/2 0 pi/2];
+                [0 11.19 0 0 0 0]];
+%Generar las ilustraciones
+for i = 1:length(poses)
+    q = poses(i, :)*pi/180
+    L(1) = Link(DHparameters(1,:));
+    L(2) = Link(DHparameters(2,:));
+    L(3) = Link(DHparameters(3,:));
+    L(4) = Link(DHparameters(4,:));
+    phantomX = SerialLink(L);
+    phantomX.tool = trotx(0) * transl(0, 0, 11.19)
+    phantomX.name = names(i);
+    figure()
+    phantomX.plot(q);
+    view([-22.3 7.9])
+    zlim([-30 45])
+end
+```
+
+<span><img id="Fig_x" src="Python/IMGS/pose1.png" width="500"/>
+<label for = "Fig_x" ><br><b>Figura x.</b> Pose 1, Home.</label></span>
+
+<span><img id="Fig_x" src="Python/IMGS/pose2.png" width="500"/>
+<label for = "Fig_x" ><br><b>Figura x.</b> Pose 2.</label></span>
+
+<span><img id="Fig_x" src="Python/IMGS/pose3.png" width="500"/>
+<label for = "Fig_x" ><br><b>Figura x.</b> Pose 3.</label></span>
+
+<span><img id="Fig_x" src="Python/IMGS/pose4.png" width="500"/>
+<label for = "Fig_x" ><br><b>Figura x.</b> Pose 4.</label></span>
+
+<span><img id="Fig_x" src="Python/IMGS/pose5.png" width="500"/>
+<label for = "Fig_x" ><br><b>Figura x.</b> Pose 5.</label></span>
+
+Una vez solicitadas las poses en el robot, los resultados reales respecto a estas gráficas son los siguientes.
+
+<span><img id="Fig_x" src="Imágenes/CHome.png" width="400"/>
+<label for = "Fig_x" ><br><b>Figura x.</b> Comparación pose 1, Home.</label></span>
+
+<span><img id="Fig_x" src="Imágenes/C2.png" width="400"/>
+<label for = "Fig_x" ><br><b>Figura x.</b> Comparación pose 2.</label></span>
+
+<span><img id="Fig_x" src="Imágenes/C3.png" width="400"/>
+<label for = "Fig_x" ><br><b>Figura x.</b> Comparación pose 3.</label></span>
+
+<span><img id="Fig_x" src="Imágenes/C4.png" width="400"/>
+<label for = "Fig_x" ><br><b>Figura x.</b> Comparación pose 4.</label></span>
+
+<span><img id="Fig_x" src="Imágenes/C5.png" width="400"/>
+<label for = "Fig_x" ><br><b>Figura x.</b> Comparación pose 5.</label></span>
+
+Se observa una similitud adecuada, aunque el eslabón representado en la gráfica entre las articulaciones 2 y 3 es la linea recta entre ambos puntos, es claro identificar que gráfica corresponde a cada pose. Es decir, la similitud esperada por parte del Phantom X.
 
 # Referencias
 [1] Joint controller. https://wiki.ros.org/dynamixel_controllers/Tutorials/CreatingJointPositionController
