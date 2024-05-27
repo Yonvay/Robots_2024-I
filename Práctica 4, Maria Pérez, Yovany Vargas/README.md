@@ -197,7 +197,7 @@ Allí se observa el correcto funcionamiento de la interfaz y al robot alcanzando
 
 Para la obtención de los gráficos para cada posición, se hizo uso de la función `SerialLink()` del toolbox de Peter Corke, que solicita los parametros Denavit-Hartenberg ya vinculados a las conexiones, para ello se usa la función `Link()` que recibe 6 parámetros `Link(theta_i, d_i, a_i, alpha_i, type, offset)`.
 
-Siendo $Type$ el tipo de articulación, donde 0 es cilíndrica y 1 prismática. En este caso el Phantom X, solo posee articulaciones cilíndricas. Para la herramienta como se recomienda en la guía, se utiliza el comando `phantomX.tool()`, desde el cual se define una traslación en el eje approach de la distancia correspondiente entre los ejes $X_4$ y $n$. Se asignan los nombres y finalmente con el comando `phantomX.plot(q)` se obtienen las gráficas. Ver **Figuras x, x, x, x y x**.
+Siendo $type$ el tipo de articulación, donde 0 es cilíndrica y 1 prismática. En este caso el Phantom X, solo posee articulaciones cilíndricas. Para la herramienta como se recomienda en la guía, se utiliza el comando `phantomX.tool()`, desde el cual se define una traslación en el eje approach de la distancia correspondiente entre los ejes $X_4$ y $n$. Se asignan los nombres y finalmente con el comando `phantomX.plot(q)` se obtienen las gráficas. Ver **Figuras x, x, x, x y x**.
 
 ```matlab
 %Poses
@@ -205,7 +205,7 @@ q1 = [0, 0, 0, 0];
 q2 = [25, 25, 20, -20];
 q3 = [-35, 35, -30, 30];
 q4 = [85, -20, 55, 25];
-q5 = [0, -10, 90, 90];
+q5 = [0, -10, 90, -90];
 poses = [q1; q2; q3; q4; q5];
 
 names = ["Home", "Pose 2", "Pose 3", "Pose 4", "Pose 5"];
