@@ -143,7 +143,7 @@ end
 ```
 Se obtienen las matrices individuales T01 a T45, ver **Figuras 3, 4, 5, 6 y 7**.
 
-<span><img id="Fig_3" src="Imágenes/T01.png" width="300"/>
+<span><img id="Fig_3" src="Imágenes/T01.png" width="150"/>
 <label for = "Fig_3" ><br><b>Figura 3.</b> Matriz T01.</label></span>
 
 <span><img id="Fig_4" src="Imágenes/T12.png" width="300"/>
@@ -155,15 +155,15 @@ Se obtienen las matrices individuales T01 a T45, ver **Figuras 3, 4, 5, 6 y 7**.
 <span><img id="Fig_6" src="Imágenes/T34.png" width="300"/>
 <label for = "Fig_6" ><br><b>Figura 6.</b> Matriz T34.</label></span>
 
-<span><img id="Fig_7" src="Imágenes/T45.png" width="300"/>
+<span><img id="Fig_7" src="Imágenes/T45.png" width="150"/>
 <label for = "Fig_7" ><br><b>Figura 7.</b> Matriz T45.</label></span>
 
 Para obtener la matriz T05, se multiplican todas las anteriores `T05 = T01*T12*T23*T34*T45`. Ver **Figura 8**.
 
-<span><img id="Fig_8" src="Imágenes/T05.png" width="600"/>
+<span><img id="Fig_8" src="Imágenes/T05.png" width="1000"/>
 <label for = "Fig_8" ><br><b>Figura 7.</b> Matriz T05.</label></span>
 
-<span><img id="Fig_9" src="Imágenes/T05V.png" width="600"/>
+<span><img id="Fig_9" src="Imágenes/T05V.png" width="300"/>
 <label for = "Fig_9" ><br><b>Figura 7.</b> Variables de la matriz T05.</label></span>
 
 # 3. Conexión con Python
