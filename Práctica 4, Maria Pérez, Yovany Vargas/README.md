@@ -21,7 +21,7 @@ Universidad Nacional de Colombia
 
 # 1. Configuración del espacio de trabajo
 
-Aunque el enfoque de la práctica es el uso de herramientas, como el toolbox de Peter Corke y ROS, buena parte del tiempo es invertida en explorar la documentación y los repositorios de referencia. Por tanto, a continuación se expone el procedimiento a seguir para configurar el espacio de trabajo previo a la elaboración de la práctica, con el fin de que el sistema reconozca los motores y sea posible la conexión con ROS.
+Aunque el enfoque de la práctica es el uso de herramientas, como el toolbox de Peter Corke y ROS, buena parte del tiempo es invertida en explorar la documentación y los repositorios de referencia. Por tanto, a continuación se expone el procedimiento a seguir para configurar el espacio de trabajo, previo a la elaboración de la práctica, con el fin de que el sistema reconozca los motores y sea posible la conexión con ROS.
 
 ## Recomendaciones iniciales.
 
@@ -33,7 +33,7 @@ Aunque el enfoque de la práctica es el uso de herramientas, como el toolbox de 
 
 ## a. Descarga de Dynamixel
 
-Primero, descargue el paquete de instalación para Ubuntu (linux) <a href= https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/>(aquí)</a>. Luego, abra la terminal en la carpeta donde se ubica el paquete descargado y ejecute los siguientes comandos en el orden dado.
+Primero, se descarga el paquete de instalación para Ubuntu (linux) (<a href= https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/>aquí</a>). Luego, se abre una terminal en la carpeta donde el paquete fue descargado, y se ejecutan en el mismo orden se los siguientes comandos .
 
 - Otorgar permisos al paquete en cuestión.
 
@@ -63,25 +63,20 @@ reboot
 
 Una vez terminado el proceso anterior, Ubuntu esta configurado para permitir el paso de información por parte de los motores. Así el software de Dynamixel puede identificar los motores a la hora de ejecutar el Scan encargado de su búsqueda, sin embargo ROS aún no los reconoce.
 
+<span><img id="Fig_1" src="Imágenes/CMotors Found.png" width="600"/>
+<label for = "Fig_1" ><br><b>Figura 1.</b> Motores encontrados en el Scan, Dynamixel.</label></span>3
+
 ## b. Configuración de *dynamixel_one_motor*
 
-Se asume que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`. 
+Se asume que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`, con la carpeta `src`creada. 
 
-1. Se crea un directorio (carpeta) llamado `catkin_ws`, el cual servirá como espacio de trabajo para el proyecto ROS. Luego, se crea la carpeta `src`y se compila todo el código dentro del espacio de trabajo con el comando `catkin build`.
-```
-cd ~
-mkdir catkin_ws
-cd catkin_ws
-mkdir src
-catkin build
-```
-2. Se clona el repositorio [dynamixel_one_motor](https://github.com/fegonzalez7/dynamixel_one_motor.git) dentro de la carpeta src del espacio de trabajo creado.
+1. Se clona el repositorio [dynamixel_one_motor](https://github.com/fegonzalez7/dynamixel_one_motor.git) en la carpeta src.
 
 ```
 git clone https://github.com/fegonzalez7/dynamixel_one_motor.git
 ```
 
-3. Editar el archivo `basic.yaml`, ubicado en la carpeta `config`, en la ruta `...\catkin_ws\src\dynamixel_one_motor\config\`. Allí se debe dejar la siguiente configuración de los ID de cada uno de los motores y guardar los cambios.
+2. Editar el archivo `basic.yaml`, ubicado en la carpeta `config`, en la ruta `...\catkin_ws\src\dynamixel_one_motor\config\`. Allí se debe dejar la siguiente configuración, y guardar los cambios. Esta configuración es necesaria para que ROS reconozca los motores, se asignan los ID encontrados en el scan hecho en *Dynamixel*.
 
 ```
 joint_1:
@@ -107,30 +102,30 @@ joint_5:
 
  Como se puede observar `Return_Delay_Time`, es la característica encargada del retardo por articulación recomendado en la guía de trabajo. 
  
- 4. Con una terminal abierta en la carpeta `catkin_ws`, ejecute los siguientes comandos para guardar los cambios.
+3. Con una terminal abierta en la carpeta `catkin_ws`, se ejecuta el siguiente comando para guardar los cambios.
 
  ```
 catkin build dynamixel_one_motor
-source devel/setup.bash
  ```
 
-5. Con la terminal abierta en la carpeta `catkin_ws`, ejecute el siguiente comando, el cual da pie a la ejecución y conexión de ROS con los motores.
+4. Con la terminal abierta en la carpeta `catkin_ws`, se ejecutan los siguientes comandos, los cuales dan pie a la ejecución y conexión de ROS con los motores.
 
  ``` 
+ source devel/setup.bash
  roslaunch dynamixel_one_motor one_controller.launch
 ```
 
-Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el resultado debe ser el siguiente. Ver **Figura 1.**, allí se evidencia como ROS reconoce los 5 motores del robot.
+Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el resultado debe ser el siguiente. Ver **Figura 2.**, allí se evidencia como ROS reconoce los 5 motores del robot.
 
-<span><img id="Fig_1" src="Imágenes/terminal roslaunch running.png" width="600"/>
-<label for = "Fig_1" ><br><b>Figura 1.</b> ROS Corriendo correctamente.</label></span>
+<span><img id="Fig_2" src="Imágenes/terminal roslaunch running.png" width="600"/>
+<label for = "Fig_2" ><br><b>Figura 2.</b> ROS Corriendo correctamente.</label></span>
 
 # 2. Extracción de parámetros de Denavit-Hartenberg Estándar (DHstd)
 
-En primer lugar se considero a la base como primera articulación, ahorrando un eje en el proceso, la quinta articulación corresponde a la herramienta `tool`. Siguiendo los 7 pasos para la extracción de los parámetros DH, el diagrama resultante que representa al robot *Phantom X* es el siguiente. Ver **Figura 2**.
+En primer lugar se considero a la base como primera articulación, ahorrando un eje en el proceso, la quinta articulación corresponde a la herramienta `tool`. Siguiendo los 7 pasos para la extracción de los parámetros DH, el diagrama resultante que representa al robot *Phantom X* es el siguiente. Ver **Figura 3**.
 
-<span><img id="Fig_2" src="Imágenes/diagramaDH.png" width="600"/> 
-<label for = "Fig_2" ><br><b>Figura 2.</b> Análisis DHstd.</label></span>
+<span><img id="Fig_3" src="Imágenes/diagramaDH.png" width="600"/> 
+<label for = "Fig_3" ><br><b>Figura 3.</b> Análisis DHstd.</label></span>
 
 Los parámetros DHstd resultantes, se encuentran en la **Tabla 1**, donde el ángulo entre $X_1$ y $X_2$, es igual en magnitud al ángulo entre $X_2$ y $X_3$, pero en sentido contrario, con valor 71.138° es decir 1.242 rad.
 
@@ -142,7 +137,7 @@ Los parámetros DHstd resultantes, se encuentran en la **Tabla 1**, donde el án
 | 4 | $-q_4$  | 0  | 0 | $\pi/2$ | $\pi/2$ |
 | 5 | 0 | 11.19 | 0 | 0 | 0 |
 
-<label for = "Tab_2" ><br><b>Tabla 1.</b> Parámetros DHstd.</label></span>
+<label for = "Tab_1" ><br><b>Tabla 1.</b> Parámetros DHstd.</label></span>
 
 Seguidamente entra en juego el uso del toolbox de Peter Corke, para la obtención de las matrices de transformación homogénea, para ello se creo una función la cual recibe un arreglo con los parámetros antes obtenidos, arreglo el cual corresponde a la articulación en cuestión. Esta función retorna la matriz correspondiente, para una mejor comprensión se utilizo al extension `Symbolic Math Toolbox`, la cual permite operar con símbolos, dando una perspectiva parametrizada en las matrices.
 
@@ -158,28 +153,28 @@ end
 ```
 Se obtienen las matrices individuales T01 a T45, ver **Figuras 3, 4, 5, 6 y 7**.
 
-<span><img id="Fig_3" src="Imágenes/T01.png" width="170"/>
-<label for = "Fig_3" ><br><b>Figura 3.</b> Matriz T01.</label></span>
+<span><img id="Fig_4" src="Imágenes/T01.png" width="170"/>
+<label for = "Fig_4" ><br><b>Figura 4.</b> Matriz T01.</label></span>
 
-<span><img id="Fig_4" src="Imágenes/T12.png" width="300"/>
-<label for = "Fig_4" ><br><b>Figura 4.</b> Matriz T12.</label></span>
+<span><img id="Fig_5" src="Imágenes/T12.png" width="300"/>
+<label for = "Fig_5" ><br><b>Figura 5.</b> Matriz T12.</label></span>
 
-<span><img id="Fig_5" src="Imágenes/T23.png" width="300"/>
-<label for = "Fig_5" ><br><b>Figura 5.</b> Matriz T23.</label></span>
+<span><img id="Fig_6" src="Imágenes/T23.png" width="300"/>
+<label for = "Fig_6" ><br><b>Figura 6.</b> Matriz T23.</label></span>
 
-<span><img id="Fig_6" src="Imágenes/T34.png" width="200"/>
-<label for = "Fig_6" ><br><b>Figura 6.</b> Matriz T34.</label></span>
+<span><img id="Fig_7" src="Imágenes/T34.png" width="200"/>
+<label for = "Fig_7" ><br><b>Figura 7.</b> Matriz T34.</label></span>
 
-<span><img id="Fig_7" src="Imágenes/T45.png" width="100"/>
-<label for = "Fig_7" ><br><b>Figura 7.</b> Matriz T45.</label></span>
+<span><img id="Fig_8" src="Imágenes/T45.png" width="100"/>
+<label for = "Fig_8" ><br><b>Figura 8.</b> Matriz T45.</label></span>
 
-Para obtener la matriz T05, es decir la herramienta `tool` respecto a la base, se multiplican todas las anteriores `T05 = T01*T12*T23*T34*T45`. Ver **Figura 8**.
+Para obtener la matriz T05, es decir la herramienta `tool` respecto a la base, se multiplican todas las anteriores `T05 = T01*T12*T23*T34*T45`. Ver **Figura 9**.
 
-<span><img id="Fig_8" src="Imágenes/T05.png" width="1000"/>
-<label for = "Fig_8" ><br><b>Figura 8.</b> Matriz T05.</label></span>
+<span><img id="Fig_9" src="Imágenes/T05.png" width="1000"/>
+<label for = "Fig_9" ><br><b>Figura 9.</b> Matriz T05.</label></span>
 
-<span><img id="Fig_9" src="Imágenes/T05V.png" width="400"/>
-<label for = "Fig_9" ><br><b>Figura 9.</b> Variables de la matriz T05.</label></span>
+<span><img id="Fig_10" src="Imágenes/T05V.png" width="400"/>
+<label for = "Fig_10" ><br><b>Figura 10.</b> Variables de la matriz T05.</label></span>
 
 # 3. Conexión ROS + Python
 
@@ -239,8 +234,8 @@ def callback(data):
 
 La interfaz gráfica desarrollada ([HMI.py](./Python/HMI.py)) se muestra a continuación.
 
-<span><img id="Fig_10" src="Imágenes/Interfaz.png" width="700"/>
-<label for = "Fig_10" ><br><b>Figura 10.</b> Interfaz grafica desarrollada </label></span>
+<span><img id="Fig_11" src="Imágenes/Interfaz.png" width="700"/>
+<label for = "Fig_11" ><br><b>Figura 11.</b> Interfaz gráfica desarrollada </label></span>
 
 1. Selección múltiple de pose: esta opción de selección múltiple permite al usuario elegir una de las cinco posibles configuraciones cinemáticas que se han establecido para el robot.
 2. Botón "Ir a la Posición": Si se oprime este botón, una vez se ha seleccionado una pose, se ejecuta la función `joint_publisher()` que le indicará al robot que se mueva a la posición deseada.
@@ -267,8 +262,8 @@ python3 main_HMI.py
 
 Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el resultado debe ser el siguiente. Ver **Figura 11.**, allí se evidencia como se abre la ventana de la interfaz.
 
-<span><img id="Fig_11" src="Imágenes/6. beginning interfaz.png" width="700"/>
-<label for = "Fig_11" ><br><b>Figura 11.</b> Demostración del funcionamiento de la interfaz</label></span>
+<span><img id="Fig_12" src="Imágenes/6. beginning interfaz.png" width="700"/>
+<label for = "Fig_12" ><br><b>Figura 12.</b> Demostración del funcionamiento de la interfaz</label></span>
 
 Se optó por hacer un video donde se vean ambos requerimientos, la demostración de uso de la interfaz de usuario y el brazo alcanzando cada posición solicitada. Dicho video se encuentra en Google Drive, se puede acceder a el mediante este <a href=https://drive.google.com/file/d/1fMCtE7DXn7XliofkItHqumCnGdevGWHD/view?usp/>link</a>, es importante que acceda con la cuenta institucional *(ejemplo@unal.edu.co)*.
 
@@ -313,37 +308,37 @@ for i = 1:length(poses)
 end
 ```
 
-<span><img id="Fig_12" src="Python/IMGS/pose1.png" width="300"/>
-<label for = "Fig_12" ><br><b>Figura 12.</b> Pose 1, Home.</label></span>
+<span><img id="Fig_13" src="Python/IMGS/pose1.png" width="300"/>
+<label for = "Fig_13" ><br><b>Figura 13.</b> Pose 1, Home.</label></span>
 
-<span><img id="Fig_13" src="Python/IMGS/pose2.png" width="300"/>
-<label for = "Fig_13" ><br><b>Figura 13.</b> Pose 2.</label></span>
+<span><img id="Fig_14" src="Python/IMGS/pose2.png" width="300"/>
+<label for = "Fig_14" ><br><b>Figura 14.</b> Pose 2.</label></span>
 
-<span><img id="Fig_14" src="Python/IMGS/pose3.png" width="300"/>
-<label for = "Fig_14" ><br><b>Figura 14.</b> Pose 3.</label></span>
+<span><img id="Fig_15" src="Python/IMGS/pose3.png" width="300"/>
+<label for = "Fig_15" ><br><b>Figura 15.</b> Pose 3.</label></span>
 
-<span><img id="Fig_15" src="Python/IMGS/pose4.png" width="300"/>
-<label for = "Fig_15" ><br><b>Figura 15.</b> Pose 4.</label></span>
+<span><img id="Fig_16" src="Python/IMGS/pose4.png" width="300"/>
+<label for = "Fig_16" ><br><b>Figura 16.</b> Pose 4.</label></span>
 
-<span><img id="Fig_16" src="Python/IMGS/pose5.png" width="300"/>
-<label for = "Fig_16" ><br><b>Figura 16.</b> Pose 5.</label></span>
+<span><img id="Fig_17" src="Python/IMGS/pose5.png" width="300"/>
+<label for = "Fig_17" ><br><b>Figura 17.</b> Pose 5.</label></span>
 
 Una vez solicitadas las poses en el robot, los resultados reales respecto a estas gráficas son los siguientes.
 
-<span><img id="Fig_17" src="Imágenes/CHome.png" width="400"/>
-<label for = "Fig_17" ><br><b>Figura 17.</b> Comparación pose 1, Home.</label></span>
+<span><img id="Fig_18" src="Imágenes/CHome.png" width="400"/>
+<label for = "Fig_18" ><br><b>Figura 18.</b> Comparación pose 1, Home.</label></span>
 
-<span><img id="Fig_18" src="Imágenes/C2.png" width="400"/>
-<label for = "Fig_18" ><br><b>Figura 18.</b> Comparación pose 2.</label></span>
+<span><img id="Fig_19" src="Imágenes/C2.png" width="400"/>
+<label for = "Fig_19" ><br><b>Figura 19.</b> Comparación pose 2.</label></span>
 
-<span><img id="Fig_19" src="Imágenes/C3.png" width="400"/>
-<label for = "Fig_19" ><br><b>Figura 19.</b> Comparación pose 3.</label></span>
+<span><img id="Fig_20" src="Imágenes/C3.png" width="400"/>
+<label for = "Fig_20" ><br><b>Figura 20.</b> Comparación pose 3.</label></span>
 
-<span><img id="Fig_20" src="Imágenes/C4.png" width="400"/>
-<label for = "Fig_20" ><br><b>Figura 20.</b> Comparación pose 4.</label></span>
+<span><img id="Fig_21" src="Imágenes/C4.png" width="400"/>
+<label for = "Fig_21" ><br><b>Figura 21.</b> Comparación pose 4.</label></span>
 
-<span><img id="Fig_21" src="Imágenes/C5.png" width="400"/>
-<label for = "Fig_21" ><br><b>Figura 21.</b> Comparación pose 5.</label></span>
+<span><img id="Fig_22" src="Imágenes/C5.png" width="400"/>
+<label for = "Fig_22" ><br><b>Figura 22.</b> Comparación pose 5.</label></span>
 
 Se observa una similitud adecuada, aunque el eslabón representado en la gráfica entre las articulaciones 2 y 3 es la linea recta entre ambos puntos, es claro identificar que gráfica corresponde a cada pose. Es decir, la similitud esperada por parte del Phantom X.
 
