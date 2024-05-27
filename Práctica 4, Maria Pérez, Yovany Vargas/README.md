@@ -232,19 +232,19 @@ for i = 1:length(poses)
 end
 ```
 
-<span><img id="Fig_x" src="Python/IMGS/pose1.png" width="500"/>
+<span><img id="Fig_x" src="Python/IMGS/pose1.png" width="300"/>
 <label for = "Fig_x" ><br><b>Figura x.</b> Pose 1, Home.</label></span>
 
-<span><img id="Fig_x" src="Python/IMGS/pose2.png" width="500"/>
+<span><img id="Fig_x" src="Python/IMGS/pose2.png" width="300"/>
 <label for = "Fig_x" ><br><b>Figura x.</b> Pose 2.</label></span>
 
-<span><img id="Fig_x" src="Python/IMGS/pose3.png" width="500"/>
+<span><img id="Fig_x" src="Python/IMGS/pose3.png" width="300"/>
 <label for = "Fig_x" ><br><b>Figura x.</b> Pose 3.</label></span>
 
-<span><img id="Fig_x" src="Python/IMGS/pose4.png" width="500"/>
+<span><img id="Fig_x" src="Python/IMGS/pose4.png" width="300"/>
 <label for = "Fig_x" ><br><b>Figura x.</b> Pose 4.</label></span>
 
-<span><img id="Fig_x" src="Python/IMGS/pose5.png" width="500"/>
+<span><img id="Fig_x" src="Python/IMGS/pose5.png" width="300"/>
 <label for = "Fig_x" ><br><b>Figura x.</b> Pose 5.</label></span>
 
 Una vez solicitadas las poses en el robot, los resultados reales respecto a estas gráficas son los siguientes.
