@@ -112,13 +112,21 @@ Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el re
 
 # 2. Extracción de parámetros de Denavit-Hartenberg Estándar (DHstd)
 
-| $i$ | $\theta_i$ | $d_i$ (cm) | $a_i$ (cm) | $\alpha_i$ (rad)| $offset$ (rad)|
+En primer lugar se considero a la base como primera articulación, ahorrando un eje en el proceso, la quinta articulación corresponde a la herramienta `tool`. Siguiendo los 7 pasos para la extracción de los parámetros DH, el diagrama resultante que representa al robot *Phantom X* es el siguiente. Ver **Figura 2**.
+
+<span><img id="Fig_2" src="Imágenes/SKDH.png" width="600"/>
+<label for = "Fig_2" ><br><b>Figura 2.</b> Análisis DHstd.</label></span>
+
+Los parámetros se encuentran en la **Tabla 1**, el ángulo entre $a_1$ y $a_2$, es igual en magnitud al ángulo entre $a_2$ y $a_3$, pero en sentido contrario, este es de 71.138°, 1.242 rad.
+
+| $i$ | $\theta_i$ | $d_i$ $(cm)$ | $a_i$ $(cm)$ | $\alpha_i$ $(rad)$| $offset$ $(rad)$|
 |-|-|-|-|-|-|
 | 1 | $\theta_1$  | 9.7  | 0 | $\pi/2$ | 0 |
-| 2 | $-\theta_2$  | 0  | 10.67 | $\pi/2$ | 0 |
-| 3 | $\theta_3$  | 0  | 10.135 | $\pi/2$ | 0 |
-| 4 | $-\theta_4$  | 0  | 0 | $\pi/2$ | 0 |
+| 2 | $-\theta_2$  | 0  | 10.67 | 0 | 1.242 |
+| 3 | $\theta_3$  | 0  | 10.135 | 0 | -1.242 |
+| 4 | $-\theta_4$  | 0  | 0 | $\pi/2$ | $\pi/2$ |
 | 5 | 0 | 11.19 | 0 | 0 | 0 |
+<label for = "Tab_2" ><br><b>Tabla 1.</b> Parámetros DHstd.</label></span>
 
 # 3. Conexión con Python
 
