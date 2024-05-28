@@ -63,14 +63,14 @@ reboot
 
 Una vez terminado el proceso anterior, Ubuntu esta configurado para permitir el paso de información por parte de los motores. Así el software de Dynamixel puede identificar los motores a la hora de ejecutar el Scan encargado de su búsqueda, sin embargo ROS aún no los reconoce.
 
-<span><img id="Fig_1" src="Imágenes/CMotors Found.png" width="600"/>
+<span><img id="Fig_1" src="Imágenes/CMotors Found.png" width="350"/>
 <label for = "Fig_1" ><br><b>Figura 1.</b> Motores encontrados en el Scan, Dynamixel.</label></span>3
 
 ## b. Configuración de *dynamixel_one_motor*
 
 Se asume que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`, con la carpeta `src`creada. 
 
-1. Se clona el repositorio [dynamixel_one_motor](https://github.com/fegonzalez7/dynamixel_one_motor.git) en la carpeta src.
+1. Clonar el repositorio [dynamixel_one_motor](https://github.com/fegonzalez7/dynamixel_one_motor.git) en la carpeta src.
 
 ```
 git clone https://github.com/fegonzalez7/dynamixel_one_motor.git
@@ -108,14 +108,14 @@ joint_5:
 catkin build dynamixel_one_motor
  ```
 
-4. Con la terminal abierta en la carpeta `catkin_ws`, se ejecutan los siguientes comandos, los cuales dan pie a la ejecución y conexión de ROS con los motores.
+4. En la misma terminal, se ejecutan los siguientes comandos, los cuales dan pie a la ejecución y conexión de ROS con los motores.
 
  ``` 
  source devel/setup.bash
  roslaunch dynamixel_one_motor one_controller.launch
 ```
 
-Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el resultado debe ser el siguiente. Ver **Figura 2.**, allí se evidencia como ROS reconoce los 5 motores del robot.
+Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el resultado debe ser el siguiente. Ver **Figura 2**. Allí se evidencia como ROS reconoce los 5 motores del robot.
 
 <span><img id="Fig_2" src="Imágenes/terminal roslaunch running.png" width="600"/>
 <label for = "Fig_2" ><br><b>Figura 2.</b> ROS Corriendo correctamente.</label></span>
@@ -139,7 +139,7 @@ Los parámetros DHstd resultantes, se encuentran en la **Tabla 1**, donde el án
 
 <label for = "Tab_1" ><br><b>Tabla 1.</b> Parámetros DHstd.</label></span>
 
-Seguidamente entra en juego el uso del toolbox de Peter Corke, para la obtención de las matrices de transformación homogénea, para ello se creo una función la cual recibe un arreglo con los parámetros antes obtenidos, arreglo el cual corresponde a la articulación en cuestión. Esta función retorna la matriz correspondiente, para una mejor comprensión se utilizo al extension `Symbolic Math Toolbox`, la cual permite operar con símbolos, dando una perspectiva parametrizada en las matrices.
+Seguidamente entra en juego el uso del toolbox de Peter Corke, para la obtención de las matrices de transformación homogénea, para ello se creo una función la cual recibe un arreglo con los parámetros antes obtenidos, arreglo el cual corresponde a la articulación en cuestión. Esta función retorna la matriz correspondiente, se utilizo al extension `Symbolic Math Toolbox` para una mejor comprensión, permitiendo operar con símbolos, para dar una perspectiva parametrizada de las matrices.
 
 ```
 function [H] = MTH(rowDH)
@@ -151,7 +151,7 @@ function [H] = MTH(rowDH)
     H = trotz(theta + offset)*transl(0,0,d)*transl(a,0,0)*trotx(alpha);
 end
 ```
-Se obtienen las matrices individuales T01 a T45, ver **Figuras 3, 4, 5, 6 y 7**.
+Se obtienen las matrices individuales T01 a T45, ver **Figuras 4, 5, 6, 7 y 8**.
 
 <span><img id="Fig_4" src="Imágenes/T01.png" width="170"/>
 <label for = "Fig_4" ><br><b>Figura 4.</b> Matriz T01.</label></span>
@@ -178,11 +178,11 @@ Para obtener la matriz T05, es decir la herramienta `tool` respecto a la base, s
 
 # 3. Conexión ROS + Python
 
-Se elaboró el script en python [main_HMI.py](./Python/main_HMI.py) para realizar la conexión con ROS.
+El script en python responsable de realizar la conexión con ROS es [main_HMI.py](./Python/main_HMI.py).
 
 **Nodo Publisher**
 
-Estas dos lineas dos lineas crean un nodo publicador dentro de la arquitectura ROS y lo inicializan, con el fin de luego poder usarlo.
+Las siguientes lineas crean un nodo publicador dentro de la arquitectura ROS y lo inicializan, para usarlo más adelante.
 
 ```python
 pub = rospy.Publisher('/joint_trajectory', JointTrajectory, queue_size=0)
@@ -191,13 +191,13 @@ rospy.init_node('joint_publisher', anonymous=False)
 
 **Movimiento de las articulaciones**
 
-Esta función recibe por parámetro un entero que corresponde a la postura seleccionada en la interfaz y publica un mensaje que le indica al robot moverse a la pose seleccionada.
+La función *joint_publisher* recibe un parámetro entero que corresponde a la postura seleccionada en la interfaz y publica un mensaje que le indica al robot moverse a la pose seleccionada.
 
 Para ello, se crea la variable `state` que es una instancia de la clase `JointTrajectory`, un tipo de mensaje ROS utilizado para especificar una trayectoria para un robot de múltiples articulaciones. El campo `header.stamp` se establece en la hora actual y el campo `joint_names` se asigna con nombres a los diferentes motores.
 
-Se crea un objeto `JointTrajectoryPoint` y se almacena en la variable de `point`. El campo ``time_from_start`` se establece en una duración de 0,5 segundos. Esto significa que el robot debe alcanzar esta posición articular 0,5 segundos después de iniciar la trayectoria. Luego, el punto `point` se agrega al campo `points` del objeto `state`. 
+Se crea un objeto `JointTrajectoryPoint` y se almacena en la variable de `point`. El campo `time_from_start` se establece en una duración de 0,5 segundos. Esto significa que el robot debe alcanzar esta posición articular 0,5 segundos después de iniciar la trayectoria. Luego, el punto `point` se agrega al campo `points` del objeto `state`. 
 
-Finalmente se llama al método `publish` del nodo `pub` con el objeto de `state` como argumento, con el fin de enviar el mensaje definido con la trayectoria de un punto al robot.
+Finalmente, se llama al método `publish` del nodo `pub` con el objeto de `state` como argumento, con el fin de enviar el mensaje definido con la trayectoria de un punto al robot.
 
 ```python
 def joint_publisher(postura_seleccionada:int):
@@ -216,7 +216,7 @@ def joint_publisher(postura_seleccionada:int):
 
 **Lectura de los valores articulares**
 
-Para realizar la lectura de los valores articulares se creo la función `listener()` la cual permite suscribirse al tópico `joint_states`.
+Para realizar la lectura de los valores articulares se crea la función `listener()` la cual permite suscribirse al tópico `joint_states`.
 
 ```python
 def listener():
@@ -245,9 +245,9 @@ La interfaz gráfica desarrollada ([HMI.py](./Python/HMI.py)) se muestra a conti
 
 # 5. Video de demostración
 
-Para poder probar la interfaz desarrollada, ubicar en una mismo directorio los scripts de python [HMI.py](./Python/HMI.py) y [main_HMI.py](./Python/main_HMI.py). Por ejemplo, en la carpeta catkin_ws/src/dynamixel_one_motor/scrpits.
+Para poder probar la interfaz desarrollada, se ubican en un mismo directorio los scripts de python [HMI.py](./Python/HMI.py) y [main_HMI.py](./Python/main_HMI.py). Por ejemplo, en la carpeta catkin_ws/src/dynamixel_one_motor/scripts.
 
-Luego, abrir una terminal y correr los comandos:
+Luego, se abre una terminal, para ejecutar los comandos:
 
  ```
 catkin build dynamixel_one_motor
@@ -255,12 +255,13 @@ source devel/setup.bash
 roslaunch dynamixel_one_motor one_controller.launch
 ```
 
-Finalmente, en otra terminal ejecutar el script [main_HMI.py](./Python/main_HMI.py).
+Finalmente, en otra terminal se ejecuta el script [main_HMI.py](./Python/main_HMI.py).
+
 ```
 python3 main_HMI.py
 ```
 
-Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el resultado debe ser el siguiente. Ver **Figura 11.**, allí se evidencia como se abre la ventana de la interfaz.
+Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el resultado debe ser el siguiente. Ver **Figura 11.**, allí se evidencia la correcta ejecución de la interfaz.
 
 <span><img id="Fig_12" src="Imágenes/6. beginning interfaz.png" width="700"/>
 <label for = "Fig_12" ><br><b>Figura 12.</b> Demostración del funcionamiento de la interfaz</label></span>
@@ -271,7 +272,7 @@ Allí se observa el correcto funcionamiento de la interfaz y al robot alcanzando
 
 # 6. Comparación Gráficas Digitales vs Gráficas Reales
 
-Para la obtención de los gráficos para cada posición, se hizo uso de la función `SerialLink()` del toolbox de Peter Corke, que solicita los parametros Denavit-Hartenberg ya vinculados a las conexiones, para ello se usa la función `Link()` que recibe 6 parámetros `Link(theta_i, d_i, a_i, alpha_i, type, offset)`.
+Para la obtención de los gráficos para cada posición, se hizo uso de la función `SerialLink()` del toolbox de Peter Corke, que solicita los parámetros Denavit-Hartenberg ya vinculados a las conexiones, para ello se usa la función `Link()` que recibe 6 parámetros `Link(theta_i, d_i, a_i, alpha_i, type, offset)`.
 
 Siendo $type$ el tipo de articulación, donde 0 es cilíndrica y 1 prismática. En este caso el Phantom X, solo posee articulaciones cilíndricas. Para la herramienta como se recomienda en la guía, se utiliza el comando `phantomX.tool()`, desde el cual se define una traslación en el eje approach de la distancia correspondiente entre los ejes $X_4$ y $n$. Se asignan los nombres y finalmente con el comando `phantomX.plot(q)` se obtienen las gráficas. Ver **Figuras 12, 13, 14, 15 y 16**.
 
