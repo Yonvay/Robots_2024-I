@@ -64,7 +64,7 @@ reboot
 Una vez terminado el proceso anterior, Ubuntu esta configurado para permitir el paso de información por parte de los motores. Así el software de Dynamixel puede identificar los motores a la hora de ejecutar el Scan encargado de su búsqueda, sin embargo ROS aún no los reconoce.
 
 <span><img id="Fig_1" src="Imágenes/CMotors Found.png" width="350"/>
-<label for = "Fig_1" ><br><b>Figura 1.</b> Motores encontrados en el Scan, Dynamixel.</label></span>3
+<label for = "Fig_1" ><br><b>Figura 1.</b> Motores encontrados en el Scan, Dynamixel.</label></span>
 
 ## b. Configuración de *dynamixel_one_motor*
 
